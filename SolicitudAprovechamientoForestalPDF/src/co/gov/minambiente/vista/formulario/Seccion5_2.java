@@ -5,7 +5,6 @@
  */
 package co.gov.minambiente.vista.formulario;
 
-import co.gov.minambiente.vista.formulario.Seccion6;
 
 /**
  *
@@ -18,6 +17,24 @@ public class Seccion5_2 extends javax.swing.JFrame {
      */
     public Seccion5_2() {
         initComponents();
+    }
+    
+        private void setEnabledSection1(boolean state){
+        jComboBox1.setEnabled(state);
+        jTextField1.setEnabled(state);
+    }
+    
+    private void setEnabledSection3(boolean state){
+        jComboBox2.setEnabled(state);
+        jComboBox3.setEnabled(state);
+        jComboBox4.setEnabled(state);
+        jTextField2.setEnabled(state);
+    }
+    
+    private void setEnabledSection4(boolean state){
+        jComboBox5.setEnabled(state);
+        jComboBox6.setEnabled(state);
+        jTextField3.setEnabled(state);
     }
 
     /**
@@ -78,47 +95,74 @@ public class Seccion5_2 extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Caído por causas naturales", "Muerto por causas naturales", "Razones de orden fitosanitario", "Otro" }));
+        jComboBox1.setEnabled(false);
 
         jLabel4.setText("Otro:");
+
+        jTextField1.setEnabled(false);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton2.setText("ii. Árboles aislados fuera de la cobertura del bosque natural");
         jRadioButton2.setToolTipText("");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton3.setText("iii. Tala o poda de emergencia en centros urbanos");
         jRadioButton3.setToolTipText("");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Tipo: ");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Tala", "Poda" }));
+        jComboBox2.setEnabled(false);
 
         jLabel6.setText("Estado:");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Caído", "Muerto", "Enfermo" }));
+        jComboBox3.setEnabled(false);
 
         jLabel7.setText("Causa o perjuicio:");
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Estabilidad de suelos", "Canal de agua", "Obras de infraestructura", "Otro" }));
+        jComboBox4.setEnabled(false);
 
         jLabel8.setText("Otro:");
+
+        jTextField2.setEnabled(false);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton4.setText("iv. Obra pública o privada en centros urbanos");
         jRadioButton4.setToolTipText("");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Tipo: ");
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Tala", "Trasplante/Reubicación" }));
+        jComboBox5.setEnabled(false);
 
         jLabel10.setText("Actividad dentro de obras de infraestructura:");
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Construcción/Realización", "Remodelación", "Ampliación", "Instalación", "Similares" }));
+        jComboBox6.setEnabled(false);
 
         jLabel11.setText("Similar:");
+
+        jTextField3.setEnabled(false);
 
         jButton1.setText("Siguiente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,7 +310,9 @@ public class Seccion5_2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        
+        setEnabledSection1(true);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -288,6 +334,24 @@ public class Seccion5_2 extends javax.swing.JFrame {
         this.setVisible(false);
         new Seccion5_1().setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection3(true);
+        setEnabledSection4(false);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(true);
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     /**
      * @param args the command line arguments
