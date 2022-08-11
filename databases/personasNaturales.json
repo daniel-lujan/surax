@@ -1,0 +1,15 @@
+[ {
+  "id" : "2131234",
+  "nombre" : "Daniel",
+  "tel" : "134",
+  "direccion" : "caed",
+  "edad" : 31,
+  "tipoId" : "CC"
+}, {
+  "id" : "4145143",
+  "nombre" : "caer",
+  "tel" : "542452",
+  "direccion" : "fg",
+  "edad" : 12,
+  "tipoId" : "CC"
+} ]
