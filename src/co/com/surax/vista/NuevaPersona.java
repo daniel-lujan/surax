@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import co.com.surax.controlador.ControlPersona;
 import co.com.surax.modelo.PersonaNatural;
 import co.com.surax.modelo.SeleccionPersona;
+import co.com.surax.modelo.Metodo;
 
 /**
  *
@@ -20,8 +21,9 @@ public class NuevaPersona extends javax.swing.JFrame {
     /**
      * Creates new form NuevaPersona
      */
-    public NuevaPersona() {
+    public NuevaPersona(Metodo update) {
         initComponents();
+        this.update = update;
         control = new ControlPersona();
         representante_legal_selected = new SeleccionPersona();
         representante_legal_selected.setMetodo( (p)-> {
@@ -65,6 +67,7 @@ public class NuevaPersona extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 0, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -343,6 +346,7 @@ public class NuevaPersona extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Se añadió la persona correctamente.", "Proceso exitoso!", JOptionPane.INFORMATION_MESSAGE);
                 representante_legal_selected.setMetodo(null);
                 this.dispose();
+                update.run(null);
         } else {
             JOptionPane.showMessageDialog(null, "Ocurrió un error al añadir a la persona.", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -413,4 +417,5 @@ public class NuevaPersona extends javax.swing.JFrame {
 
     private SeleccionPersona representante_legal_selected;
     private ControlPersona control;
+    private Metodo update;
 }

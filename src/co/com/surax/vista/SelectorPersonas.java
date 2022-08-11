@@ -11,6 +11,8 @@ import co.com.surax.modelo.Persona;
 import co.com.surax.modelo.SeleccionPersona;
 import co.com.surax.controlador.ControlPersona;
 import co.com.surax.controlador.StaticController;
+import co.com.surax.modelo.Metodo;
+
 /**
  *
  * @author daniel
@@ -51,6 +53,7 @@ public class SelectorPersonas extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -99,7 +102,7 @@ public class SelectorPersonas extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Montserrat", 0, 11)); // NOI18N
-        jButton3.setText("Buscar/Actualizar");
+        jButton3.setText("Buscar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -156,7 +159,7 @@ public class SelectorPersonas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(130, 130, 130))
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +214,9 @@ public class SelectorPersonas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new NuevaPersona().setVisible(true);
+        new NuevaPersona((p)->{
+            actualizarLista();
+        }).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

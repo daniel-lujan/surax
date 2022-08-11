@@ -12,4 +12,11 @@
   "direccion" : "fg",
   "edad" : 12,
   "tipoId" : "CC"
+}, {
+  "id" : "1368745",
+  "nombre" : "Persona2",
+  "tel" : "3145",
+  "direccion" : "Calle2",
+  "edad" : 13,
+  "tipoId" : "CC"
 } ]

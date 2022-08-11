@@ -56,6 +56,7 @@ public class MainMenu extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 28)); // NOI18N
         jLabel1.setText("Menú Principal");

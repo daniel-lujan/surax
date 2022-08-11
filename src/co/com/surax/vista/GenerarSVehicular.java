@@ -89,6 +89,7 @@ public class GenerarSVehicular extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 28)); // NOI18N
         jLabel1.setText("Generar Seguro Vehicular");

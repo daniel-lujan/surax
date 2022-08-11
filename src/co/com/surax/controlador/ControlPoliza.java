@@ -13,13 +13,9 @@ import co.com.surax.modelo.*;
  * @author daniel
  */
 public class ControlPoliza {
-    private static co.com.surax.dao.impl.PolizaDAOList polizaDAO = new co.com.surax.dao.impl.PolizaDAOList();
     
     public static boolean crearVehicular(Persona tomador, Persona asegurado, Persona beneficiario, Vehiculo vehiculo){
-        
-        SeguroVehicular sv = new SeguroVehicular(polizaDAO.getRandomID(),tomador,asegurado,beneficiario,vehiculo);
-        
-        return polizaDAO.almacenarPoliza(sv);
+        return true;
     }
     
     public static boolean crearDeVida(){
