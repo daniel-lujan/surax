@@ -13,6 +13,10 @@ public class NotificacionModelo {
     private boolean autorizacion;
     private String correo, telefono,direccionNotificacion,municipio,vereda,departamento,nombre;
 
+    public NotificacionModelo(){
+        
+    }
+    
     public NotificacionModelo(boolean autorizacion, String correo, String telefono, String direccionNotificacion, String municipio, String vereda, String departamento, String nombre) {
         this.autorizacion = autorizacion;
         this.correo = correo;

@@ -9,7 +9,7 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class ObraCentroUrbanaModelo extends InfoArbolAisladoModelo {
+public class ObraCentroUrbanaModelo{
     private boolean tala;
     private String actividad;
 

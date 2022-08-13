@@ -9,7 +9,7 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class NoMaderableModelo extends ProductoModelo{
+public class NoMaderableModelo {
     private boolean persistente;
     private double ingresosMensuales;
     private String ingresosMensualesLetras;

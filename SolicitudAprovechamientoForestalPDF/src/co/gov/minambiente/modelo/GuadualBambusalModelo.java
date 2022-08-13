@@ -9,7 +9,7 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class GuadualBambusalModelo extends ProductoModelo {
+public class GuadualBambusalModelo {
     private short tipo;
 
     public GuadualBambusalModelo(short tipo) {

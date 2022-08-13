@@ -19,6 +19,11 @@ public class SolicitudModelo {
     private NotificacionModelo notificacion;
     private Image firma;
 
+    public SolicitudModelo() {
+        this.interesado = new PersonaModelo();
+        this.notificacion = new NotificacionModelo();
+    }
+    
     public SolicitudModelo(String id, String fecha, PersonaModelo interesado, PersonaModelo apoderado, NotificacionModelo notificacion, Image firma) {
         this.id = id;
         this.fecha = fecha;

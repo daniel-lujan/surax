@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package co.gov.minambiente.modelo;
-// Holaaa
+
 import java.util.ArrayList;
 
 /**
@@ -15,11 +15,17 @@ public class ActividadModelo {
     private double costo;
     private String costoLetras,uso;
     private short adquisicionDerecho, metodoAprovechamiento;
-    private ProductoModelo producto;
+    private Object producto;
     private ArrayList<EspecieModelo> especies;
-    private InfoArbolAisladoModelo arbolesAislados;
+    private Object arbolesAislados;
 
-    public ActividadModelo(double costo, String costoLetras, String uso, short adquisicionDerecho, short metodoAprovechamiento, ProductoModelo producto, ArrayList<EspecieModelo> especies, InfoArbolAisladoModelo arbolesAislados) {
+    public ActividadModelo(){
+        this.especies = new ArrayList();
+        this.producto = new Object();
+        this.arbolesAislados = new Object();
+    }
+    
+    public ActividadModelo(double costo, String costoLetras, String uso, short adquisicionDerecho, short metodoAprovechamiento, Object producto, ArrayList<EspecieModelo> especies, Object arbolesAislados) {
         this.costo = costo;
         this.costoLetras = costoLetras;
         this.uso = uso;
@@ -70,11 +76,11 @@ public class ActividadModelo {
         this.metodoAprovechamiento = metodoAprovechamiento;
     }
 
-    public ProductoModelo getProducto() {
+    public Object getProducto() {
         return producto;
     }
 
-    public void setProducto(ProductoModelo producto) {
+    public void setProducto(Object producto) {
         this.producto = producto;
     }
 
@@ -86,11 +92,11 @@ public class ActividadModelo {
         this.especies = especies;
     }
 
-    public InfoArbolAisladoModelo getArbolesAislados() {
+    public Object getArbolesAislados() {
         return arbolesAislados;
     }
 
-    public void setArbolesAislados(InfoArbolAisladoModelo arbolesAislados) {
+    public void setArbolesAislados(Object arbolesAislados) {
         this.arbolesAislados = arbolesAislados;
     }
     

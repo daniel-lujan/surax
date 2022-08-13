@@ -9,11 +9,10 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class CoordenadaPlanaModelo extends CoordenadaModelo {
+public class CoordenadaPlanaModelo {
     private double x,y;
 
-    public CoordenadaPlanaModelo(double x, double y, short punto) {
-        super(punto);
+    public CoordenadaPlanaModelo(double x, double y) {
         this.x = x;
         this.y = y;
     }

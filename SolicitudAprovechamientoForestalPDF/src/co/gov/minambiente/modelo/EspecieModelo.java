@@ -10,10 +10,13 @@ package co.gov.minambiente.modelo;
  * @author marit
  */
 public class EspecieModelo {
-    private int cantidad;
+    private double cantidad;
     private String unidadMedida, nombreComun, nombreCientifico,parteAprovechada,habito,veda,categoriaAmenaza;
 
-    public EspecieModelo(int cantidad, String unidadMedida, String nombreComun, String nombreCientifico, String parteAprovechada, String habito, String veda, String categoriaAmenaza) {
+    public EspecieModelo() {
+    }
+
+    public EspecieModelo(double cantidad, String unidadMedida, String nombreComun, String nombreCientifico, String parteAprovechada, String habito, String veda, String categoriaAmenaza) {
         this.cantidad = cantidad;
         this.unidadMedida = unidadMedida;
         this.nombreComun = nombreComun;
@@ -24,11 +27,11 @@ public class EspecieModelo {
         this.categoriaAmenaza = categoriaAmenaza;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 

@@ -14,6 +14,10 @@ public class PersonaModelo {
     private short tipo;
     private String tipoId, id, nombre, tp;
 
+    public PersonaModelo() {
+    }
+
+    
     public PersonaModelo(short tipo, String tipoId, String id, String nombre, String tp) {
         this.tipo = tipo;
         this.tipoId = tipoId;

@@ -9,8 +9,11 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class MaderableModelo extends ProductoModelo{
+public class MaderableModelo{
     private short tipo;
+
+    public MaderableModelo() {
+    }
 
     public MaderableModelo(short tipo) {
         this.tipo = tipo;

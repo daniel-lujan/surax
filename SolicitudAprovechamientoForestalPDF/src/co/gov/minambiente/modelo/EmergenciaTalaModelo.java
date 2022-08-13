@@ -9,7 +9,7 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class EmergenciaTalaModelo extends InfoArbolAisladoModelo {
+public class EmergenciaTalaModelo {
     private boolean tala;
     private short estado;
     private String causa;

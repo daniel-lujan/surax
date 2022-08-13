@@ -15,6 +15,11 @@ public class NuevaModelo extends SolicitudModelo{
     private ActividadModelo actividad;
     private PredioModelo predio;
 
+    public NuevaModelo() {
+        this.actividad = new ActividadModelo();
+        this.predio = new PredioModelo();
+    }
+
     public NuevaModelo(String id, String fecha, PersonaModelo interesado, PersonaModelo apoderado, NotificacionModelo notificacion, Image firma,ActividadModelo actividad, PredioModelo predio) {
         super(id,fecha, interesado,  apoderado,  notificacion,firma);
         this.actividad = actividad;

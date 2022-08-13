@@ -9,7 +9,7 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class FueraDeBosqueModelo extends InfoArbolAisladoModelo{
+public class FueraDeBosqueModelo {
 
     public FueraDeBosqueModelo() {
     }

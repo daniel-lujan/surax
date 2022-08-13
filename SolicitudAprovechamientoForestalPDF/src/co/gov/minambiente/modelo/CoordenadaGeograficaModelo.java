@@ -9,11 +9,10 @@ package co.gov.minambiente.modelo;
  *
  * @author marit
  */
-public class CoordenadaGeograficaModelo extends CoordenadaModelo {
+public class CoordenadaGeograficaModelo {
     private double gradosLatitud, minutosLatitud, segundosLatitud,gradosLongitud,minutosLongitud,segundosLongitud,altitud;
 
-    public CoordenadaGeograficaModelo(double gradosLatitud, double minutosLatitud, double segundosLatitud, double gradosLongitud, double minutosLongitud, double segundosLongitud, double altitud, short punto) {
-        super(punto);
+    public CoordenadaGeograficaModelo(double gradosLatitud, double minutosLatitud, double segundosLatitud, double gradosLongitud, double minutosLongitud, double segundosLongitud, double altitud) {
         this.gradosLatitud = gradosLatitud;
         this.minutosLatitud = minutosLatitud;
         this.segundosLatitud = segundosLatitud;
