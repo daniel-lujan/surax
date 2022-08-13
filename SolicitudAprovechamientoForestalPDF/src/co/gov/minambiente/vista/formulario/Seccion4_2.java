@@ -7,7 +7,7 @@ package co.gov.minambiente.vista.formulario;
 
 /**
  *
- * @author marit
+ * @author Natalia
  */
 public class Seccion4_2 extends javax.swing.JFrame {
 
@@ -53,32 +53,32 @@ public class Seccion4_2 extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jLabel27 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("4. Información general del predio");
@@ -181,14 +181,9 @@ public class Seccion4_2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(820, 545));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel3.setText("4. Información general del predio");
-
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel5.setText("4.2. Coordenadas del área objeto de la solicitud: ");
-
-        jLabel6.setText("Tipo de coordenadas:");
+        jPanel5.setToolTipText("");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Coordenadas planas", "Coordenadas geográficas" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -197,9 +192,19 @@ public class Seccion4_2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel19.setText("Nota: Para los aprovechamientos naturales domésticos del bosque natural, de árboles aislados y el manejo sostenible doméstico de la");
+        jLabel19.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel19.setText("Nota: Para los aprovechamientos naturales domésticos del bosque natural, de árboles aislados y el manejo sostenible doméstico de la flora y fauna silvestre y de los");
         jLabel19.setToolTipText("");
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel30.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel30.setText("Latitud");
+        jPanel4.add(jLabel30);
+
+        jLabel38.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel38.setText("Magna-Sirgas.");
+        jLabel38.setToolTipText("");
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,59 +218,6 @@ public class Seccion4_2 extends javax.swing.JFrame {
             }
         ));
         jScrollPane3.setViewportView(jTable3);
-
-        jLabel26.setText("Coordenadas Planas");
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Punto", "X", "Y"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
-
-        jLabel27.setText("Coordenadas Geográficas");
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel29.setText("Longitud");
-        jPanel3.add(jLabel29);
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel30.setText("Latitud");
-        jPanel4.add(jLabel30);
-
-        jLabel31.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel31.setText("Diligencie el listado de coordenadas según sea el caso:");
-
-        jLabel32.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel32.setText("flora y fauna silvestre y de los productos forestales no maderables, la autoridad forestal competente en la visita, tomará las coordenadas");
-
-        jLabel33.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel33.setText("Para los aprovechamientos forestales persistentes y únicos de bosque natual, y para el manejo pesistente de la flora silvestre y los");
-        jLabel33.setToolTipText("");
-
-        jLabel34.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel34.setText("productos forestales no maderables, se deberá señalar:");
-
-        jLabel35.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel35.setText("En caso de seleccionar coordenadas planas, las mismas deberán corresponder al Origen único CTM-12, conforme a lo establecido en la");
-        jLabel35.setToolTipText("");
-
-        jLabel36.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel36.setText("Resolución 471 de 2020, modificada por la Resolución 529 de 2020, proferida por el Instituto Geográfico Agustín Codazzi, y para las");
-
-        jLabel37.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel37.setText("planas o geográficas respectivas.");
-
-        jLabel38.setFont(new java.awt.Font("Helvetica Neue", 2, 13)); // NOI18N
-        jLabel38.setText("coordenadas geográficas utilizar el sistema de coordenadas Magna-Sirgas.");
 
         jButton3.setText("Siguiente");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -286,106 +238,177 @@ public class Seccion4_2 extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33)
-                    .addGroup(layout.createSequentialGroup()
+        jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel26.setText("Coordenadas Planas");
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Punto", "X", "Y"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jLabel31.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel31.setText("Diligencie el listado de coordenadas según sea el caso:");
+
+        jLabel32.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel32.setText("productos forestales no maderables, la autoridad forestal competente en la visita, tomará las coordenadas planas o geográficas rspectivas.");
+
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel27.setText("Coordenadas Geográficas");
+
+        jLabel33.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel33.setText("Para los aprovechamientos forestales persistentes y únicos de bosque natual, y para el manejo pesistente de la flora silvestre y los productos forestales no maderables,");
+        jLabel33.setToolTipText("");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel29.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel29.setText("Longitud");
+        jPanel3.add(jLabel29);
+
+        jLabel34.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel34.setText("se deberá señalar:");
+
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel5.setText("4.2. Coordenadas del área objeto de la solicitud: ");
+
+        jLabel35.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel35.setText("En caso de seleccionar coordenadas planas, las mismas deberán corresponder al Origen único CTM-12, conforme a lo establecido en la Resolución 471 de 2020,");
+        jLabel35.setToolTipText("");
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText("Tipo de coordenadas:");
+
+        jLabel36.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
+        jLabel36.setText("modificada por la Resolución 529 de 2020, proferida por el Instituto Geográfico Agustín Codazzi, y para las coordenadas geográficas utilizar el sistema de coordenadas");
+        jLabel36.setToolTipText("");
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel3.setText("4. Información general del predio");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel6)
-                        .addGap(35, 35, 35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel31))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
                         .addComponent(jLabel26)
-                        .addGap(290, 290, 290)
+                        .addGap(280, 280, 280)
                         .addComponent(jLabel27))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(540, 540, 540)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(647, 647, 647)
-                        .addComponent(jButton3))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4)
+                            .addComponent(jLabel19)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(340, 340, 340)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(280, 280, 280)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(720, 720, 720)
+                                .addComponent(jButton3))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel3)))
+                .addGap(40, 40, 40))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel33))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel35)
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabel35)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel31)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26)
                     .addComponent(jLabel27))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(150, 150, 150)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jButton3))))
         );
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -409,7 +432,6 @@ public class Seccion4_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
         this.setVisible(false);
         new Seccion4_1().setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
@@ -419,7 +441,6 @@ public class Seccion4_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
         this.setVisible(false);
         new Seccion5_1().setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
@@ -494,7 +515,6 @@ public class Seccion4_2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -503,6 +523,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
