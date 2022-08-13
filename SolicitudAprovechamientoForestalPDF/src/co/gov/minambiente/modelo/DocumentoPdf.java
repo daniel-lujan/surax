@@ -31,6 +31,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.LinkedList;
+import com.itextpdf.forms.fields.PdfButtonFormField;
 
 /**
  *
@@ -40,7 +41,7 @@ import java.util.LinkedList;
  * @author Andrés Güiza
  */
 public class DocumentoPdf {
-    
+
     private String nombre;
     private File destino;
     private File destinoImagen;
@@ -49,12 +50,11 @@ public class DocumentoPdf {
     //Gestiona el diseño del pdf
     private Document document;
     private PdfFont fuente;
-    
-    
-    
+
     private String rutaFuente;
 
-    public DocumentoPdf(String nombre, int numeroPaginas, String rutaFuente) throws FileNotFoundException, IOException, FontFormatException {
+    public DocumentoPdf(String nombre, int numeroPaginas, String rutaFuente)
+            throws FileNotFoundException, IOException, FontFormatException {
 
         this.nombre = nombre;
         this.rutaFuente = rutaFuente;
@@ -62,89 +62,134 @@ public class DocumentoPdf {
         this.destino = new File("pdfOutput");
         this.destinoImagen = new File("resources\\images");
 
-        try {
-            //Revisamos si la carpeta está creada, si no, la creamos
-            if (revisarDirectorio(this.destino.getPath())) {
-                System.out.println("El directorio pdfOutput sí está");
-            } else {
-                System.out.println("No existe el directorio pdfOutput");
-                this.destino.mkdirs();
-                System.out.println("Directorio pdfOutput creado");
-            }
-            // Permite escribir el archivo en el disco
-            PdfWriter writer;
-            writer = new PdfWriter(new File(this.destino.getPath() + "\\" + this.nombre)).setSmartMode(true);
-            this.pdf = new PdfDocument(writer);
-            this.pdf.setDefaultPageSize(new PageSize(612.0f, 1008.0f));
-
-            for (int i = 0; i < numeroPaginas; i++) {
-                this.pdf.addNewPage();
-            }
-
-            //Seteo del Document
-            this.document = new Document(this.pdf);
-            this.document.setMargins(30f, 27f, 58f, 34f);
-        } catch (FileNotFoundException noEncontrado) {
-            System.out.println("No se puede encontrar la ruta especificada"
-                    + "solución: cree la carpeta pdfOutput manualmente"
-                    + " Solución: cierre el archivo");
-        }
-
+        this.inicializarDocumento(numeroPaginas);
 
     }
 
     //Métodos
     /**
-     * 
+     *
+     * @param numeroPaginas El número de páginas que contendrá el documento
+     * final (se pueden sumar en el futuro)
+     */
+    private void inicializarDocumento(int numeroPaginas) {
+
+        this.validarDirectorio();
+        // Seteo de PdfDocument
+        PdfWriter writer;
+        writer = new PdfWriter(new File(this.destino.getPath() + "\\"
+                + this.nombre)).setSmartMode(true);
+        this.pdf = new PdfDocument(writer);
+        this.pdf.setDefaultPageSize(new PageSize(612.0f, 1008.0f));
+        for (int i = 0; i < numeroPaginas; i++) {
+            this.pdf.addNewPage();
+        }
+        //Seteo del Document
+        this.document = new Document(this.pdf);
+        this.document.setMargins(30f, 27f, 58f, 34f);
+
+    }
+
+    /**
+     * Este método revisa si el directorio fue creado
+     *
+     * @param ruta Este parámetro es la ruta que queremos revisar si existe
+     * @return Retorna verdadero si el directorio existe, falso si no
+     */
+    public static boolean revisarDirectorio(String ruta) {
+        File directorio = new File(ruta);
+        return directorio.exists();
+    }
+
+    /**
+     *Comprueba si la ruta de guardado del documento existe. Si no existe, la crea
+     */
+    private void validarDirectorio() {
+        if (revisarDirectorio(this.destino.getPath())) {
+            System.out.println("El directorio pdfOutput sí está");
+        } else {
+            System.out.println("No existe el directorio pdfOutput");
+            this.destino.mkdirs();
+            System.out.println("Directorio pdfOutput creado");
+        }
+    }
+
+    /**
+     * Este método crea un nuevo párrafo que inicia con texto
+     *
      * @param texto El texto a almacenar
      * @param nombreFuente Nombre de la fuente con extensión
      * @param tamano Tamaño de la fuente
-     * @return Retorna el párrafo 
+     * @return Retorna el párrafo
      * @throws IOException Excepción que ocurre si la ruta de la fuente está mal
      */
-    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano) throws IOException{
+    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano) throws IOException {
         FontProgram temporal;
         temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
-        Paragraph parrafo = new Paragraph(texto); 
+        Paragraph parrafo = new Paragraph(texto);
         return parrafo;
     }
-   
-    public Paragraph nuevoParrafo(String nombreImagen, int ancho, int alto, int fixAncho, int fixAlto) throws MalformedURLException{
-        Image temporal = new Image(ImageDataFactory.create(this.destinoImagen.getPath()+ "\\" + nombreImagen));
+
+    /**
+     * Este método crea un nuevo párrafo que inicia con una imagen
+     *
+     * @param nombreImagen Nombre en disco de la imagen a insertar
+     * @param ancho x
+     * @param alto y
+     * @param fixAncho Valor de ancho
+     * @param fixAlto Valor de alto
+     * @return Retorna el párrafo
+     * @throws MalformedURLException
+     */
+    public Paragraph nuevoParrafo(String nombreImagen, int ancho, int alto, 
+            int fixAncho, int fixAlto) throws MalformedURLException {
+        Image temporal = new Image(ImageDataFactory.create(this.destinoImagen.getPath() 
+                + "\\" + nombreImagen));
         Paragraph parrafo = new Paragraph("");
         parrafo.add(temporal);
-        temporal.setMaxHeight(ancho*3/4);
-        temporal.setMaxWidth(alto*3/4);
+        temporal.setMaxHeight(ancho * 3 / 4);
+        temporal.setMaxWidth(alto * 3 / 4);
         //temporal.setRelativePosition(-100, 0, 200, 0);
         temporal.setFixedPosition(fixAncho, fixAlto);
         return parrafo;
     }
-    
-    public void empujarImagen(Paragraph parrafo, String nombreImagen, int ancho, int alto, int fixAncho, int fixAlto) throws MalformedURLException {
 
-        Image temporal = new Image(ImageDataFactory.create(this.destinoImagen.getPath()+ "\\" + nombreImagen));
-        temporal.setMaxHeight(ancho*3/4);
-        temporal.setMaxWidth(alto*3/4);
-        temporal.setFixedPosition(fixAncho, fixAlto);
+    /**
+     * Empuja una imagen dentro de un párrafo ya creado
+     * @param parrafo Párrafo previamente instanciado
+     * @param nombreImagen Nombre en disco de la imagen a insertar
+     * @param ancho Ancho en pixeles
+     * @param alto Alto en pixeles
+     * @param fixX Posición ajustada en x
+     * @param fixY Posición ajustada en y
+     * @throws MalformedURLException
+     */
+    public void empujarImagen(Paragraph parrafo, String nombreImagen, int ancho,
+            int alto, int fixX, int fixY) throws MalformedURLException {
+
+        Image temporal = new Image
+        (ImageDataFactory.create(this.destinoImagen.getPath() + "\\" + nombreImagen));
+        temporal.setMaxHeight(ancho * 3 / 4);
+        temporal.setMaxWidth(alto * 3 / 4);
+        temporal.setFixedPosition(fixX, fixY);
         parrafo.add(temporal);
     }
     
-    
     /**
-     * 
-     * 
-     * @param parrafo
-     * @param texto
-     * @param nombreFuente
-     * @param tamano
-     * @param espacio
+     * Empuja un texto dentro de un párrafo ya creado
+     * @param parrafo Párrafo previamente instanciado
+     * @param texto Texto a empujar
+     * @param nombreFuente Nombre en disco de la fuente a usar 
+     * @param tamano Tamaño de la fuente 
+     * @param espacio Espacio a identar en dirección x 
      * @throws MalformedURLException
      * @throws IOException 
      */
-    public void empujarTexto(Paragraph parrafo, Text texto, String nombreFuente, float tamano, float espacio) throws MalformedURLException, IOException {
+    public void empujarTexto(Paragraph parrafo, Text texto, String nombreFuente, 
+            float tamano, float espacio) throws MalformedURLException, IOException {
         FontProgram temporal;
         temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
@@ -154,15 +199,21 @@ public class DocumentoPdf {
         parrafo.add(texto);
     }
 
-    public void pasarPagina()  {
+    /**
+     * 
+     */
+    public void pasarPagina() {
         document.add(new AreaBreak());
-       
-    }
 
-    public void empujarParrafo(Paragraph p){
+    }
+    /**
+     * 
+     * @param p 
+     */
+    public void empujarParrafo(Paragraph p) {
         this.document.add(p);
     }
-    
+
     /**
      * Método que escribe el archivo pdf en el disco
      */
@@ -171,21 +222,10 @@ public class DocumentoPdf {
         this.document.close();
         System.out.println("Documento creado");
     }
-    
-    /**
-     * Este método revisa si el directorio fue creado
-     * @param ruta Este parámetro es la ruta que queremos revisar si existe
-     * @return Retorna verdadero si el directorio existe, falso si no
-     */
-    public static boolean revisarDirectorio(String ruta) {
-        File directorio = new File(ruta);
-        return directorio.exists();
-    }
 
     //Setters & getters
-    
     /**
-     * 
+     *
      * @return Retorna la ruta de destino
      */
     public File getDestino() {
@@ -193,14 +233,14 @@ public class DocumentoPdf {
     }
 
     /**
-     * 
+     *
      * @param destino Edita la ruta de destino (debe ser una carpeta)
      */
     public void setDestino(File destino) {
         if (destino.isDirectory()) {
             this.destino = destino;
         }
-        System.out.println("No es una carpeta");  
+        System.out.println("No es una carpeta");
     }
 
     public PdfFont getFuente() {
@@ -210,7 +250,5 @@ public class DocumentoPdf {
     public void setFuente(PdfFont fuente) {
         this.fuente = fuente;
     }
-    
-    
 
 }
