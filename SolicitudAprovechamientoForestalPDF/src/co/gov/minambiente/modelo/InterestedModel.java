@@ -21,7 +21,7 @@ public class InterestedModel extends PersonModel {
     private HashMap<Integer,String> projectCost;
     private boolean authorization;
     private String emailAdress;
-    private String telephone;
+    private int telephone;
     private AdressModel adress;
     
     //Constructors
@@ -35,13 +35,13 @@ public class InterestedModel extends PersonModel {
         this.projectCost = new HashMap<>();
         this.authorization = false;
         this.emailAdress = null;
-        this.telephone = null;
+        this.telephone = 0;
         this.adress = new AdressModel();
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
             String interestedQuality, HashMap<Integer, String> projectCost,
-            boolean authorization, String emailAdress,String telephone) {
+            boolean authorization, String emailAdress,int telephone) {
 
         this.typePerson = typePerson;
         this.requests = requests;
@@ -55,7 +55,7 @@ public class InterestedModel extends PersonModel {
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
            String interestedQuality, HashMap<Integer,String> projectCost,
-           boolean authorization, String emailAdress,String telephone, 
+           boolean authorization, String emailAdress, int telephone, 
            String name, String typeId, int id) {
 
         super(name, typeId, id);
@@ -126,11 +126,11 @@ public class InterestedModel extends PersonModel {
         this.emailAdress = emailAdress;
     }
 
-    public String getTelephone() {
+    public int getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
+    public void setTelephone(int telephone) {
         this.telephone = telephone;
     }
 
