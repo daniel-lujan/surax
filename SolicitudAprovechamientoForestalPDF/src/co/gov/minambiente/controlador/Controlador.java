@@ -36,9 +36,7 @@ public class Controlador {
         llenarDocumento(docGenerado);
         //Utilidades.leer();
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
-
     }
-    
     
    /**
     * 
