@@ -114,9 +114,7 @@ public class Utils {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-        
-        
+
         System.out.println("Cargados los siguientes departamentos:");
         departments.forEach((department) -> {
             System.out.println(department.toString());

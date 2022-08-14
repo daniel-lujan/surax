@@ -5,14 +5,26 @@
  */
 package co.gov.minambiente.vista.formulario;
 
+import co.gov.minambiente.controlador.ControladorSolicitud;
+
 /**
  *
- * @author Daniel
+ * @author Natalia García
  */
 public class Seccion5_2 extends javax.swing.JFrame {
     
+    private ControladorSolicitud controlador;
+    
     public Seccion5_2() {
         initComponents();
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
+    }
+    
+    public Seccion5_2(ControladorSolicitud controlador) {
+        initComponents();
+        this.controlador = controlador;
         setEnabledSection1(false);
         setEnabledSection3(false);
         setEnabledSection4(false);
@@ -40,6 +52,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -111,6 +124,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel17.setText("Actividad dentro de obras de infraestructura:");
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jRadioButton2.setText("i. Árboles aislados dentro de la cobertura del bosque natural ");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +133,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jRadioButton3.setText("ii. Árboles aislados fuera de la cobertura del bosque natural");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +142,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jRadioButton4.setText("iv. Obra pública o privada en centros urbanos");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +151,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jRadioButton5.setText("iii. Tala o poda de emergencia en centros urbanos");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +358,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         this.setVisible(false);
-        new Seccion6().setVisible(true);
+        new Seccion6(controlador).setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -350,7 +367,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         this.setVisible(false);
-        new Seccion5_1().setVisible(true);
+        new Seccion5_1(controlador).setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -360,7 +377,9 @@ public class Seccion5_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
@@ -454,6 +473,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;

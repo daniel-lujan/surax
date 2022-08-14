@@ -1,18 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.gov.minambiente.vista.formulario;
+
+import co.gov.minambiente.controlador.ControladorSolicitud;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Natalia
+ * @author Natalia García
  */
 public class Seccion2 extends javax.swing.JFrame {
-
-    public Seccion2() {
+    
+    private ControladorSolicitud controlador;
+    
+    public Seccion2(){
         initComponents();
+    }
+    
+    public Seccion2(ControladorSolicitud controlador) {
+        initComponents();
+        this.controlador = controlador;
     }
 
     @SuppressWarnings("unchecked")
@@ -23,12 +28,12 @@ public class Seccion2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtNumeroExpediente = new javax.swing.JTextField();
+        txtNumeroActo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,15 +44,15 @@ public class Seccion2 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("autorización)");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroExpediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtNumeroExpedienteActionPerformed(evt);
             }
         });
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroActo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtNumeroActoActionPerformed(evt);
             }
         });
 
@@ -58,22 +63,22 @@ public class Seccion2 extends javax.swing.JFrame {
         jLabel26.setText("Nota: En caso de prórroga no diligencie los númerales 3, 4 y 5");
         jLabel26.setToolTipText("");
 
-        jButton1.setText("Siguiente");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnSiguienteMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Anterior");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAnterior.setText("Anterior");
+        btnAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnAnteriorMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
 
@@ -91,16 +96,16 @@ public class Seccion2 extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNumeroExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumeroActo, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnAnterior)
                         .addGap(637, 637, 637)
-                        .addComponent(jButton1))))
+                        .addComponent(btnSiguiente))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,22 +114,22 @@ public class Seccion2 extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(13, 13, 13)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(txtNumeroExpediente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addComponent(jLabel4)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel3)
                 .addGap(6, 6, 6)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumeroActo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel26)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)))
+                    .addComponent(btnAnterior)
+                    .addComponent(btnSiguiente)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,28 +146,37 @@ public class Seccion2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtNumeroExpedienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroExpedienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtNumeroExpedienteActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtNumeroActoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtNumeroActoActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+        String numeroExpediente = txtNumeroExpediente.getText().trim();
+        String numeroActo = txtNumeroActo.getText().trim();
+        if(!numeroExpediente.equals("") && !numeroActo.equals("")){
+            if(!controlador.validarNumeros(numeroExpediente) && !controlador.validarNumeros(numeroActo)){
+                this.setVisible(false);
+                new Seccion6(controlador).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Solo se permiten números en los campos solicitados.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+        }
+    }//GEN-LAST:event_btnSiguienteMouseClicked
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
         this.setVisible(false);
-        new Seccion3().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        this.setVisible(false);
-        new Seccion2().setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+        new Seccion1(controlador).setVisible(true);
+    }//GEN-LAST:event_btnAnteriorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,8 +217,8 @@ public class Seccion2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel26;
@@ -212,7 +226,7 @@ public class Seccion2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtNumeroActo;
+    private javax.swing.JTextField txtNumeroExpediente;
     // End of variables declaration//GEN-END:variables
 }

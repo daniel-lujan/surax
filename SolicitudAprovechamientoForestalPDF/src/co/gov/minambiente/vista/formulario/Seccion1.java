@@ -1,18 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.gov.minambiente.vista.formulario;
+
+import co.gov.minambiente.controlador.ControladorSolicitud;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Valeria
+ * @author Natalia García
  */
 public class Seccion1 extends javax.swing.JFrame {
 
+    private ControladorSolicitud controlador;
+
     public Seccion1() {
         initComponents();
+        this.controlador = new ControladorSolicitud();
+        txtOtro.setEnabled(false);
+        txtCosto.setEnabled(false);
+        txtCostoLetras.setEnabled(false);
+        setEnabledApoderado(false);
+    }
+
+    public Seccion1(ControladorSolicitud controlador) {
+        initComponents();
+        this.controlador = controlador;
+        txtOtro.setEnabled(false);
+        txtCosto.setEnabled(false);
+        txtCostoLetras.setEnabled(false);
+        setEnabledApoderado(false);
+    }
+
+    private void setEnabledApoderado(boolean state) {
+        txtNombreApoderado.setEnabled(state);
+        cmbTipoIdApoderado.setEnabled(state);
+        txtNumeroIdApoderado.setEnabled(state);
+        txtTPApoderado.setEnabled(state);
     }
 
     @SuppressWarnings("unchecked")
@@ -23,42 +44,46 @@ public class Seccion1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombreApoderado = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtOtro = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtTPApoderado = new javax.swing.JTextField();
+        txtNumeroIdApoderado = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        btnSiguiente = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        cmbTipoIdApoderado = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cmbTipoSolicitud = new javax.swing.JComboBox<>();
+        cmbTipoPredio = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtNombreInteresado = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        cmbTipoIdInteresado = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtNumeroIdInteresado = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        cmbTipoPersonaInteresado = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        cmbCalidad = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtCosto = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        txtCostoLetras = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        rbSi = new javax.swing.JRadioButton();
+        jLabel27 = new javax.swing.JLabel();
+        rbSi1 = new javax.swing.JRadioButton();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Urbano", "Rural" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,18 +97,18 @@ public class Seccion1 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("1. Datos del interesado");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreApoderadoActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Tipo de predio(s):");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtOtro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtOtroActionPerformed(evt);
             }
         });
 
@@ -93,15 +118,15 @@ public class Seccion1 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("TP:");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtTPApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtTPApoderadoActionPerformed(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroIdApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtNumeroIdApoderadoActionPerformed(evt);
             }
         });
 
@@ -117,46 +142,46 @@ public class Seccion1 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText("Calidad:");
 
-        jButton1.setText("Siguiente");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnSiguienteMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Anterior");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAnterior.setText("Anterior");
+        btnAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnAnteriorMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "CC", "CE", "PA", "NIT" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoIdApoderado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "CC", "CE", "PA", "NIT" }));
+        cmbTipoIdApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                cmbTipoIdApoderadoActionPerformed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel13.setText("1.1. Tipo de solicitud: ");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Nueva", "Prórroga" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Nueva", "Prórroga" }));
+        cmbTipoSolicitud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                cmbTipoSolicitudActionPerformed(evt);
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Público", "Colectivo", "Privado" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoPredio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Público", "Colectivo", "Privado" }));
+        cmbTipoPredio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                cmbTipoPredioActionPerformed(evt);
             }
         });
 
@@ -169,28 +194,28 @@ public class Seccion1 extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel16.setText("Nombre o Razón Social:");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreInteresado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txtNombreInteresadoActionPerformed(evt);
             }
         });
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel17.setText("Tipo de identificación:");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "CC", "CE", "PA", "NIT" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoIdInteresado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "CC", "CE", "PA", "NIT" }));
+        cmbTipoIdInteresado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                cmbTipoIdInteresadoActionPerformed(evt);
             }
         });
 
         jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel18.setText("Número de identificación:");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroIdInteresado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                txtNumeroIdInteresadoActionPerformed(evt);
             }
         });
 
@@ -198,48 +223,68 @@ public class Seccion1 extends javax.swing.JFrame {
         jLabel19.setText("Tipo de identificación:");
 
         jLabel20.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jLabel20.setText("1.3. Apoderado (Si aplica)");
+        jLabel20.setText("1.3. Apoderado");
 
         jLabel21.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jLabel21.setText("1.6. Costo del Proyecto, Obra o Actividad (Si aplica)");
+        jLabel21.setText("1.6. Costo del Proyecto, Obra o Actividad");
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Natural", "Jurídica", "Jurídica Privada" }));
-        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoPersonaInteresado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Natural", "Jurídica", "Jurídica Privada" }));
+        cmbTipoPersonaInteresado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox7ActionPerformed(evt);
+                cmbTipoPersonaInteresadoActionPerformed(evt);
             }
         });
 
         jLabel22.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel22.setText("1.4. Calidad en que actúa sobre el predio donde se realizará el aprovechamiento o manejo ");
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Propietario", "Poseedor", "Tenedor", "Ocupante", "Autorizado", "Ente territorial", "Consejo comunitario", "Resguardo indígena", "Otro", " " }));
-        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+        cmbCalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Propietario", "Poseedor", "Tenedor", "Ocupante", "Autorizado", "Ente territorial", "Consejo comunitario", "Resguardo indígena", "Otro", " " }));
+        cmbCalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox8ActionPerformed(evt);
+                cmbCalidadActionPerformed(evt);
             }
         });
 
         jLabel23.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel23.setText("1.5. Información del predio objeto de la solicitud");
 
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        txtCosto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                txtCostoActionPerformed(evt);
             }
         });
 
         jLabel25.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel25.setText("$");
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        txtCostoLetras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                txtCostoLetrasActionPerformed(evt);
             }
         });
 
         jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel26.setText("Valor en letras:");
+
+        jLabel24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel24.setText("Aplica:");
+
+        rbSi.setText("Sí");
+        rbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSiActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel27.setText("Aplica:");
+
+        rbSi1.setText("Sí");
+        rbSi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSi1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -251,16 +296,16 @@ public class Seccion1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel26)
                         .addGap(12, 12, 12)
-                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCostoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnSiguiente)
                         .addGap(26, 26, 26))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +317,7 @@ public class Seccion1 extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jLabel13)
                         .addGap(12, 12, 12)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTipoSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel15))
@@ -280,41 +325,45 @@ public class Seccion1 extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTipoPersonaInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombreInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTipoIdInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNumeroIdInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel20))
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbSi))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTipoIdApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumeroIdApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTPApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,11 +373,11 @@ public class Seccion1 extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbCalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtOtro, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel23))
@@ -336,10 +385,14 @@ public class Seccion1 extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTipoPredio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel21)))
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbSi1)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -352,41 +405,44 @@ public class Seccion1 extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel15)
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTipoPersonaInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel16)))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipoIdInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumeroIdInteresado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel18)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel24)
+                    .addComponent(rbSi))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombreApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbTipoIdApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel19)))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumeroIdApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTPApoderado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)))
                 .addGap(23, 23, 23)
                 .addComponent(jLabel22)
@@ -394,10 +450,10 @@ public class Seccion1 extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOtro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbCalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addComponent(jLabel12)))
                 .addGap(17, 17, 17)
@@ -405,19 +461,23 @@ public class Seccion1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoPredio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel27)
+                        .addComponent(rbSi1)))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCostoLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnAnterior)
+                    .addComponent(btnSiguiente))
                 .addGap(8, 8, 8))
         );
 
@@ -432,85 +492,287 @@ public class Seccion1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreApoderadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreApoderadoActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtOtroActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtTPApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTPApoderadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtTPApoderadoActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtNumeroIdApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroIdApoderadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtNumeroIdApoderadoActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        this.setVisible(false);
-        new Seccion2().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+        String tipoSolicitud = (String) cmbTipoSolicitud.getSelectedItem();
+        String tipoPersonaInteresado = (String) cmbTipoPersonaInteresado.getSelectedItem();
+        String nombreInteresado = txtNombreInteresado.getText().trim();
+        String tipoIdInteresado = (String) cmbTipoIdInteresado.getSelectedItem();
+        String numeroIdInteresado = txtNumeroIdInteresado.getText().trim();
+        String nombreApoderado = txtNombreApoderado.getText().trim();
+        String tipoIdApoderado = (String) cmbTipoIdApoderado.getSelectedItem();
+        String numeroIdApoderado = txtNumeroIdApoderado.getText().trim();
+        String TPApoderado = txtTPApoderado.getText().trim();
+        String calidad = (String) cmbCalidad.getSelectedItem();
+        String otro = txtOtro.getText().trim();
+        String tipoPredio = (String) cmbTipoPredio.getSelectedItem();
+        String costo = txtCosto.getText().trim();
+        String costoLetras = txtCostoLetras.getText().trim();
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (!tipoSolicitud.equals("Seleccione") && !tipoPersonaInteresado.equals("Seleccione") && !nombreInteresado.equals("")
+                && !tipoIdInteresado.equals("Seleccione") && !numeroIdInteresado.equals("") && !calidad.equals("Seleccione")
+                && !tipoPredio.equals("Seleccione")) {
+            if (calidad.equals("Otro")) {
+                if (!otro.equals("")) {
+                    if (rbSi.isSelected()) {
+                        if (!nombreApoderado.equals("") && !tipoIdApoderado.equals("Seleccione") && !numeroIdApoderado.equals("")
+                                && !TPApoderado.equals("")) {
+                            if (rbSi1.isSelected()) {
+                                if (!costo.equals("") && !costoLetras.equals("")) {
+                                    if (controlador.validarNumeros(numeroIdInteresado)) {
+                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                                    } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                                    } else if (controlador.validarNumeros(costo)) {
+                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
+                                    } else {
+                                        this.setVisible(false);
+                                        if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                                    costoLetras);
+                                            new Seccion2(this.controlador).setVisible(true);
+                                        } else {
+                                            new Seccion3(this.controlador).setVisible(true);
+                                        }
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                                }
+                            } else {
+                                if (controlador.validarNumeros(numeroIdInteresado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                                } else {
+                                    this.setVisible(false);
+                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                        new Seccion2(this.controlador).setVisible(true);
+                                    } else {
+                                        new Seccion3(this.controlador).setVisible(true);
+                                    }
+                                }
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                        }
+                    } else {
+                        if (rbSi1.isSelected()) {
+                            if (!costo.equals("") && !costoLetras.equals("")) {
+                                if (controlador.validarNumeros(numeroIdInteresado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                                } else if (controlador.validarNumeros(costo)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
+                                } else {
+                                    this.setVisible(false);
+                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                        new Seccion2(this.controlador).setVisible(true);
+                                    } else {
+                                        new Seccion3(this.controlador).setVisible(true);
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                            }
+                        } else {
+                            if (controlador.validarNumeros(numeroIdInteresado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                            } else {
+                                this.setVisible(false);
+                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                    new Seccion2(this.controlador).setVisible(true);
+                                } else {
+                                    new Seccion3(this.controlador).setVisible(true);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else {
+                if (rbSi.isSelected()) {
+                    if (!nombreApoderado.equals("") && !tipoIdApoderado.equals("Seleccione") && !numeroIdApoderado.equals("")
+                            && !TPApoderado.equals("")) {
+                        if (rbSi1.isSelected()) {
+                            if (!costo.equals("") && !costoLetras.equals("")) {
+                                if (controlador.validarNumeros(numeroIdInteresado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                                } else if (controlador.validarNumeros(costo)) {
+                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
+                                } else {
+                                    this.setVisible(false);
+                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                        new Seccion2(this.controlador).setVisible(true);
+                                    } else {
+                                        new Seccion3(this.controlador).setVisible(true);
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                            }
+                        } else {
+                            if (controlador.validarNumeros(numeroIdInteresado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                            } else {
+                                this.setVisible(false);
+                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                    new Seccion2(this.controlador).setVisible(true);
+                                } else {
+                                    new Seccion3(this.controlador).setVisible(true);
+                                }
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                    }
+                } else {
+                    if (rbSi1.isSelected()) {
+                        if (!costo.equals("") && !costoLetras.equals("")) {
+                            if (controlador.validarNumeros(numeroIdInteresado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                            } else if (controlador.validarNumeros(costo)) {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
+                            } else {
+                                this.setVisible(false);
+                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                    new Seccion2(this.controlador).setVisible(true);
+                                } else {
+                                    new Seccion3(this.controlador).setVisible(true);
+                                }
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                        }
+                    } else {
+                        if (controlador.validarNumeros(numeroIdInteresado)) {
+                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
+                        } else if (controlador.validarNumeros(numeroIdApoderado)) {
+                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                        } else {
+                            this.setVisible(false);
+                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                new Seccion2(this.controlador).setVisible(true);
+                            } else {
+                                new Seccion3(this.controlador).setVisible(true);
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+        }
+    }//GEN-LAST:event_btnSiguienteMouseClicked
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAnteriorActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
         this.setVisible(false);
         new Principal().setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnAnteriorMouseClicked
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void cmbTipoIdApoderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoIdApoderadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_cmbTipoIdApoderadoActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void cmbTipoSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoSolicitudActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_cmbTipoSolicitudActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void cmbTipoPredioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoPredioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_cmbTipoPredioActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtNombreInteresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreInteresadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txtNombreInteresadoActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+    private void cmbTipoIdInteresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoIdInteresadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    }//GEN-LAST:event_cmbTipoIdInteresadoActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void txtNumeroIdInteresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroIdInteresadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_txtNumeroIdInteresadoActionPerformed
 
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+    private void cmbTipoPersonaInteresadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoPersonaInteresadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox7ActionPerformed
+    }//GEN-LAST:event_cmbTipoPersonaInteresadoActionPerformed
 
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox8ActionPerformed
+    private void cmbCalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCalidadActionPerformed
+        if (cmbCalidad.getSelectedIndex() == 9) {
+            txtOtro.setEnabled(true);
+        } else {
+            txtOtro.setEnabled(false);
+        }
+    }//GEN-LAST:event_cmbCalidadActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void txtCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_txtCostoActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void txtCostoLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoLetrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_txtCostoLetrasActionPerformed
+
+    private void rbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSiActionPerformed
+        if (rbSi.isSelected()) {
+            setEnabledApoderado(true);
+        } else {
+            setEnabledApoderado(false);
+        }
+    }//GEN-LAST:event_rbSiActionPerformed
+
+    private void rbSi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSi1ActionPerformed
+        if (rbSi1.isSelected()) {
+            txtCosto.setEnabled(true);
+            txtCostoLetras.setEnabled(true);
+        } else {
+            txtCosto.setEnabled(false);
+            txtCostoLetras.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbSi1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -551,15 +813,15 @@ public class Seccion1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JComboBox<String> cmbCalidad;
+    private javax.swing.JComboBox<String> cmbTipoIdApoderado;
+    private javax.swing.JComboBox<String> cmbTipoIdInteresado;
+    private javax.swing.JComboBox<String> cmbTipoPersonaInteresado;
+    private javax.swing.JComboBox<String> cmbTipoPredio;
+    private javax.swing.JComboBox<String> cmbTipoSolicitud;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -575,21 +837,25 @@ public class Seccion1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JRadioButton rbSi;
+    private javax.swing.JRadioButton rbSi1;
+    private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextField txtCostoLetras;
+    private javax.swing.JTextField txtNombreApoderado;
+    private javax.swing.JTextField txtNombreInteresado;
+    private javax.swing.JTextField txtNumeroIdApoderado;
+    private javax.swing.JTextField txtNumeroIdInteresado;
+    private javax.swing.JTextField txtOtro;
+    private javax.swing.JTextField txtTPApoderado;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,53 +1,67 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.gov.minambiente.vista.formulario;
+
+import co.gov.minambiente.controlador.ControladorSolicitud;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Maritza
+ * @author Natalia García
  */
 public class Seccion3 extends javax.swing.JFrame {
 
+    private ControladorSolicitud controlador;
+
     public Seccion3() {
         initComponents();
+        cmbCategoriaAsociada.setEnabled(false);
+        setEnabledSection1(false);
+        setEnabledSection2(false);
+        setEnabledSection4(false);
+    }
+
+    public Seccion3(ControladorSolicitud controlador) {
+        initComponents();
+        this.controlador = controlador;
+        cmbCategoriaAsociada.setEnabled(false);
+        setEnabledSection1(false);
+        setEnabledSection2(false);
+        setEnabledSection4(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtIngresosLetras = new javax.swing.JTextField();
+        txtIngresos = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cmbTerrenosDominio = new javax.swing.JComboBox<>();
+        btnSiguiente = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        lbAutorizacion = new javax.swing.JCheckBox();
+        cmbTipoAprovechamientoD = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cmbCategoriaAsociada = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cmbTipoAprovechamientoA = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        cmbClaseManejo = new javax.swing.JComboBox<>();
+        rbD = new javax.swing.JRadioButton();
+        rbA = new javax.swing.JRadioButton();
+        rbB = new javax.swing.JRadioButton();
+        rbC = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,15 +71,15 @@ public class Seccion3 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Predios de propiedad privada o colectiva:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtIngresosLetras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtIngresosLetrasActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtIngresosActionPerformed(evt);
             }
         });
 
@@ -78,29 +92,29 @@ public class Seccion3 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText("Terrenos de dominio público:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Permiso", "Asociación", "Concesión Forestal" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        cmbTerrenosDominio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Permiso", "Asociación", "Concesión Forestal" }));
+        cmbTerrenosDominio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                cmbTerrenosDominioActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Siguiente");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnSiguienteMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Anterior");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAnterior.setText("Anterior");
+        btnAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnAnteriorMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
 
@@ -111,28 +125,28 @@ public class Seccion3 extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel13.setText("3.1. Modo de adquirir el derecho al uso del recurso: ");
 
-        jCheckBox2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jCheckBox2.setText("Autorización");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        lbAutorizacion.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lbAutorizacion.setText("Autorización");
+        lbAutorizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                lbAutorizacionActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Tipo 1", "Tipo 2", "Cambio definitivo de uso de suelo", "Establecimiento y Manejo" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoAprovechamientoD.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Tipo 1", "Tipo 2", "Cambio definitivo de uso de suelo", "Establecimiento y Manejo" }));
+        cmbTipoAprovechamientoD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                cmbTipoAprovechamientoDActionPerformed(evt);
             }
         });
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel15.setText("Seleccione la clase de aprovechamiento a solicitar: ");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Pequeños", "Medianos", "Grandes" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        cmbCategoriaAsociada.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Pequeños", "Medianos", "Grandes" }));
+        cmbCategoriaAsociada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                cmbCategoriaAsociadaActionPerformed(evt);
             }
         });
 
@@ -149,52 +163,56 @@ public class Seccion3 extends javax.swing.JFrame {
         jLabel27.setText("Seleccione de acuerdo con el tipo de solicitud el modo por el cual pretende adquirir el derecho al uso del recurso forestal:");
         jLabel27.setToolTipText("");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Persistente", "Único", "Doméstico", "Manejo Forestal Unificado" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        cmbTipoAprovechamientoA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Persistente", "Único", "Doméstico", "Manejo Forestal Unificado" }));
+        cmbTipoAprovechamientoA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                cmbTipoAprovechamientoAActionPerformed(evt);
             }
         });
 
         jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel19.setText("Seleccione la clase de manejo sostenible a solicitar: ");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Doméstico", "Persistente" }));
-        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+        cmbClaseManejo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Doméstico", "Persistente" }));
+        cmbClaseManejo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox6ActionPerformed(evt);
+                cmbClaseManejoActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jRadioButton1.setText("D. Guaduales y bambusales");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbD);
+        rbD.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        rbD.setText("D. Guaduales y bambusales");
+        rbD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbDActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jRadioButton2.setText("A. Productos forestales maderables");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbA);
+        rbA.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        rbA.setText("A. Productos forestales maderables");
+        rbA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rbAActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jRadioButton3.setText("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbB);
+        rbB.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        rbB.setText("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
+        rbB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rbBActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jRadioButton4.setText("C. Árboles Aislados ");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbC);
+        rbC.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        rbC.setText("C. Árboles Aislados ");
+        rbC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                rbCActionPerformed(evt);
             }
         });
 
@@ -213,45 +231,45 @@ public class Seccion3 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addGap(12, 12, 12)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbTerrenosDominio, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox2))
+                                .addComponent(lbAutorizacion))
                             .addComponent(jLabel11)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbA, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbTipoAprovechamientoA, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbB, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbClaseManejo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel18)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel17)
                                 .addGap(12, 12, 12)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtIngresosLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbCategoriaAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(rbC, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbD, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(11, 11, 11)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbTipoAprovechamientoD, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(btnAnterior)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(btnSiguiente)
                                 .addGap(42, 42, 42))))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -271,24 +289,24 @@ public class Seccion3 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbTerrenosDominio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbAutorizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel11)
                 .addGap(9, 9, 9)
-                .addComponent(jRadioButton2)
+                .addComponent(rbA)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoAprovechamientoA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
-                .addComponent(jRadioButton3)
+                .addComponent(rbB)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbClaseManejo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jLabel18)
                 .addGap(2, 2, 2)
@@ -296,25 +314,25 @@ public class Seccion3 extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtIngresosLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbCategoriaAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(jRadioButton4)
+                .addComponent(rbC)
                 .addGap(20, 20, 20)
-                .addComponent(jRadioButton1)
+                .addComponent(rbD)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTipoAprovechamientoD, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(btnAnterior)
+                    .addComponent(btnSiguiente))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -325,75 +343,152 @@ public class Seccion3 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, Short.MAX_VALUE)
-                .addGap(70, 70, 70))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void setEnabledSection1(boolean state) {
+        cmbTipoAprovechamientoA.setEnabled(state);
+    }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void setEnabledSection2(boolean state) {
+        cmbClaseManejo.setEnabled(state);
+        txtIngresosLetras.setEnabled(state);
+        txtIngresos.setEnabled(state);
+    }
+
+    private void setEnabledSection4(boolean state) {
+        cmbTipoAprovechamientoD.setEnabled(state);
+    }
+
+    private void txtIngresosLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresosLetrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtIngresosLetrasActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtIngresosActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void cmbTerrenosDominioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTerrenosDominioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_cmbTerrenosDominioActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+        String terrenosDominio = (String) cmbTerrenosDominio.getSelectedItem();
+        String tipoAprovechamientoA = (String) cmbTipoAprovechamientoA.getSelectedItem();
+        String claseManejo = (String) cmbClaseManejo.getSelectedItem();
+        String ingresos = txtIngresos.getText().trim();
+        String ingresosLetras = txtIngresosLetras.getText().trim();
+        String categoriaAsociada = (String) cmbCategoriaAsociada.getSelectedItem();
+        String tipoAprovechamientoD = (String) cmbTipoAprovechamientoD.getSelectedItem();
+
+        if (!terrenosDominio.equals("Seleccione")) {
+            if (rbA.isSelected()) {
+                if (!tipoAprovechamientoA.equals("Seleccione")) {
+                    this.setVisible(false);
+                    new Seccion4_1().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else if (rbB.isSelected()) {
+                if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
+                    if (cmbClaseManejo.getSelectedIndex() == 2) {
+                        if (!categoriaAsociada.equals("Seleccione")) {
+                            if (!controlador.validarNumeros(ingresos)) {
+                                this.setVisible(false);
+                                new Seccion4_1().setVisible(true);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Ingresos\".");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                        }
+                    } else {
+                        if (!controlador.validarNumeros(ingresos)) {
+                            this.setVisible(false);
+                            new Seccion4_1().setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Ingresos\".");
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else if (rbC.isSelected()) {
+                this.setVisible(false);
+                new Seccion4_1().setVisible(true);
+            } else if (rbD.isSelected()) {
+                if (!tipoAprovechamientoD.equals("Seleccione")) {
+                    this.setVisible(false);
+                    new Seccion4_1().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+        }
+    }//GEN-LAST:event_btnSiguienteMouseClicked
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
         this.setVisible(false);
-        new Seccion4_1().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+        new Seccion2(controlador).setVisible(true);
+    }//GEN-LAST:event_btnAnteriorMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void lbAutorizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbAutorizacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_lbAutorizacionActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        this.setVisible(false);
-        new Seccion2().setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void cmbTipoAprovechamientoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoAprovechamientoDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_cmbTipoAprovechamientoDActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void cmbCategoriaAsociadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriaAsociadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_cmbCategoriaAsociadaActionPerformed
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void cmbTipoAprovechamientoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoAprovechamientoAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_cmbTipoAprovechamientoAActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    private void cmbClaseManejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbClaseManejoActionPerformed
+        if (cmbClaseManejo.getSelectedIndex() == 2) {
+            cmbCategoriaAsociada.setEnabled(true);
+        } else {
+            cmbCategoriaAsociada.setEnabled(false);
+        }
+    }//GEN-LAST:event_cmbClaseManejoActionPerformed
 
-    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox6ActionPerformed
+    private void rbDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection2(false);
+        setEnabledSection4(true);
+    }//GEN-LAST:event_rbDActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    private void rbBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection2(true);
+        setEnabledSection4(false);
+    }//GEN-LAST:event_rbBActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    private void rbCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCActionPerformed
+        setEnabledSection1(false);
+        setEnabledSection2(false);
+        setEnabledSection4(false);
+    }//GEN-LAST:event_rbCActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    private void rbAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAActionPerformed
+        setEnabledSection1(true);
+        setEnabledSection2(false);
+        setEnabledSection4(false);
+    }//GEN-LAST:event_rbAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,14 +533,14 @@ public class Seccion3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmbCategoriaAsociada;
+    private javax.swing.JComboBox<String> cmbClaseManejo;
+    private javax.swing.JComboBox<String> cmbTerrenosDominio;
+    private javax.swing.JComboBox<String> cmbTipoAprovechamientoA;
+    private javax.swing.JComboBox<String> cmbTipoAprovechamientoD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -460,12 +555,13 @@ public class Seccion3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JCheckBox lbAutorizacion;
+    private javax.swing.JRadioButton rbA;
+    private javax.swing.JRadioButton rbB;
+    private javax.swing.JRadioButton rbC;
+    private javax.swing.JRadioButton rbD;
+    private javax.swing.JTextField txtIngresos;
+    private javax.swing.JTextField txtIngresosLetras;
     // End of variables declaration//GEN-END:variables
 }

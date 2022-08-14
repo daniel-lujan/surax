@@ -1,21 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.gov.minambiente.vista.formulario;
+
+import co.gov.minambiente.controlador.ControladorSolicitud;
 
 /**
  *
- * @author Natalia
+ * @author García
  */
 public class Seccion4_2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vista4_2
-     */
+    private ControladorSolicitud controlador;
+    
     public Seccion4_2() {
         initComponents();
+    }
+    
+    public Seccion4_2(ControladorSolicitud controlador) {
+        initComponents();
+        this.controlador = controlador;
     }
 
     /**
@@ -433,7 +434,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         this.setVisible(false);
-        new Seccion4_1().setVisible(true);
+        new Seccion4_1(controlador).setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -442,7 +443,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         this.setVisible(false);
-        new Seccion5_1().setVisible(true);
+        new Seccion5_1(controlador).setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
 
     /**
