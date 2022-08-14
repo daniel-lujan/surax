@@ -1,6 +1,6 @@
 package co.gov.minambiente.controlador;
 
-import co.gov.minambiente.modelo.SolicitudModelo;
+import co.gov.minambiente.modelo.RequestModel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  */
 public class ControladorSolicitud {
 
-    private SolicitudModelo solicitud;
+    private RequestModel solicitud;
     private String idSolicitud = "0";
 
     public void guardarInformacionSeccion1(String tipoSolicitud, String tipoPersonaInteresado, String nombreInteresado, String tipoIdInteresado,
