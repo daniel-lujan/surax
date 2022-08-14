@@ -5,16 +5,21 @@
  */
 package co.gov.minambiente.controlador;
 
-import co.gov.minambiente.modelo.DocumentoPdf;
+import static co.gov.minambiente.controlador.Utils.loadMunicipalities;
+import co.gov.minambiente.modelo.DepartmentModel;
+import com.itextpdf.forms.fields.PdfButtonFormField;
+import com.itextpdf.forms.fields.PdfFormField;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 import java.awt.FontFormatException;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -30,8 +35,17 @@ public class Controlador {
         DocumentoPdf docGenerado = new DocumentoPdf("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
         llenarDocumento(docGenerado);
         //Utilidades.leer();
+        loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
+        
     }
-   
+    
+    
+   /**
+    * 
+    * @param docGenerado
+    * @throws MalformedURLException
+    * @throws IOException 
+    */
     static void llenarDocumento(DocumentoPdf docGenerado) throws MalformedURLException, IOException{
         //Hacemos una lista de rutas de tipografías para construir otra lista 
         //Pero de fuentes pdf
@@ -43,33 +57,33 @@ public class Controlador {
 
         generarEncabezado(docGenerado, textos);
 
-        int contadorIndice = 2;
+        int contadorIndice = 3;
         String espacio = "\u00A0";
 
-        Paragraph datosBasicos = docGenerado.nuevoParrafo(new Text(espacio),"ArialNarrowBold.ttf",9.5f);
-        docGenerado.empujarTexto(datosBasicos, textos.get(contadorIndice+1), "ArialNarrowBold.ttf", 9.5f, 0);
+        Paragraph datosBasicos = docGenerado.nuevoParrafo(new Text(espacio + espacio),"ArialNarrowBold.ttf",9.5f);
+        docGenerado.empujarTexto(datosBasicos, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 0);
         datosBasicos.setBorder(new SolidBorder(0.75f));
         datosBasicos.setMarginLeft(-5);
         datosBasicos.setMarginRight(-5);
-        
-
-        
+        contadorIndice++;
         datosBasicos.setBackgroundColor(grayBg,0.75f);
         docGenerado.empujarParrafo(datosBasicos);
         
-        Text texto5 = new Text("\u00A0\u00A01. Datos del interesado\n");
-        Paragraph datosInteresado = docGenerado.nuevoParrafo(texto5, "ArialNarrowBold.ttf", 9.5f);
+        Paragraph datosInteresado = docGenerado.nuevoParrafo(new Text(espacio + espacio), "ArialNarrowBold.ttf", 9.5f);
+        docGenerado.empujarTexto(datosInteresado, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f , 0);
         datosInteresado.setBorder(new SolidBorder(0.75f));
         datosInteresado.setMarginLeft(-5);
         datosInteresado.setMarginRight(-5);
         datosInteresado.setBackgroundColor(greenBg, 0.75f);
         datosInteresado.setRelativePosition(0, -9, 0, 0);
         docGenerado.empujarParrafo(datosInteresado);
-        
+
         Paragraph p;
-        
         p = docGenerado.nuevoParrafo(new Text("\u00A0\u00A01.1. Tipo de Solicitud:       "), "ArialNarrowBold.ttf", 9.5f);
-        docGenerado.empujarTexto(p, new Text("Nueva   Prórroga\n"), "TimesNewRomanPSMT.ttf", 9.5f, 0);
+
+        PdfButtonFormField check = PdfFormField.createCheckBox(docGenerado.getPdf(), new Rectangle(524, 600, 16, 16), "UsersNo", "on", PdfFormField.TYPE_CHECK);
+
+        /* docGenerado.empujarTexto(p, new Text("Nueva   Prórroga\n"), "TimesNewRomanPSMT.ttf", 9.5f, 0);
         docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.2. Identificación del interesado\n"), "ArialNarrowBold.ttf", 9.5f, 0);
         docGenerado.empujarTexto(p, new Text("\u00A0\u00A0Tipo de persona: Natural      Jurídica Pública        Jurídica Privada\n"
                 + "\u00A0\u00A0Nombre o Razón Social: _________________________________________________________________________________________________________________\n"
@@ -80,11 +94,11 @@ public class Controlador {
                 + "\u00A0\u00A0Tipo de identificación: CC       CE      PA      Número de Identificación: ________________________________TP: ____________________________\n"), 
                 "TimesNewRomanPSMT.ttf", 9.5f, 0);
         docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.4. Calidad en que actúa sobre el predio donde se realizará el aprovechamiento o manejo sostenible."), "ArialNarrowBold.ttf", 9.5f, 0);
-        
+       */
         p.setBorder(new SolidBorder(0.75f));
         p.setMarginLeft(-5);
         p.setMarginRight(-5);
-
+        
         p.setRelativePosition(0, -18, 0, 0);
         docGenerado.empujarParrafo(p);
 
@@ -92,7 +106,7 @@ public class Controlador {
     }
 
     static LinkedList<Text> cargarBD() throws IOException {
-        String[] textoFormatos = Utilidades.leer();
+        String[] textoFormatos = Utils.loadFile(new File("resources\\formularioCampos.txt"));
         LinkedList<Text> textos = new LinkedList<>();
         
         for (String textoFormato : textoFormatos) {

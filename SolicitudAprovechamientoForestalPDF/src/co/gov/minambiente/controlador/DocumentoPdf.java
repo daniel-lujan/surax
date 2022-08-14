@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package co.gov.minambiente.modelo;
 
+package co.gov.minambiente.controlador;
+
+import com.itextpdf.forms.PdfAcroForm;
 import com.itextpdf.io.font.FontProgram;
 import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.io.font.PdfEncodings;
@@ -32,6 +29,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.LinkedList;
 import com.itextpdf.forms.fields.PdfButtonFormField;
+import com.itextpdf.forms.fields.PdfFormField;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.geom.Rectangle;
+import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
 
 /**
  *
@@ -52,6 +53,9 @@ public class DocumentoPdf {
     private PdfFont fuente;
 
     private String rutaFuente;
+    
+    private PdfAcroForm form;
+    private PdfButtonFormField check;
 
     public DocumentoPdf(String nombre, int numeroPaginas, String rutaFuente)
             throws FileNotFoundException, IOException, FontFormatException {
@@ -72,8 +76,10 @@ public class DocumentoPdf {
      * @param numeroPaginas El número de páginas que contendrá el documento
      * final (se pueden sumar en el futuro)
      */
-    private void inicializarDocumento(int numeroPaginas) {
-
+    private void inicializarDocumento(int numeroPaginas) throws FileNotFoundException {
+        
+         
+        
         this.validarDirectorio();
         // Seteo de PdfDocument
         PdfWriter writer;
@@ -87,7 +93,16 @@ public class DocumentoPdf {
         //Seteo del Document
         this.document = new Document(this.pdf);
         this.document.setMargins(30f, 27f, 58f, 34f);
-
+        
+        this.form = PdfAcroForm.getAcroForm(this.pdf, true);
+        check = PdfFormField.createCheckBox(this.pdf,new Rectangle(524,600,16,16),"UsersNo", "off", PdfFormField.TYPE_CHECK);
+       check.setBorderWidth(1);
+       check.setBorderColor(ColorConstants.BLACK);
+       check.setPage(1);
+       
+      // form.addField(check);
+       
+       
     }
 
     /**
@@ -223,6 +238,7 @@ public class DocumentoPdf {
         System.out.println("Documento creado");
     }
 
+
     //Setters & getters
     /**
      *
@@ -250,5 +266,10 @@ public class DocumentoPdf {
     public void setFuente(PdfFont fuente) {
         this.fuente = fuente;
     }
+
+    public PdfDocument getPdf() {
+        return pdf;
+    }
+
 
 }
