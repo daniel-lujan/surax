@@ -18,7 +18,7 @@ public class ControladorSolicitud {
             String TPApoderado, String calidad, String otro, String tipoPredio, boolean aplicaCosto, String costo, String costoLetras) {
        
     }
-
+    
     public void guardarInformacionSeccion2() {
 
     }

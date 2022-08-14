@@ -7,6 +7,8 @@ package co.gov.minambiente.controlador;
 
 import static co.gov.minambiente.controlador.Utils.loadMunicipalities;
 import co.gov.minambiente.modelo.DepartmentModel;
+import co.gov.minambiente.modelo.InterestedModel;
+import co.gov.minambiente.modelo.RequestModel;
 import com.itextpdf.forms.fields.PdfButtonFormField;
 import com.itextpdf.forms.fields.PdfFormField;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -23,6 +25,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -35,6 +38,18 @@ public class Controlador {
         DocumentoPdf docGenerado = new DocumentoPdf("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
         llenarDocumento(docGenerado);
         //Utilidades.leer();
+        
+        RequestModel form1 = new RequestModel(1);
+        HashMap <Integer,String> a = { 
+        
+        InterestedModel interested = new InterestedModel("Natural", form1, "propietario",
+        new HashMap<1200000,"Un millón doscientos mil pesos">, false, "pepito@gmail.com",
+        3044446985,"Pepito", "cc", 1101760080);
+        
+        form1.setTypeRequest("nueva");
+        form1.setInterested(interested);
+        
+        
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
     }
     
