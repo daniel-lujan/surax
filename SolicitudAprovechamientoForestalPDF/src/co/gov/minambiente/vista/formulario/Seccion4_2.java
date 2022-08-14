@@ -1,6 +1,9 @@
 package co.gov.minambiente.vista.formulario;
 
 import co.gov.minambiente.controlador.ControladorSolicitud;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,10 +15,12 @@ public class Seccion4_2 extends javax.swing.JFrame {
     
     public Seccion4_2() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public Seccion4_2(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
     }
 
@@ -421,7 +426,11 @@ public class Seccion4_2 extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        new Seccion4_1().setVisible(true);
+        try {
+            new Seccion4_1(controlador).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -434,7 +443,11 @@ public class Seccion4_2 extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         this.setVisible(false);
-        new Seccion4_1(controlador).setVisible(true);
+        try {
+            new Seccion4_1(controlador).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

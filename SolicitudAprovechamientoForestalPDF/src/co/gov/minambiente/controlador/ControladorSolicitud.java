@@ -1,6 +1,11 @@
 package co.gov.minambiente.controlador;
 
+import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.RequestModel;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,9 +51,34 @@ public class ControladorSolicitud {
     public void guardarInformacionSeccion6() {
 
     }
+    
+    public LinkedList<String> cargarDepartamentos() throws IOException{
+        LinkedList<DepartmentModel> departamentos = Utils.loadMunicipalities((new File("resources\\MunicipiosDepartamentosColombia.txt")));
+        LinkedList<String> nombresDepartamentos = new LinkedList<>();
+        for(DepartmentModel departamento : departamentos){
+            nombresDepartamentos.add(departamento.getDEPARTMENTNAME());
+        }
+        return nombresDepartamentos;
+    }
+    
+    public LinkedList<String> cargarMunicipios(String d) throws IOException{
+        LinkedList<DepartmentModel> departamentos = Utils.loadMunicipalities((new File("resources\\MunicipiosDepartamentosColombia.txt")));
+        for(DepartmentModel departamento : departamentos){
+            if(departamento.getDEPARTMENTNAME().equals(d)){
+                return departamento.getMUNICIPALITIES();
+            }
+        }
+        return null;
+    }
 
-    public boolean validarNumeros(String s) {
+    public boolean validarNumeros(String s){
         Pattern patron = Pattern.compile("[a-zA-Z]");
+        Matcher matcher = patron.matcher(s);
+        return matcher.find();
+    }
+    
+    public boolean validarLetras(String s){
+        Pattern patron = Pattern.compile("[0-9]");
         Matcher matcher = patron.matcher(s);
         return matcher.find();
     }

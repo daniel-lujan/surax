@@ -17,6 +17,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
     
     public Seccion5_2() {
         initComponents();
+        this.setLocationRelativeTo(null);
         setEnabledSection1(false);
         setEnabledSection3(false);
         setEnabledSection4(false);
@@ -24,6 +25,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
     
     public Seccion5_2(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
         setEnabledSection1(false);
         setEnabledSection3(false);

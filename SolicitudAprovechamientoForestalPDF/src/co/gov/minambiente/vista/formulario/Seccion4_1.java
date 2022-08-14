@@ -1,6 +1,12 @@
 package co.gov.minambiente.vista.formulario;
 
 import co.gov.minambiente.controlador.ControladorSolicitud;
+import co.gov.minambiente.modelo.DepartmentModel;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,16 +16,35 @@ import javax.swing.JOptionPane;
 public class Seccion4_1 extends javax.swing.JFrame {
 
     private ControladorSolicitud controlador;
-
-    public Seccion4_1() {
+    
+    public Seccion4_1() throws IOException {
         initComponents();
+        this.setLocationRelativeTo(null);
+        LinkedList<String> departamentos = controlador.cargarDepartamentos();
+        cmbDepartamento.addItem("Seleccione");
+        for(String departamento : departamentos){
+            cmbDepartamento.addItem(departamento);
+        }
+        cmbDepartamento.setSelectedIndex(0);
+        cmbMunicipio.addItem("Seleccione");
+        cmbMunicipio.setEnabled(false);
+        txtVereda.setEnabled(false);
         txtMatriculaInmobiliaria.setEnabled(false);
         txtCedulaCatastral.setEnabled(false);
     }
 
-    public Seccion4_1(ControladorSolicitud controlador) {
+    public Seccion4_1(ControladorSolicitud controlador) throws IOException {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
+        LinkedList<String> departamentos = this.controlador.cargarDepartamentos();
+        cmbDepartamento.addItem("Seleccione");
+        for(String departamento : departamentos){
+            cmbDepartamento.addItem(departamento);
+        }
+        cmbMunicipio.addItem("Seleccione");
+        cmbMunicipio.setEnabled(false);
+        txtVereda.setEnabled(false);
         txtMatriculaInmobiliaria.setEnabled(false);
         txtCedulaCatastral.setEnabled(false);
     }
@@ -38,18 +63,15 @@ public class Seccion4_1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        txtMunicipio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtVereda = new javax.swing.JTextField();
         txtCedulaCatastral = new javax.swing.JTextField();
         txtSuperficie = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtDepartamento = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtMatriculaInmobiliaria = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -62,6 +84,9 @@ public class Seccion4_1 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         rbSi = new javax.swing.JRadioButton();
         rbNo = new javax.swing.JRadioButton();
+        cmbDepartamento = new javax.swing.JComboBox<>();
+        cmbMunicipio = new javax.swing.JComboBox<>();
+        txtVereda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,12 +95,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Superficie (ha):");
-
-        txtMunicipio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMunicipioActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Municipio:");
@@ -101,12 +120,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("Cédula catastral (solo si no dispone de matrícula inmobiliaria):");
 
-        txtVereda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVeredaActionPerformed(evt);
-            }
-        });
-
         txtCedulaCatastral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaCatastralActionPerformed(evt);
@@ -121,12 +134,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Departamento:");
-
-        txtDepartamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDepartamentoActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setText("Número(s) de matrícula inmobiliaria:");
@@ -195,6 +202,24 @@ public class Seccion4_1 extends javax.swing.JFrame {
             }
         });
 
+        cmbDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDepartamentoActionPerformed(evt);
+            }
+        });
+
+        cmbMunicipio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMunicipioActionPerformed(evt);
+            }
+        });
+
+        txtVereda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVeredaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -224,40 +249,44 @@ public class Seccion4_1 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addGap(10, 10, 10)
-                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(jLabel13)
                                             .addGap(18, 18, 18)
                                             .addComponent(rbSi)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(rbNo)))
+                                            .addComponent(rbNo))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel12)
+                                                    .addGap(10, 10, 10)
+                                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel6)
+                                                    .addGap(12, 12, 12)
+                                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addComponent(jLabel3)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(txtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel7)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtVereda, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtVereda, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
-                            .addComponent(jLabel11)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(12, 12, 12)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel11))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -286,10 +315,10 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
+                    .addComponent(cmbMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtVereda, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -333,10 +362,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMunicipioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMunicipioActionPerformed
-
     private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionActionPerformed
@@ -345,10 +370,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtVeredaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVeredaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVeredaActionPerformed
-
     private void txtCedulaCatastralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaCatastralActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaCatastralActionPerformed
@@ -356,10 +377,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private void txtSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSuperficieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSuperficieActionPerformed
-
-    private void txtDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDepartamentoActionPerformed
 
     private void txtMatriculaInmobiliariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaInmobiliariaActionPerformed
         // TODO add your handling code here:
@@ -373,15 +390,15 @@ public class Seccion4_1 extends javax.swing.JFrame {
         String nombre = txtNombre.getText().trim();
         String superficie = txtSuperficie.getText().trim();
         String direccion = txtDireccion.getText().trim();
-        String tipo = (String) cmbTipo.getSelectedItem();
-        String departamento = txtDepartamento.getText().trim();
-        String municipio = txtMunicipio.getText().trim();
+        String tipo = (String)cmbTipo.getSelectedItem();
+        String departamento = (String)cmbDepartamento.getSelectedItem();
+        String municipio = (String)cmbMunicipio.getSelectedItem();
         String vereda = txtVereda.getText().trim();
         String matriculaInmobiliaria = txtMatriculaInmobiliaria.getText().trim();
         String cedulaCatastral = txtCedulaCatastral.getText().trim();
 
         if (!nombre.equals("") && !superficie.equals("") && !direccion.equals("") && !tipo.equals("Seleccione")
-                && !departamento.equals("") && !municipio.equals("") && !vereda.equals("")) {
+                && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
             if (rbSi.isSelected()) {
                 if (!matriculaInmobiliaria.equals("")) {
                     if (!controlador.validarNumeros(matriculaInmobiliaria)) {
@@ -431,6 +448,36 @@ public class Seccion4_1 extends javax.swing.JFrame {
         txtCedulaCatastral.setEnabled(true);
     }//GEN-LAST:event_rbNoActionPerformed
 
+    private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
+        if(cmbDepartamento.getSelectedIndex() == 0){
+            cmbMunicipio.removeAllItems();
+            cmbMunicipio.setEnabled(false);
+            txtVereda.setEnabled(false);
+            txtVereda.setText("");
+        } else {
+            txtVereda.setText("");
+            cmbMunicipio.removeAllItems();
+            try {
+                LinkedList<String> municipios = controlador.cargarMunicipios((String)cmbDepartamento.getSelectedItem());
+                for(String municipio : municipios){
+                    cmbMunicipio.addItem(municipio);
+                }
+                cmbMunicipio.setEnabled(true);
+                txtVereda.setEnabled(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Seccion4_1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_cmbDepartamentoActionPerformed
+
+    private void cmbMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMunicipioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbMunicipioActionPerformed
+
+    private void txtVeredaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVeredaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVeredaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,7 +509,11 @@ public class Seccion4_1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Seccion4_1().setVisible(true);
+                try {
+                    new Seccion4_1().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Seccion4_1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -471,6 +522,8 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmbDepartamento;
+    private javax.swing.JComboBox<String> cmbMunicipio;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -490,10 +543,8 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbNo;
     private javax.swing.JRadioButton rbSi;
     private javax.swing.JTextField txtCedulaCatastral;
-    private javax.swing.JTextField txtDepartamento;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtMatriculaInmobiliaria;
-    private javax.swing.JTextField txtMunicipio;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSuperficie;
     private javax.swing.JTextField txtVereda;

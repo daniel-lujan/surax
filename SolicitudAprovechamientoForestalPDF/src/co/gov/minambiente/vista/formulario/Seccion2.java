@@ -13,10 +13,12 @@ public class Seccion2 extends javax.swing.JFrame {
     
     public Seccion2(){
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public Seccion2(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
     }
 

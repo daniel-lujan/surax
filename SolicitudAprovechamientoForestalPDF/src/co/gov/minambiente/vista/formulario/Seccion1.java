@@ -13,6 +13,7 @@ public class Seccion1 extends javax.swing.JFrame {
 
     public Seccion1() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = new ControladorSolicitud();
         txtOtro.setEnabled(false);
         txtCosto.setEnabled(false);
@@ -22,6 +23,7 @@ public class Seccion1 extends javax.swing.JFrame {
 
     public Seccion1(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
         txtOtro.setEnabled(false);
         txtCosto.setEnabled(false);
@@ -463,11 +465,11 @@ public class Seccion1 extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(cmbTipoPredio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel27)
-                        .addComponent(rbSi1)))
+                        .addComponent(rbSi1))
+                    .addComponent(jLabel21))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)

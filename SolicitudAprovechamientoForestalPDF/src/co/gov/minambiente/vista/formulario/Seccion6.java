@@ -13,11 +13,13 @@ public class Seccion6 extends javax.swing.JFrame {
     
     public Seccion6() {
         initComponents();
+        this.setLocationRelativeTo(null);
         setEnabledCampos(false);
     }
     
     public Seccion6(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
         setEnabledCampos(false);
     }

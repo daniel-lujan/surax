@@ -12,10 +12,12 @@ public class Seccion5_1 extends javax.swing.JFrame {
     
     public Seccion5_1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public Seccion5_1(ControladorSolicitud controlador) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.controlador = controlador;
     }
 
