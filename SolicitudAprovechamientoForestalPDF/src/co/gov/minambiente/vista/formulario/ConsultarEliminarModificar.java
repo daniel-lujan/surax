@@ -5,6 +5,8 @@
  */
 package co.gov.minambiente.vista.formulario;
 
+import co.gov.minambiente.vista.formulario.Principal;
+
 /**
  *
  * @author Natalia
