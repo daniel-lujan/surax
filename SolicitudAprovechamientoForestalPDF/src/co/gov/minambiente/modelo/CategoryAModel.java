@@ -9,15 +9,11 @@ public class CategoryAModel extends CategoryModel {
     private String typeUtilization;
     private String MethodUtilization;
 
-    //Cosntructors  
-    public CategoryAModel(){
+    //Constructors  
+    public CategoryAModel(String name){
+        super(name);
         this.MethodUtilization = null;
         this.typeUtilization = null;
-    }
-    
-    public CategoryAModel(String typeUtilization, String MethodUtilization) {
-        this.typeUtilization = typeUtilization;
-        this.MethodUtilization = MethodUtilization;
     }
 
     public CategoryAModel(String typeUtilization, String MethodUtilization, String name) {
