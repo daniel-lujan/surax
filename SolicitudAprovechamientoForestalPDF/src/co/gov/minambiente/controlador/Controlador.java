@@ -117,7 +117,7 @@ public class Controlador {
             textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() 
                     + espacio + solicitude.getInterested().getAttorney().getName());
         }
-
+        
         p.setFixedLeading(20);
         
         p.setBorder(new SolidBorder(0.75f));

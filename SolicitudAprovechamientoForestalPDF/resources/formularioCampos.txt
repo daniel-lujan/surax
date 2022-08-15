@@ -15,3 +15,6 @@ de 2019, Decreto 690 de 2021,
 -Nombre o Razón Social:-
 Tipo de identificación: CC			 CE			 PA			 NIT					 Número de Identificación:		-
 1.3. Apoderado (Si aplica)
+-Nombre:-
+Tipo de identificación: CC			 CE			 PA			 Número de Identificación:- TP:-
+
