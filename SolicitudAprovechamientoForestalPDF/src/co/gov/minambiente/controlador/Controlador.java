@@ -6,6 +6,7 @@
 package co.gov.minambiente.controlador;
 
 import static co.gov.minambiente.controlador.Utils.loadMunicipalities;
+import co.gov.minambiente.modelo.AttorneyModel;
 import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.InterestedModel;
 import co.gov.minambiente.modelo.RequestModel;
@@ -35,32 +36,36 @@ public class Controlador {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, FontFormatException {
         DocumentoPdf docGenerado = new DocumentoPdf("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
-       
+
         //Utilidades.leer();
-        
         RequestModel form1 = new RequestModel(1);
-        HashMap <Integer,String> a = new HashMap<>();
+        HashMap<Integer, String> a = new HashMap<>();
         a.put(12000000, "Doce millones de pesos");
-        
-        InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(), 
-                "propietario", a, false, "bob_esponja@gmail.com", 304446985,"Bob Esponja", "cc", 1101760080);
+
+        InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(),
+                "propietario", a, false, "bob_esponja@gmail.com", 304446985, "Bob Esponja", "cc", 1101760080);
+
+        AttorneyModel attorney = new AttorneyModel("856413T", "Patricio Estrella",
+                "CC", 552116447);
+
+        interested.setAttorney(attorney);
         
         form1.setTypeRequest("nueva");
         form1.setInterested(interested);
-  
+
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
-        
+
         generateCheckBoxes(docGenerado);
-        llenarDocumento(docGenerado, form1);    
+        llenarDocumento(docGenerado, form1);
     }
-    
-   /**
-    * 
-    * @param docGenerado
-    * @throws MalformedURLException
-    * @throws IOException 
-    */
-    static void llenarDocumento(DocumentoPdf docGenerado, RequestModel solicitude) throws MalformedURLException, IOException{
+
+    /**
+     *
+     * @param docGenerado
+     * @throws MalformedURLException
+     * @throws IOException
+     */
+    static void llenarDocumento(DocumentoPdf docGenerado, RequestModel solicitude) throws MalformedURLException, IOException {
         //Hacemos una lista de rutas de tipografías para construir otra lista 
         //Pero de fuentes pdf
 
@@ -113,13 +118,31 @@ public class Controlador {
         docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 5);
         contadorIndice++; 
         
-        if(solicitude.getInterested().getAttorney() !=null){
-            textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() 
+        //Si tiene abogado:
+        if (solicitude.getInterested().getAttorney() != null) {
+            textos.get(contadorIndice).setText(textos.get(contadorIndice).getText()
                     + espacio + solicitude.getInterested().getAttorney().getName());
+            docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+            contadorIndice++;
+
+            textos.get(contadorIndice).setText(textos.get(contadorIndice).getText()
+                    + espacio + espacio + solicitude.getInterested().getAttorney().getId()
+                    + espacio + espacio + textos.get(contadorIndice + 1).getText()
+                    + espacio + espacio + espacio + espacio
+                    + solicitude.getInterested().getAttorney().getProfesionalCard());
+            docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+            contadorIndice++;
+        } else{
+            docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+            contadorIndice++;
+            docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+            contadorIndice++;
+            docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+            contadorIndice++;
         }
-        
+
         p.setFixedLeading(20);
-        
+
         p.setBorder(new SolidBorder(0.75f));
         p.setMarginLeft(-5);
         p.setMarginRight(-5);
@@ -157,7 +180,7 @@ public class Controlador {
         
         return textos;
     }
-
+    
     static void generarEncabezado(DocumentoPdf docGenerado, LinkedList<Text> textos) throws MalformedURLException, IOException {
 
         Paragraph encabezado = docGenerado.nuevoParrafo("minambiente.png", 44, 214, 30, 920);
