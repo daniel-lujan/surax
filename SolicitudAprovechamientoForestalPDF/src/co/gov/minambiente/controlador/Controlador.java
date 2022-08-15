@@ -16,7 +16,6 @@ import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
@@ -43,11 +42,11 @@ public class Controlador {
         HashMap <Integer,String> a = new HashMap<>();
         a.put(12000000, "Doce millones de pesos");
         
-       /* InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(), 
-                "propietario", a, false, "pepito@gmail.com", 304446985,"Pepito", "cc", 1101760080);
+        InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(), 
+                "propietario", a, false, "bob_esponja@gmail.com", 304446985,"Bob Esponja", "cc", 1101760080);
         
         form1.setTypeRequest("nueva");
-        form1.setInterested(interested);*/
+        form1.setInterested(interested);
   
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
         
@@ -98,22 +97,20 @@ public class Controlador {
         p = docGenerado.nuevoParrafo(new Text(espacio + espacio), "ArialNarrowBold.ttf", 9.5f);
         docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 0);
         contadorIndice++;
-        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9.5f, 0);
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 0);
+        contadorIndice++;
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 5);
+        contadorIndice++;
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+        contadorIndice++;
         
+        textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() + espacio + solicitude.getInterested().getName());
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+        contadorIndice++;
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
         
-
-        /* docGenerado.empujarTexto(p, new Text("Nueva   Prórroga\n"), "TimesNewRomanPSMT.ttf", 9.5f, 0);
-        docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.2. Identificación del interesado\n"), "ArialNarrowBold.ttf", 9.5f, 0);
-        docGenerado.empujarTexto(p, new Text("\u00A0\u00A0Tipo de persona: Natural      Jurídica Pública        Jurídica Privada\n"
-                + "\u00A0\u00A0Nombre o Razón Social: _________________________________________________________________________________________________________________\n"
-                + "\u00A0\u00A0Tipo de identificación: CC       CE      PA      NIT     Número de Identificación: ___________________________________________\n"), 
-                "TimesNewRomanPSMT.ttf", 9.5f, 0);
-        docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.3. Apoderado (Si aplica)\n"), "ArialNarrowBold.ttf", 9.5f, 0);
-        docGenerado.empujarTexto(p, new Text("\u00A0\u00A0Nombre: ______________________________________________________________________________________________________________________________\n"
-                + "\u00A0\u00A0Tipo de identificación: CC       CE      PA      Número de Identificación: ________________________________TP: ____________________________\n"), 
-                "TimesNewRomanPSMT.ttf", 9.5f, 0);
-        docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.4. Calidad en que actúa sobre el predio donde se realizará el aprovechamiento o manejo sostenible."), "ArialNarrowBold.ttf", 9.5f, 0);
-       */
+        p.setFixedLeading(20);
+        
         p.setBorder(new SolidBorder(0.75f));
         p.setMarginLeft(-5);
         p.setMarginRight(-5);
@@ -127,8 +124,12 @@ public class Controlador {
     static void generateCheckBoxes(DocumentoPdf docGenerado){
         
         Color grayBg = new DeviceRgb(179, 181, 178);
-        docGenerado.createRectangle(grayBg, 150, 820, 18, 10);
-        docGenerado.createRectangle(grayBg, 220, 820, 18, 10);
+        docGenerado.createRectangle(grayBg, 155, 818, 18, 10);
+        docGenerado.createRectangle(grayBg, 220, 818, 18, 10);
+        docGenerado.createRectangle(grayBg, 145, 778, 18, 10);
+        docGenerado.createRectangle(grayBg, 240, 778, 18, 10);
+        docGenerado.createRectangle(grayBg, 335, 778, 18, 10);
+        
     }
 
     static LinkedList<Text> cargarBD() throws IOException {

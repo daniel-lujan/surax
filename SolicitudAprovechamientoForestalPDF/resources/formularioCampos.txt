@@ -9,7 +9,8 @@ de 2019, Decreto 690 de 2021,
 -POR FAVOR LEA ATENTAMENTE LAS INSTRUCCIONES QUE SE INTEGRAN AL PRESENTE FORMATO ANTES DE SU DILIGENCIAMIENTO
 -DATOS BÁSICOS DE LA SOLICITUD:
 -1.   Datos del interesado
--1.1. Tipo de Solicitud:  -Nueva			Prórroga
--1.2. Identificación del interesado
--Tipo de persona:  - Natural	 		Jurídica			Pública			Jurídica			Privada
--
+-1.1.   Tipo de Solicitud:  -Nueva			Prórroga
+-	1.2.   Identificación del interesado
+-Tipo de persona:   Natural	 		Jurídica Pública			Jurídica Privada
+-Nombre o Razón Social:-
+Tipo de identificación: CC			 CE			 PA			 NIT			 Número de Identificación:
