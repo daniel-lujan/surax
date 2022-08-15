@@ -2,6 +2,7 @@ package co.gov.minambiente.vista.formulario;
 
 import co.gov.minambiente.controlador.ControladorSolicitud;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -422,31 +423,31 @@ public class Seccion3 extends javax.swing.JFrame {
         String ingresosLetras = txtIngresosLetras.getText().trim();
         String categoriaAsociada = (String) cmbCategoriaAsociada.getSelectedItem();
         String tipoAprovechamientoD = (String) cmbTipoAprovechamientoD.getSelectedItem();
-        String categoria;
+        ArrayList<String> categorias = new ArrayList<>();
 
         if (!terrenosDominio.equals("Seleccione")) {
             if (rbA.isSelected()) {
-                categoria = "A";
+                categorias.add("A");
                 if (!tipoAprovechamientoA.equals("Seleccione")) {
-                    controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                    controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                             ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                     mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbB.isSelected()) {
-                categoria = "B";
+                categorias.add("B");
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
                         if (!categoriaAsociada.equals("Seleccione")) {
-                            controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                            controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                                     ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                             mostrarSiguienteVentana();
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                         }
                     } else {
-                        controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                        controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                                 ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                         mostrarSiguienteVentana();
                     }
@@ -454,14 +455,14 @@ public class Seccion3 extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbC.isSelected()) {
-                categoria = "C";
-                controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                categorias.add("C");
+                controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                         ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                 mostrarSiguienteVentana();
             } else if (rbD.isSelected()) {
-                categoria = "D";
+                categorias.add("C");
                 if (!tipoAprovechamientoD.equals("Seleccione")) {
-                    controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                    controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                             ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                     mostrarSiguienteVentana();
                 } else {
