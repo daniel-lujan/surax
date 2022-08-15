@@ -107,14 +107,22 @@ public class Controlador {
         textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() + espacio + solicitude.getInterested().getName());
         docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
         contadorIndice++;
+        textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() + espacio + solicitude.getInterested().getId());
         docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9f, 5);
+        contadorIndice++;
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 5);
+        contadorIndice++; 
         
+        if(solicitude.getInterested().getAttorney() !=null){
+            textos.get(contadorIndice).setText(textos.get(contadorIndice).getText() 
+                    + espacio + solicitude.getInterested().getAttorney().getName());
+        }
+
         p.setFixedLeading(20);
         
         p.setBorder(new SolidBorder(0.75f));
         p.setMarginLeft(-5);
         p.setMarginRight(-5);
-        
         p.setRelativePosition(0, -18, 0, 0);
         docGenerado.empujarParrafo(p);
 
@@ -123,12 +131,19 @@ public class Controlador {
     
     static void generateCheckBoxes(DocumentoPdf docGenerado){
         
-        Color grayBg = new DeviceRgb(179, 181, 178);
+        Color grayBg = new DeviceRgb(212, 216, 210);
+        //first
         docGenerado.createRectangle(grayBg, 155, 818, 18, 10);
         docGenerado.createRectangle(grayBg, 220, 818, 18, 10);
+        //second
         docGenerado.createRectangle(grayBg, 145, 778, 18, 10);
         docGenerado.createRectangle(grayBg, 240, 778, 18, 10);
         docGenerado.createRectangle(grayBg, 335, 778, 18, 10);
+        //thirth
+        docGenerado.createRectangle(grayBg, 144, 738, 18, 10);
+        docGenerado.createRectangle(grayBg, 189, 738, 18, 10);
+        docGenerado.createRectangle(grayBg, 234, 738, 18, 10);
+        docGenerado.createRectangle(grayBg, 279, 738, 18, 10);
         
     }
 
