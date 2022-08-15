@@ -174,6 +174,7 @@ public class Seccion2 extends javax.swing.JFrame {
         String numeroActo = txtNumeroActo.getText().trim();
         if (!numeroExpediente.equals("") && !numeroActo.equals("")) {
             this.setVisible(false);
+            controlador.guardarInformacionSeccion2(numeroExpediente, numeroActo);
             new Seccion6(controlador).setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");

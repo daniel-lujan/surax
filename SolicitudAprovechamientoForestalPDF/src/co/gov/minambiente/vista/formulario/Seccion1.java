@@ -38,6 +38,15 @@ public class Seccion1 extends javax.swing.JFrame {
         txtTPApoderado.setEnabled(state);
     }
 
+    private void mostrarSiguienteVentana() {
+        this.setVisible(false);
+        if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+            new Seccion2(this.controlador).setVisible(true);
+        } else {
+            new Seccion3(this.controlador).setVisible(true);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -583,26 +592,20 @@ public class Seccion1 extends javax.swing.JFrame {
                                 && !TPApoderado.equals("")) {
                             if (rbSi1.isSelected()) {
                                 if (!costo.equals("") && !costoLetras.equals("")) {
-                                    this.setVisible(false);
-                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                        controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                                tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                                numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                                costoLetras);
-                                        new Seccion2(this.controlador).setVisible(true);
-                                    } else {
-                                        new Seccion3(this.controlador).setVisible(true);
-                                    }
+                                    controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                            tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                            numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                            costoLetras);
+                                    mostrarSiguienteVentana();
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                                 }
                             } else {
-                                this.setVisible(false);
-                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                    new Seccion2(this.controlador).setVisible(true);
-                                } else {
-                                    new Seccion3(this.controlador).setVisible(true);
-                                }
+                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                        costoLetras);
+                                mostrarSiguienteVentana();
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
@@ -610,22 +613,20 @@ public class Seccion1 extends javax.swing.JFrame {
                     } else {
                         if (rbSi1.isSelected()) {
                             if (!costo.equals("") && !costoLetras.equals("")) {
-                                this.setVisible(false);
-                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                    new Seccion2(this.controlador).setVisible(true);
-                                } else {
-                                    new Seccion3(this.controlador).setVisible(true);
-                                }
+                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                        costoLetras);
+                                mostrarSiguienteVentana();
                             } else {
                                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                             }
                         } else {
-                            this.setVisible(false);
-                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                new Seccion2(this.controlador).setVisible(true);
-                            } else {
-                                new Seccion3(this.controlador).setVisible(true);
-                            }
+                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                    costoLetras);
+                            mostrarSiguienteVentana();
                         }
                     }
                 } else {
@@ -637,22 +638,20 @@ public class Seccion1 extends javax.swing.JFrame {
                             && !TPApoderado.equals("")) {
                         if (rbSi1.isSelected()) {
                             if (!costo.equals("") && !costoLetras.equals("")) {
-                                this.setVisible(false);
-                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                    new Seccion2(this.controlador).setVisible(true);
-                                } else {
-                                    new Seccion3(this.controlador).setVisible(true);
-                                }
+                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                        costoLetras);
+                                mostrarSiguienteVentana();
                             } else {
                                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                             }
                         } else {
-                            this.setVisible(false);
-                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                new Seccion2(this.controlador).setVisible(true);
-                            } else {
-                                new Seccion3(this.controlador).setVisible(true);
-                            }
+                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                    costoLetras);
+                            mostrarSiguienteVentana();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
@@ -660,22 +659,20 @@ public class Seccion1 extends javax.swing.JFrame {
                 } else {
                     if (rbSi1.isSelected()) {
                         if (!costo.equals("") && !costoLetras.equals("")) {
-                            this.setVisible(false);
-                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                new Seccion2(this.controlador).setVisible(true);
-                            } else {
-                                new Seccion3(this.controlador).setVisible(true);
-                            }
+                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                    costoLetras);
+                            mostrarSiguienteVentana();
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                         }
                     } else {
-                        this.setVisible(false);
-                        if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                            new Seccion2(this.controlador).setVisible(true);
-                        } else {
-                            new Seccion3(this.controlador).setVisible(true);
-                        }
+                        controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                costoLetras);
+                        mostrarSiguienteVentana();
                     }
                 }
             }
@@ -756,43 +753,43 @@ public class Seccion1 extends javax.swing.JFrame {
     }//GEN-LAST:event_rbSi1ActionPerformed
 
     private void txtNumeroIdInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdInteresadoKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroIdInteresadoKeyTyped
 
     private void txtNumeroIdApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdApoderadoKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroIdApoderadoKeyTyped
 
     private void txtCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtCostoKeyTyped
 
     private void txtNombreInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreInteresadoKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreInteresadoKeyTyped
 
     private void txtNombreApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreApoderadoKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreApoderadoKeyTyped
 
     private void txtOtroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOtroKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtOtroKeyTyped
 
     private void txtCostoLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoLetrasKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtCostoLetrasKeyTyped

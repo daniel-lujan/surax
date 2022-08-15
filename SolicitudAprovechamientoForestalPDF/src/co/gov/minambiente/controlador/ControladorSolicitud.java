@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 /**
  *
@@ -46,12 +45,13 @@ public class ControladorSolicitud {
         }
     }
     
-    public void guardarInformacionSeccion2() {
-
+    public void guardarInformacionSeccion2(String numeroExpediente, String numeroActo) {
+        request.setFileNumber(Integer.parseInt(numeroExpediente));
+        request.setActNumber(Integer.parseInt(numeroActo));
     }
 
     public void guardarInformacionSeccion3() {
-
+        
     }
 
     public void guardarInformacionSeccion4_1() {

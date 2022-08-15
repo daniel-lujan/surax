@@ -377,6 +377,15 @@ public class Seccion3 extends javax.swing.JFrame {
         cmbTipoAprovechamientoD.setEnabled(state);
     }
 
+    private void mostrarSiguienteVentana() {
+        try {
+            this.setVisible(false);
+            new Seccion4_1(controlador).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     private void txtIngresosLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresosLetrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresosLetrasActionPerformed
@@ -401,12 +410,7 @@ public class Seccion3 extends javax.swing.JFrame {
         if (!terrenosDominio.equals("Seleccione")) {
             if (rbA.isSelected()) {
                 if (!tipoAprovechamientoA.equals("Seleccione")) {
-                    try {
-                        this.setVisible(false);
-                        new Seccion4_1(controlador).setVisible(true);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
@@ -414,41 +418,21 @@ public class Seccion3 extends javax.swing.JFrame {
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
                         if (!categoriaAsociada.equals("Seleccione")) {
-                            try {
-                                this.setVisible(false);
-                                new Seccion4_1(controlador).setVisible(true);
-                            } catch (IOException ex) {
-                                Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            mostrarSiguienteVentana();
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                         }
                     } else {
-                        try {
-                            this.setVisible(false);
-                            new Seccion4_1(controlador).setVisible(true);
-                        } catch (IOException ex) {
-                            Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        mostrarSiguienteVentana();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbC.isSelected()) {
-                try {
-                    this.setVisible(false);
-                    new Seccion4_1(controlador).setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                mostrarSiguienteVentana();
             } else if (rbD.isSelected()) {
                 if (!tipoAprovechamientoD.equals("Seleccione")) {
-                    try {
-                        this.setVisible(false);
-                        new Seccion4_1(controlador).setVisible(true);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }

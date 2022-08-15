@@ -21,6 +21,8 @@ public class RequestModel {
     private LinkedList<CategoryModel> categories;
     private boolean approved;
     private Date validity;
+    private int fileNumber;
+    private int actNumber;
     
     //constructors
 
@@ -30,6 +32,8 @@ public class RequestModel {
         this.interested = new InterestedModel();
         this.properties = null;
         this.categories = null;
+        this.fileNumber = 0;
+        this.actNumber = 0;
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
@@ -38,6 +42,9 @@ public class RequestModel {
         this.typeRequest = typeRequest;
         this.interested = interested;
         this.properties = properties;
+        this.categories = null;
+        this.fileNumber = 0;
+        this.actNumber = 0;
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
@@ -48,6 +55,8 @@ public class RequestModel {
         this.interested = interested;
         this.properties = properties;
         this.categories = categories;
+        this.fileNumber = 0;
+        this.actNumber = 0;
     }
     
     //Getters & setters
@@ -104,5 +113,19 @@ public class RequestModel {
         return REFERENCE;
     }
 
+    public int getFileNumber() {
+        return fileNumber;
+    }
     
+    public void setFileNumber(int fileNumber){
+        this.fileNumber = fileNumber;
+    }
+    
+    public int getActNumber() {
+        return actNumber;
+    }
+    
+    public void setActNumber(int actNumber){
+        this.actNumber = actNumber;
+    } 
 }
