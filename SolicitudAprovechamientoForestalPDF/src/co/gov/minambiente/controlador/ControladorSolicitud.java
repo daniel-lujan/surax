@@ -50,7 +50,8 @@ public class ControladorSolicitud {
         request.setActNumber(Integer.parseInt(numeroActo));
     }
 
-    public void guardarInformacionSeccion3() {
+    public void guardarInformacionSeccion3(String terrenosDominio, String categoria, String tipoAprovechamientoA, String claseManejo, 
+            String ingresos, String ingresosLetras, String categoriaAsociada, String tipoAprovechamiento) {
         
     }
 
@@ -72,6 +73,11 @@ public class ControladorSolicitud {
 
     public void guardarInformacionSeccion6() {
 
+    }
+    
+    public String getTypeProperty(){
+        LinkedList<PropertyModel> propertys = request.getProperties();
+        return propertys.getFirst().getTypeProperty();
     }
     
     public LinkedList<String> cargarDepartamentos() throws IOException{

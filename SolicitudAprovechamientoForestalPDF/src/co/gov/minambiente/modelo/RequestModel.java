@@ -18,6 +18,7 @@ public class RequestModel {
     private String typeRequest;
     private InterestedModel  interested;
     private LinkedList<PropertyModel> properties;
+    private String howToAcquire;
     private LinkedList<CategoryModel> categories;
     private boolean approved;
     private Date validity;
@@ -30,8 +31,9 @@ public class RequestModel {
         this.REFERENCE = reference;
         this.typeRequest = "";
         this.interested = new InterestedModel();
-        this.properties = null;
-        this.categories = null;
+        this.properties = new LinkedList<>();
+        this.howToAcquire = "";
+        this.categories = new LinkedList<>();
         this.fileNumber = 0;
         this.actNumber = 0;
     }
@@ -42,18 +44,20 @@ public class RequestModel {
         this.typeRequest = typeRequest;
         this.interested = interested;
         this.properties = properties;
-        this.categories = null;
+        this.howToAcquire = "";
+        this.categories = new LinkedList<>();
         this.fileNumber = 0;
         this.actNumber = 0;
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
-            interested, LinkedList<PropertyModel> properties, LinkedList<CategoryModel>
+            interested, LinkedList<PropertyModel> properties, String howToAcquire, LinkedList<CategoryModel>
                     categories) {
         this.REFERENCE = reference;
         this.typeRequest = typeRequest;
         this.interested = interested;
         this.properties = properties;
+        this.howToAcquire = howToAcquire;
         this.categories = categories;
         this.fileNumber = 0;
         this.actNumber = 0;
@@ -83,6 +87,14 @@ public class RequestModel {
 
     public void addProperties(PropertyModel property) {
         this.properties.add(property);
+    }
+    
+    public String getHowToAcquire(){
+        return howToAcquire;
+    }
+    
+    public void setHowToAcquire(String howToAcquire){
+        this.howToAcquire = howToAcquire;
     }
 
     public LinkedList<CategoryModel> getCategories() {

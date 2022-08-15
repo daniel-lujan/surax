@@ -21,6 +21,7 @@ public class Seccion3 extends javax.swing.JFrame {
         setEnabledSection1(false);
         setEnabledSection2(false);
         setEnabledSection4(false);
+        setEnabledHowToAcquire();
     }
 
     public Seccion3(ControladorSolicitud controlador) {
@@ -31,6 +32,7 @@ public class Seccion3 extends javax.swing.JFrame {
         setEnabledSection1(false);
         setEnabledSection2(false);
         setEnabledSection4(false);
+        setEnabledHowToAcquire();
     }
 
     @SuppressWarnings("unchecked")
@@ -386,6 +388,20 @@ public class Seccion3 extends javax.swing.JFrame {
         }
     }
 
+    private void setEnabledHowToAcquire() {
+        switch (controlador.getTypeProperty()) {
+            case "Público":
+                lbAutorizacion.setEnabled(false);
+                break;
+            case "Colectivo":
+                cmbTerrenosDominio.setEnabled(false);
+                break;
+            case "Privado":
+                cmbTerrenosDominio.setEnabled(false);
+                break;
+        }
+    }
+
     private void txtIngresosLetrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresosLetrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIngresosLetrasActionPerformed
@@ -399,39 +415,54 @@ public class Seccion3 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTerrenosDominioActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        String terrenosDominio = (String) cmbTerrenosDominio.getSelectedItem();
+        String terrenosDominio = (controlador.getTypeProperty().equals("Público")) ? (String) cmbTerrenosDominio.getSelectedItem() : (lbAutorizacion.isSelected() ? "Autorización" : "Seleccione");
         String tipoAprovechamientoA = (String) cmbTipoAprovechamientoA.getSelectedItem();
         String claseManejo = (String) cmbClaseManejo.getSelectedItem();
         String ingresos = txtIngresos.getText().trim();
         String ingresosLetras = txtIngresosLetras.getText().trim();
         String categoriaAsociada = (String) cmbCategoriaAsociada.getSelectedItem();
         String tipoAprovechamientoD = (String) cmbTipoAprovechamientoD.getSelectedItem();
+        String categoria;
 
         if (!terrenosDominio.equals("Seleccione")) {
             if (rbA.isSelected()) {
+                categoria = "A";
                 if (!tipoAprovechamientoA.equals("Seleccione")) {
+                    controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                            ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                     mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbB.isSelected()) {
+                categoria = "B";
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
                         if (!categoriaAsociada.equals("Seleccione")) {
+                            controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                                    ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                             mostrarSiguienteVentana();
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                         }
                     } else {
+                        controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                                ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                         mostrarSiguienteVentana();
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbC.isSelected()) {
+                categoria = "C";
+                controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                        ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                 mostrarSiguienteVentana();
             } else if (rbD.isSelected()) {
+                categoria = "D";
                 if (!tipoAprovechamientoD.equals("Seleccione")) {
+                    controlador.guardarInformacionSeccion3(terrenosDominio, categoria, tipoAprovechamientoA, claseManejo, ingresos,
+                            ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                     mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
@@ -473,6 +504,7 @@ public class Seccion3 extends javax.swing.JFrame {
         if (cmbClaseManejo.getSelectedIndex() == 2) {
             cmbCategoriaAsociada.setEnabled(true);
         } else {
+            cmbCategoriaAsociada.setSelectedIndex(0);
             cmbCategoriaAsociada.setEnabled(false);
         }
     }//GEN-LAST:event_cmbClaseManejoActionPerformed
