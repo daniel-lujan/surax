@@ -104,10 +104,20 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 txtDireccionActionPerformed(evt);
             }
         });
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyTyped(evt);
+            }
+        });
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
+            }
+        });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
             }
         });
 
@@ -131,6 +141,11 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 txtSuperficieActionPerformed(evt);
             }
         });
+        txtSuperficie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSuperficieKeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Departamento:");
@@ -141,6 +156,11 @@ public class Seccion4_1 extends javax.swing.JFrame {
         txtMatriculaInmobiliaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMatriculaInmobiliariaActionPerformed(evt);
+            }
+        });
+        txtMatriculaInmobiliaria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMatriculaInmobiliariaKeyTyped(evt);
             }
         });
 
@@ -217,6 +237,11 @@ public class Seccion4_1 extends javax.swing.JFrame {
         txtVereda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVeredaActionPerformed(evt);
+            }
+        });
+        txtVereda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVeredaKeyTyped(evt);
             }
         });
 
@@ -401,23 +426,15 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
             if (rbSi.isSelected()) {
                 if (!matriculaInmobiliaria.equals("")) {
-                    if (!controlador.validarNumeros(matriculaInmobiliaria)) {
                         this.setVisible(false);
                         new Seccion4_2(controlador).setVisible(true);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Matrícula inmobiliaria\".");
-                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if(rbNo.isSelected()){
                 if(!cedulaCatastral.equals("")){
-                    if(!controlador.validarNumeros(cedulaCatastral)){
                         this.setVisible(false);
                         new Seccion4_2(controlador).setVisible(true);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Cédula catastral\".");
-                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
@@ -477,6 +494,34 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private void txtVeredaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVeredaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVeredaActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtSuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSuperficieKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSuperficieKeyTyped
+
+    private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDireccionKeyTyped
+
+    private void txtVeredaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVeredaKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtVeredaKeyTyped
+
+    private void txtMatriculaInmobiliariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatriculaInmobiliariaKeyTyped
+
+    }//GEN-LAST:event_txtMatriculaInmobiliariaKeyTyped
 
     /**
      * @param args the command line arguments

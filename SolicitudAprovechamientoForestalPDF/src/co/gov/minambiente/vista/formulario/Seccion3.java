@@ -81,10 +81,20 @@ public class Seccion3 extends javax.swing.JFrame {
                 txtIngresosLetrasActionPerformed(evt);
             }
         });
+        txtIngresosLetras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIngresosLetrasKeyTyped(evt);
+            }
+        });
 
         txtIngresos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresosActionPerformed(evt);
+            }
+        });
+        txtIngresos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIngresosKeyTyped(evt);
             }
         });
 
@@ -403,31 +413,23 @@ public class Seccion3 extends javax.swing.JFrame {
             } else if (rbB.isSelected()) {
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
-                        if (!categoriaAsociada.equals("Seleccione")) {
-                            if (!controlador.validarNumeros(ingresos)) {
+                        if (!categoriaAsociada.equals("Seleccione")) {                          
                                 try {
                                     this.setVisible(false);
                                     new Seccion4_1(controlador).setVisible(true);
                                 } catch (IOException ex) {
                                     Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
                                 }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Ingresos\".");
-                            }
                         } else {
                             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                         }
                     } else {
-                        if (!controlador.validarNumeros(ingresos)) {
                             try {
                                 this.setVisible(false);
                                 new Seccion4_1(controlador).setVisible(true);
                             } catch (IOException ex) {
                                 Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Ingresos\".");
-                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
@@ -514,6 +516,18 @@ public class Seccion3 extends javax.swing.JFrame {
         setEnabledSection2(false);
         setEnabledSection4(false);
     }//GEN-LAST:event_rbAActionPerformed
+
+    private void txtIngresosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtIngresosKeyTyped
+
+    private void txtIngresosLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosLetrasKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtIngresosLetrasKeyTyped
 
     /**
      * @param args the command line arguments

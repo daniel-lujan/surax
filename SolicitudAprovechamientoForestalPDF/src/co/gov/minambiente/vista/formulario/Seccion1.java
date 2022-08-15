@@ -104,6 +104,11 @@ public class Seccion1 extends javax.swing.JFrame {
                 txtNombreApoderadoActionPerformed(evt);
             }
         });
+        txtNombreApoderado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreApoderadoKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Tipo de predio(s):");
@@ -111,6 +116,11 @@ public class Seccion1 extends javax.swing.JFrame {
         txtOtro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtroActionPerformed(evt);
+            }
+        });
+        txtOtro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtOtroKeyTyped(evt);
             }
         });
 
@@ -129,6 +139,11 @@ public class Seccion1 extends javax.swing.JFrame {
         txtNumeroIdApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroIdApoderadoActionPerformed(evt);
+            }
+        });
+        txtNumeroIdApoderado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroIdApoderadoKeyTyped(evt);
             }
         });
 
@@ -201,6 +216,11 @@ public class Seccion1 extends javax.swing.JFrame {
                 txtNombreInteresadoActionPerformed(evt);
             }
         });
+        txtNombreInteresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreInteresadoKeyTyped(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel17.setText("Tipo de identificación:");
@@ -218,6 +238,11 @@ public class Seccion1 extends javax.swing.JFrame {
         txtNumeroIdInteresado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroIdInteresadoActionPerformed(evt);
+            }
+        });
+        txtNumeroIdInteresado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroIdInteresadoKeyTyped(evt);
             }
         });
 
@@ -255,6 +280,11 @@ public class Seccion1 extends javax.swing.JFrame {
                 txtCostoActionPerformed(evt);
             }
         });
+        txtCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoKeyTyped(evt);
+            }
+        });
 
         jLabel25.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel25.setText("$");
@@ -262,6 +292,11 @@ public class Seccion1 extends javax.swing.JFrame {
         txtCostoLetras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCostoLetrasActionPerformed(evt);
+            }
+        });
+        txtCostoLetras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCostoLetrasKeyTyped(evt);
             }
         });
 
@@ -548,39 +583,25 @@ public class Seccion1 extends javax.swing.JFrame {
                                 && !TPApoderado.equals("")) {
                             if (rbSi1.isSelected()) {
                                 if (!costo.equals("") && !costoLetras.equals("")) {
-                                    if (controlador.validarNumeros(numeroIdInteresado)) {
-                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                                    } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                                    } else if (controlador.validarNumeros(costo)) {
-                                        JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
+                                    this.setVisible(false);
+                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                        controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
+                                                tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
+                                                numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
+                                                costoLetras);
+                                        new Seccion2(this.controlador).setVisible(true);
                                     } else {
-                                        this.setVisible(false);
-                                        if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                                    costoLetras);
-                                            new Seccion2(this.controlador).setVisible(true);
-                                        } else {
-                                            new Seccion3(this.controlador).setVisible(true);
-                                        }
+                                        new Seccion3(this.controlador).setVisible(true);
                                     }
                                 } else {
                                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                                 }
                             } else {
-                                if (controlador.validarNumeros(numeroIdInteresado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
+                                this.setVisible(false);
+                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                    new Seccion2(this.controlador).setVisible(true);
                                 } else {
-                                    this.setVisible(false);
-                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                        new Seccion2(this.controlador).setVisible(true);
-                                    } else {
-                                        new Seccion3(this.controlador).setVisible(true);
-                                    }
+                                    new Seccion3(this.controlador).setVisible(true);
                                 }
                             }
                         } else {
@@ -589,35 +610,21 @@ public class Seccion1 extends javax.swing.JFrame {
                     } else {
                         if (rbSi1.isSelected()) {
                             if (!costo.equals("") && !costoLetras.equals("")) {
-                                if (controlador.validarNumeros(numeroIdInteresado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                                } else if (controlador.validarNumeros(costo)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
-                                } else {
-                                    this.setVisible(false);
-                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                        new Seccion2(this.controlador).setVisible(true);
-                                    } else {
-                                        new Seccion3(this.controlador).setVisible(true);
-                                    }
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                            }
-                        } else {
-                            if (controlador.validarNumeros(numeroIdInteresado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                            } else {
                                 this.setVisible(false);
                                 if (cmbTipoSolicitud.getSelectedIndex() == 2) {
                                     new Seccion2(this.controlador).setVisible(true);
                                 } else {
                                     new Seccion3(this.controlador).setVisible(true);
                                 }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                            }
+                        } else {
+                            this.setVisible(false);
+                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                new Seccion2(this.controlador).setVisible(true);
+                            } else {
+                                new Seccion3(this.controlador).setVisible(true);
                             }
                         }
                     }
@@ -630,35 +637,21 @@ public class Seccion1 extends javax.swing.JFrame {
                             && !TPApoderado.equals("")) {
                         if (rbSi1.isSelected()) {
                             if (!costo.equals("") && !costoLetras.equals("")) {
-                                if (controlador.validarNumeros(numeroIdInteresado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                                } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                                } else if (controlador.validarNumeros(costo)) {
-                                    JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
-                                } else {
-                                    this.setVisible(false);
-                                    if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                        new Seccion2(this.controlador).setVisible(true);
-                                    } else {
-                                        new Seccion3(this.controlador).setVisible(true);
-                                    }
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                            }
-                        } else {
-                            if (controlador.validarNumeros(numeroIdInteresado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                            } else {
                                 this.setVisible(false);
                                 if (cmbTipoSolicitud.getSelectedIndex() == 2) {
                                     new Seccion2(this.controlador).setVisible(true);
                                 } else {
                                     new Seccion3(this.controlador).setVisible(true);
                                 }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                            }
+                        } else {
+                            this.setVisible(false);
+                            if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                                new Seccion2(this.controlador).setVisible(true);
+                            } else {
+                                new Seccion3(this.controlador).setVisible(true);
                             }
                         }
                     } else {
@@ -667,35 +660,21 @@ public class Seccion1 extends javax.swing.JFrame {
                 } else {
                     if (rbSi1.isSelected()) {
                         if (!costo.equals("") && !costoLetras.equals("")) {
-                            if (controlador.validarNumeros(numeroIdInteresado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                            } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                            } else if (controlador.validarNumeros(costo)) {
-                                JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Costo\" del proyecto.");
-                            } else {
-                                this.setVisible(false);
-                                if (cmbTipoSolicitud.getSelectedIndex() == 2) {
-                                    new Seccion2(this.controlador).setVisible(true);
-                                } else {
-                                    new Seccion3(this.controlador).setVisible(true);
-                                }
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                        }
-                    } else {
-                        if (controlador.validarNumeros(numeroIdInteresado)) {
-                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del interesado.");
-                        } else if (controlador.validarNumeros(numeroIdApoderado)) {
-                            JOptionPane.showMessageDialog(null, "Solo se permiten números en el campo \"Número de identificación\" del apoderado.");
-                        } else {
                             this.setVisible(false);
                             if (cmbTipoSolicitud.getSelectedIndex() == 2) {
                                 new Seccion2(this.controlador).setVisible(true);
                             } else {
                                 new Seccion3(this.controlador).setVisible(true);
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                        }
+                    } else {
+                        this.setVisible(false);
+                        if (cmbTipoSolicitud.getSelectedIndex() == 2) {
+                            new Seccion2(this.controlador).setVisible(true);
+                        } else {
+                            new Seccion3(this.controlador).setVisible(true);
                         }
                     }
                 }
@@ -775,6 +754,48 @@ public class Seccion1 extends javax.swing.JFrame {
             txtCostoLetras.setEnabled(false);
         }
     }//GEN-LAST:event_rbSi1ActionPerformed
+
+    private void txtNumeroIdInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdInteresadoKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumeroIdInteresadoKeyTyped
+
+    private void txtNumeroIdApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdApoderadoKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumeroIdApoderadoKeyTyped
+
+    private void txtCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCostoKeyTyped
+
+    private void txtNombreInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreInteresadoKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreInteresadoKeyTyped
+
+    private void txtNombreApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreApoderadoKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreApoderadoKeyTyped
+
+    private void txtOtroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOtroKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtOtroKeyTyped
+
+    private void txtCostoLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoLetrasKeyTyped
+        if(!Character.isAlphabetic(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCostoLetrasKeyTyped
 
     /**
      * @param args the command line arguments

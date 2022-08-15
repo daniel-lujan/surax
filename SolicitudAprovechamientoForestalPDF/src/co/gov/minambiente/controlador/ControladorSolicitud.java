@@ -4,10 +4,7 @@ import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.RequestModel;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -69,17 +66,5 @@ public class ControladorSolicitud {
             }
         }
         return null;
-    }
-
-    public boolean validarNumeros(String s){
-        Pattern patron = Pattern.compile("[a-zA-Z]");
-        Matcher matcher = patron.matcher(s);
-        return matcher.find();
-    }
-    
-    public boolean validarLetras(String s){
-        Pattern patron = Pattern.compile("[0-9]");
-        Matcher matcher = patron.matcher(s);
-        return matcher.find();
     }
 }

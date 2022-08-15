@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
  * @author Natalia García
  */
 public class Seccion2 extends javax.swing.JFrame {
-    
+
     private ControladorSolicitud controlador;
-    
-    public Seccion2(){
+
+    public Seccion2() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     public Seccion2(ControladorSolicitud controlador) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -51,10 +51,20 @@ public class Seccion2 extends javax.swing.JFrame {
                 txtNumeroExpedienteActionPerformed(evt);
             }
         });
+        txtNumeroExpediente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroExpedienteKeyTyped(evt);
+            }
+        });
 
         txtNumeroActo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroActoActionPerformed(evt);
+            }
+        });
+        txtNumeroActo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroActoKeyTyped(evt);
             }
         });
 
@@ -131,7 +141,8 @@ public class Seccion2 extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAnterior)
-                    .addComponent(btnSiguiente)))
+                    .addComponent(btnSiguiente))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,7 +153,9 @@ public class Seccion2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,13 +172,9 @@ public class Seccion2 extends javax.swing.JFrame {
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         String numeroExpediente = txtNumeroExpediente.getText().trim();
         String numeroActo = txtNumeroActo.getText().trim();
-        if(!numeroExpediente.equals("") && !numeroActo.equals("")){
-            if(!controlador.validarNumeros(numeroExpediente) && !controlador.validarNumeros(numeroActo)){
-                this.setVisible(false);
-                new Seccion6(controlador).setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Solo se permiten números en los campos solicitados.");
-            }
+        if (!numeroExpediente.equals("") && !numeroActo.equals("")) {
+            this.setVisible(false);
+            new Seccion6(controlador).setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
         }
@@ -179,6 +188,18 @@ public class Seccion2 extends javax.swing.JFrame {
         this.setVisible(false);
         new Seccion1(controlador).setVisible(true);
     }//GEN-LAST:event_btnAnteriorMouseClicked
+
+    private void txtNumeroExpedienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroExpedienteKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumeroExpedienteKeyTyped
+
+    private void txtNumeroActoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroActoKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumeroActoKeyTyped
 
     /**
      * @param args the command line arguments
