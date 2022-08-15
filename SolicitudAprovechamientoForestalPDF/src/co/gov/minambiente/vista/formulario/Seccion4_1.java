@@ -11,18 +11,18 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Natalia
+ * @author Natalia García
  */
 public class Seccion4_1 extends javax.swing.JFrame {
 
     private ControladorSolicitud controlador;
-    
+
     public Seccion4_1() throws IOException {
         initComponents();
         this.setLocationRelativeTo(null);
         LinkedList<String> departamentos = controlador.cargarDepartamentos();
         cmbDepartamento.addItem("Seleccione");
-        for(String departamento : departamentos){
+        for (String departamento : departamentos) {
             cmbDepartamento.addItem(departamento);
         }
         cmbDepartamento.setSelectedIndex(0);
@@ -39,7 +39,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
         this.controlador = controlador;
         LinkedList<String> departamentos = this.controlador.cargarDepartamentos();
         cmbDepartamento.addItem("Seleccione");
-        for(String departamento : departamentos){
+        for (String departamento : departamentos) {
             cmbDepartamento.addItem(departamento);
         }
         cmbMunicipio.addItem("Seleccione");
@@ -415,9 +415,9 @@ public class Seccion4_1 extends javax.swing.JFrame {
         String nombre = txtNombre.getText().trim();
         String superficie = txtSuperficie.getText().trim();
         String direccion = txtDireccion.getText().trim();
-        String tipo = (String)cmbTipo.getSelectedItem();
-        String departamento = (String)cmbDepartamento.getSelectedItem();
-        String municipio = (String)cmbMunicipio.getSelectedItem();
+        String tipo = (String) cmbTipo.getSelectedItem();
+        String departamento = (String) cmbDepartamento.getSelectedItem();
+        String municipio = (String) cmbMunicipio.getSelectedItem();
         String vereda = txtVereda.getText().trim();
         String matriculaInmobiliaria = txtMatriculaInmobiliaria.getText().trim();
         String cedulaCatastral = txtCedulaCatastral.getText().trim();
@@ -426,15 +426,15 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
             if (rbSi.isSelected()) {
                 if (!matriculaInmobiliaria.equals("")) {
-                        this.setVisible(false);
-                        new Seccion4_2(controlador).setVisible(true);
+                    this.setVisible(false);
+                    new Seccion4_2(controlador).setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } else if(rbNo.isSelected()){
-                if(!cedulaCatastral.equals("")){
-                        this.setVisible(false);
-                        new Seccion4_2(controlador).setVisible(true);
+            } else if (rbNo.isSelected()) {
+                if (!cedulaCatastral.equals("")) {
+                    this.setVisible(false);
+                    new Seccion4_2(controlador).setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
@@ -466,7 +466,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_rbNoActionPerformed
 
     private void cmbDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDepartamentoActionPerformed
-        if(cmbDepartamento.getSelectedIndex() == 0){
+        if (cmbDepartamento.getSelectedIndex() == 0) {
             cmbMunicipio.removeAllItems();
             cmbMunicipio.setEnabled(false);
             txtVereda.setEnabled(false);
@@ -475,8 +475,8 @@ public class Seccion4_1 extends javax.swing.JFrame {
             txtVereda.setText("");
             cmbMunicipio.removeAllItems();
             try {
-                LinkedList<String> municipios = controlador.cargarMunicipios((String)cmbDepartamento.getSelectedItem());
-                for(String municipio : municipios){
+                LinkedList<String> municipios = controlador.cargarMunicipios((String) cmbDepartamento.getSelectedItem());
+                for (String municipio : municipios) {
                     cmbMunicipio.addItem(municipio);
                 }
                 cmbMunicipio.setEnabled(true);
@@ -496,25 +496,25 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVeredaActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtSuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSuperficieKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtSuperficieKeyTyped
 
     private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtDireccionKeyTyped
 
     private void txtVeredaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVeredaKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtVeredaKeyTyped

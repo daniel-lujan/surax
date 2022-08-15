@@ -9,7 +9,7 @@ import co.gov.minambiente.vista.formulario.Principal;
 
 /**
  *
- * @author Natalia
+ * @author Natalia García
  */
 public class ConsultarEliminarModificar extends javax.swing.JFrame {
 

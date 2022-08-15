@@ -413,23 +413,23 @@ public class Seccion3 extends javax.swing.JFrame {
             } else if (rbB.isSelected()) {
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
-                        if (!categoriaAsociada.equals("Seleccione")) {                          
-                                try {
-                                    this.setVisible(false);
-                                    new Seccion4_1(controlador).setVisible(true);
-                                } catch (IOException ex) {
-                                    Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                        }
-                    } else {
+                        if (!categoriaAsociada.equals("Seleccione")) {
                             try {
                                 this.setVisible(false);
                                 new Seccion4_1(controlador).setVisible(true);
                             } catch (IOException ex) {
                                 Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
                             }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                        }
+                    } else {
+                        try {
+                            this.setVisible(false);
+                            new Seccion4_1(controlador).setVisible(true);
+                        } catch (IOException ex) {
+                            Logger.getLogger(Seccion3.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
@@ -518,13 +518,13 @@ public class Seccion3 extends javax.swing.JFrame {
     }//GEN-LAST:event_rbAActionPerformed
 
     private void txtIngresosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtIngresosKeyTyped
 
     private void txtIngresosLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosLetrasKeyTyped
-        if(!Character.isAlphabetic(evt.getKeyChar())){
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtIngresosLetrasKeyTyped

@@ -190,13 +190,13 @@ public class Seccion2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void txtNumeroExpedienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroExpedienteKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroExpedienteKeyTyped
 
     private void txtNumeroActoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroActoKeyTyped
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroActoKeyTyped
