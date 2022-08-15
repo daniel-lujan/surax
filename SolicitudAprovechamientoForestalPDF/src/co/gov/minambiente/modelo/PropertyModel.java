@@ -23,9 +23,20 @@ public class PropertyModel {
     private LinkedList<SpecieModel> species;
     
     //Constructors
-
+    
     public PropertyModel(){
         this.typeProperty = "";
+        this.name = "";
+        this.surface = "";
+        this.adress = new AdressModel();
+        this.realStateRegistration = "";
+        this.cadastralIdNumber = "";
+        this.coordiantes = new LinkedList<>();
+        this.species = new LinkedList<>();
+    }
+    
+    public PropertyModel(String typeProperty){
+        this.typeProperty = typeProperty;
         this.name = "";
         this.surface = "";
         this.adress = new AdressModel();

@@ -72,8 +72,8 @@ public class RequestModel {
         return properties;
     }
 
-    public void setProperties(LinkedList<PropertyModel> properties) {
-        this.properties = properties;
+    public void addProperties(PropertyModel property) {
+        this.properties.add(property);
     }
 
     public LinkedList<CategoryModel> getCategories() {

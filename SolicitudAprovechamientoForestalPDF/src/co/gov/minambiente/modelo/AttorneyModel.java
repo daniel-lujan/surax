@@ -1,40 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.gov.minambiente.modelo;
 
 /**
  *
  * @author marit
  */
-class AttorneyModel extends PersonModel {
+public class AttorneyModel extends PersonModel {
     
-    private int profesionalCard;
+    private String profesionalCard;
     
     //Constructors
     
     public AttorneyModel(){
-        this.profesionalCard = 0;
+        this.profesionalCard = "";
     }
 
-    public AttorneyModel(int profesionalCard) {
+    public AttorneyModel(String profesionalCard) {
         this.profesionalCard = profesionalCard;
     }
 
-    public AttorneyModel(int profesionalCard, String name, String typeId, long id) {
+    public AttorneyModel(String profesionalCard, String name, String typeId, long id) {
         super(name, typeId, id);
         this.profesionalCard = profesionalCard;
     }
     
     //Getters & setters
 
-    public int getProfesionalCard() {
+    public String getProfesionalCard() {
         return profesionalCard;
     }
 
-    public void setProfesionalCard(int profesionalCard) {
+    public void setProfesionalCard(String profesionalCard) {
         this.profesionalCard = profesionalCard;
     }
 

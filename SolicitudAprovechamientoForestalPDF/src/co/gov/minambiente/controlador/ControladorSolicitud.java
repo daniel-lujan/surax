@@ -2,9 +2,13 @@ package co.gov.minambiente.controlador;
 
 import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.RequestModel;
+import co.gov.minambiente.modelo.AttorneyModel;
+import co.gov.minambiente.modelo.PropertyModel;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  *
@@ -12,13 +16,34 @@ import java.util.LinkedList;
  */
 public class ControladorSolicitud {
 
-    private RequestModel solicitud;
-    private String idSolicitud = "0";
+    private RequestModel request = new RequestModel(1);
 
     public void guardarInformacionSeccion1(String tipoSolicitud, String tipoPersonaInteresado, String nombreInteresado, String tipoIdInteresado,
             String numeroIdInteresado, boolean aplicaApoderado, String nombreApoderado, String tipoIdApoderado, String numeroIdApoderado, 
             String TPApoderado, String calidad, String otro, String tipoPredio, boolean aplicaCosto, String costo, String costoLetras) {
-       
+        request.setTypeRequest(tipoSolicitud);
+        request.getInterested().setTypePerson(tipoPersonaInteresado);
+        request.getInterested().setName(nombreInteresado);
+        request.getInterested().setTypeId(tipoIdInteresado);
+        request.getInterested().setId(Long.parseLong(numeroIdInteresado));
+        
+        if(aplicaApoderado){
+            request.getInterested().setAttorney(new AttorneyModel(TPApoderado, nombreApoderado, tipoIdApoderado, Long.parseLong(numeroIdApoderado)));
+        }
+        
+        if(calidad.equals("Otro")){
+            request.getInterested().setInterestedQuality(otro);
+        } else {
+            request.getInterested().setInterestedQuality(calidad);
+        }
+        
+        request.addProperties(new PropertyModel(tipoPredio));
+        
+        if(aplicaCosto){
+            HashMap<Integer, String> cost = new HashMap<>();
+            cost.put(Integer.parseInt(costo), costoLetras);
+            request.getInterested().setProjectCost(cost);
+        }
     }
     
     public void guardarInformacionSeccion2() {
