@@ -50,8 +50,9 @@ public class Controlador {
         form1.setInterested(interested);*/
   
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
-       
-        llenarDocumento(docGenerado, form1);
+        
+        generateCheckBoxes(docGenerado);
+        llenarDocumento(docGenerado, form1);    
     }
     
    /**
@@ -91,11 +92,15 @@ public class Controlador {
         datosInteresado.setBackgroundColor(greenBg, 0.75f);
         datosInteresado.setRelativePosition(0, -9, 0, 0);
         docGenerado.empujarParrafo(datosInteresado);
-
+        contadorIndice++;
+        
         Paragraph p;
-        p = docGenerado.nuevoParrafo(new Text("\u00A0\u00A01.1. Tipo de Solicitud:       "), "ArialNarrowBold.ttf", 9.5f);
-
-        PdfButtonFormField check = PdfFormField.createCheckBox(docGenerado.getPdf(), new Rectangle(524, 600, 16, 16), "UsersNo", "on", PdfFormField.TYPE_CHECK);
+        p = docGenerado.nuevoParrafo(new Text(espacio + espacio), "ArialNarrowBold.ttf", 9.5f);
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialNarrowBold.ttf", 9.5f, 0);
+        contadorIndice++;
+        docGenerado.empujarTexto(p, textos.get(contadorIndice), "ArialMT.ttf", 9.5f, 0);
+        
+        
 
         /* docGenerado.empujarTexto(p, new Text("Nueva   Prórroga\n"), "TimesNewRomanPSMT.ttf", 9.5f, 0);
         docGenerado.empujarTexto(p, new Text("\u00A0\u00A01.2. Identificación del interesado\n"), "ArialNarrowBold.ttf", 9.5f, 0);
@@ -117,6 +122,13 @@ public class Controlador {
         docGenerado.empujarParrafo(p);
 
         docGenerado.crearPdf();
+    }
+    
+    static void generateCheckBoxes(DocumentoPdf docGenerado){
+        
+        Color grayBg = new DeviceRgb(179, 181, 178);
+        docGenerado.createRectangle(grayBg, 150, 820, 18, 10);
+        docGenerado.createRectangle(grayBg, 220, 820, 18, 10);
     }
 
     static LinkedList<Text> cargarBD() throws IOException {

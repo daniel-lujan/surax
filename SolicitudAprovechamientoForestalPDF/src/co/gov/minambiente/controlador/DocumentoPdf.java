@@ -104,8 +104,10 @@ public class DocumentoPdf {
     public void createRectangle(Color fill, double positionX, double positionY,
             int width, int height){
         
-        this.canva.rectangle(positionX, positionY, width, height)
-                .setColor(fill, true).fill();
+        this.canva.rectangle(positionX, positionY, width, height).setLineWidth(20)
+                .setStrokeColor(ColorConstants.BLACK)
+                .setColor(fill, true).fill()
+                ;
     }
     
     /**
