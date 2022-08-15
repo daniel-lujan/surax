@@ -6,6 +6,7 @@ import co.gov.minambiente.modelo.AttorneyModel;
 import co.gov.minambiente.modelo.PropertyModel;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -50,12 +51,9 @@ public class ControladorSolicitud {
         request.setActNumber(Integer.parseInt(numeroActo));
     }
 
-    public void guardarInformacionSeccion3(String terrenosDominio, String categoria, String tipoAprovechamientoA, String claseManejo, 
+    public void guardarInformacionSeccion3(String terrenosDominio, ArrayList<String> categorias, String tipoAprovechamientoA, String claseManejo, 
             String ingresos, String ingresosLetras, String categoriaAsociada, String tipoAprovechamiento) {
         request.setHowToAcquire(terrenosDominio);
-        switch(categoria){
-            
-        }
     }
 
     public void guardarInformacionSeccion4_1() {
