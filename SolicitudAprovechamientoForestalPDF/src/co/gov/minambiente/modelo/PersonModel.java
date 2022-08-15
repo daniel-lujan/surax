@@ -13,7 +13,7 @@ public abstract class PersonModel {
 
     private String name;
     private String typeId;
-    private int id;
+    private long id;
     
     //Constructors
     
@@ -21,7 +21,7 @@ public abstract class PersonModel {
         
     }
 
-    public PersonModel(String name, String typeId, int id) {
+    public PersonModel(String name, String typeId, long id) {
         this.name = name;
         this.typeId = typeId;
         this.id = id;
@@ -45,11 +45,11 @@ public abstract class PersonModel {
         this.typeId = typeId;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     

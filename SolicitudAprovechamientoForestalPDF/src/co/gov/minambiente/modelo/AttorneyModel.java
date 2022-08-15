@@ -23,7 +23,7 @@ class AttorneyModel extends PersonModel {
         this.profesionalCard = profesionalCard;
     }
 
-    public AttorneyModel(int profesionalCard, String name, String typeId, int id) {
+    public AttorneyModel(int profesionalCard, String name, String typeId, long id) {
         super(name, typeId, id);
         this.profesionalCard = profesionalCard;
     }
@@ -39,12 +39,12 @@ class AttorneyModel extends PersonModel {
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         super.setId(id); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
 

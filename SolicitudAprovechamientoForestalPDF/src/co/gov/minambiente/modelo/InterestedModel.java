@@ -21,7 +21,7 @@ public class InterestedModel extends PersonModel {
     private HashMap<Integer,String> projectCost;
     private boolean authorization;
     private String emailAdress;
-    private int telephone;
+    private long telephone;
     private AdressModel adress;
     
     //Constructors
@@ -41,7 +41,7 @@ public class InterestedModel extends PersonModel {
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
             String interestedQuality, HashMap<Integer, String> projectCost,
-            boolean authorization, String emailAdress,int telephone) {
+            boolean authorization, String emailAdress,long telephone) {
 
         this.typePerson = typePerson;
         this.requests = requests;
@@ -55,12 +55,29 @@ public class InterestedModel extends PersonModel {
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
            String interestedQuality, HashMap<Integer,String> projectCost,
-           boolean authorization, String emailAdress, int telephone, 
-           String name, String typeId, int id) {
+           boolean authorization, String emailAdress, long telephone, 
+           String name, String typeId, long id) {
 
         super(name, typeId, id);
         this.typePerson = typePerson;
         this.requests = requests;
+        this.attorney = null;
+        this.interestedQuality = interestedQuality;
+        this.projectCost = projectCost;
+        this.authorization = authorization;
+        this.emailAdress = emailAdress;
+        this.telephone = telephone;
+    }
+    
+        public InterestedModel(String typePerson, int requestReference,
+           String interestedQuality, HashMap<Integer,String> projectCost,
+           boolean authorization, String emailAdress, long telephone, 
+           String name, String typeId, long id) {
+
+        super(name, typeId, id);
+        this.typePerson = typePerson;
+        this.requests = new LinkedList<>();
+        this.requests.add(requestReference);
         this.attorney = null;
         this.interestedQuality = interestedQuality;
         this.projectCost = projectCost;
@@ -126,11 +143,11 @@ public class InterestedModel extends PersonModel {
         this.emailAdress = emailAdress;
     }
 
-    public int getTelephone() {
+    public long getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(long telephone) {
         this.telephone = telephone;
     }
 
@@ -143,12 +160,12 @@ public class InterestedModel extends PersonModel {
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(long id) {
         super.setId(id); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int getId() {
+    public long getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -36,21 +36,22 @@ public class Controlador {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, FontFormatException {
         DocumentoPdf docGenerado = new DocumentoPdf("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
-        llenarDocumento(docGenerado);
+       
         //Utilidades.leer();
         
         RequestModel form1 = new RequestModel(1);
-        HashMap <Integer,String> a = { 
+        HashMap <Integer,String> a = new HashMap<>();
+        a.put(12000000, "Doce millones de pesos");
         
-        InterestedModel interested = new InterestedModel("Natural", form1, "propietario",
-        new HashMap<1200000,"Un millón doscientos mil pesos">, false, "pepito@gmail.com",
-        3044446985,"Pepito", "cc", 1101760080);
+       /* InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(), 
+                "propietario", a, false, "pepito@gmail.com", 304446985,"Pepito", "cc", 1101760080);
         
         form1.setTypeRequest("nueva");
-        form1.setInterested(interested);
-        
-        
+        form1.setInterested(interested);*/
+  
         loadMunicipalities(new File("resources\\MunicipiosDepartamentosColombia.txt"));
+       
+        llenarDocumento(docGenerado, form1);
     }
     
    /**
@@ -59,7 +60,7 @@ public class Controlador {
     * @throws MalformedURLException
     * @throws IOException 
     */
-    static void llenarDocumento(DocumentoPdf docGenerado) throws MalformedURLException, IOException{
+    static void llenarDocumento(DocumentoPdf docGenerado, RequestModel solicitude) throws MalformedURLException, IOException{
         //Hacemos una lista de rutas de tipografías para construir otra lista 
         //Pero de fuentes pdf
 

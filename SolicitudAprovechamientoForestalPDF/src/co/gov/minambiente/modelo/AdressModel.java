@@ -18,7 +18,10 @@ class AdressModel {
 
     //Constructors 
     public AdressModel(){
-        
+        this.street = "";
+        this.typeArea = "";
+        this.department = new DepartmentModel();
+        this.sidewalk = "";
     }
     
     public AdressModel(String street, String typeArea, DepartmentModel department){

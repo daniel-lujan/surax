@@ -99,7 +99,10 @@ public class RequestModel {
     public void setValidity(Date validity) {
         this.validity = validity;
     }
-    
-    
+
+    public Integer getREFERENCE() {
+        return REFERENCE;
+    }
+
     
 }

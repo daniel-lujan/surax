@@ -1,6 +1,4 @@
-
 package co.gov.minambiente.controlador;
-
 import com.itextpdf.forms.PdfAcroForm;
 import com.itextpdf.io.font.FontProgram;
 import com.itextpdf.io.font.FontProgramFactory;
@@ -30,9 +28,13 @@ import java.net.MalformedURLException;
 import java.util.LinkedList;
 import com.itextpdf.forms.fields.PdfButtonFormField;
 import com.itextpdf.forms.fields.PdfFormField;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.colors.DeviceCmyk;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 
 /**
  *
@@ -53,6 +55,9 @@ public class DocumentoPdf {
     private PdfFont fuente;
 
     private String rutaFuente;
+    private int actualPage;
+    
+    private PdfCanvas canva;
     
     private PdfAcroForm form;
     private PdfButtonFormField check;
@@ -60,6 +65,7 @@ public class DocumentoPdf {
     public DocumentoPdf(String nombre, int numeroPaginas, String rutaFuente)
             throws FileNotFoundException, IOException, FontFormatException {
 
+        this.actualPage = 0;
         this.nombre = nombre;
         this.rutaFuente = rutaFuente;
 
@@ -67,7 +73,6 @@ public class DocumentoPdf {
         this.destinoImagen = new File("resources\\images");
 
         this.inicializarDocumento(numeroPaginas);
-
     }
 
     //Métodos
@@ -77,9 +82,7 @@ public class DocumentoPdf {
      * final (se pueden sumar en el futuro)
      */
     private void inicializarDocumento(int numeroPaginas) throws FileNotFoundException {
-        
-         
-        
+          
         this.validarDirectorio();
         // Seteo de PdfDocument
         PdfWriter writer;
@@ -92,19 +95,19 @@ public class DocumentoPdf {
         }
         //Seteo del Document
         this.document = new Document(this.pdf);
-        this.document.setMargins(30f, 27f, 58f, 34f);
+        this.document.setMargins(30f, 27f, 58f, 34f);       
         
-        this.form = PdfAcroForm.getAcroForm(this.pdf, true);
-        check = PdfFormField.createCheckBox(this.pdf,new Rectangle(524,600,16,16),"UsersNo", "off", PdfFormField.TYPE_CHECK);
-       check.setBorderWidth(1);
-       check.setBorderColor(ColorConstants.BLACK);
-       check.setPage(1);
-       
-      // form.addField(check);
-       
-       
+        canva = new PdfCanvas(pdf.getFirstPage());
+                
     }
-
+    
+    public void createRectangle(Color fill, double positionX, double positionY,
+            int width, int height){
+        
+        this.canva.rectangle(positionX, positionY, width, height)
+                .setColor(fill, true).fill();
+    }
+    
     /**
      * Este método revisa si el directorio fue creado
      *
@@ -145,6 +148,7 @@ public class DocumentoPdf {
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
         Paragraph parrafo = new Paragraph(texto);
+        parrafo.setFontColor(ColorConstants.BLACK);
         return parrafo;
     }
 
@@ -211,6 +215,7 @@ public class DocumentoPdf {
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
         texto.setRelativePosition(espacio, 0, 0, 0);
+        parrafo.setFontColor(ColorConstants.BLACK);
         parrafo.add(texto);
     }
 
@@ -219,6 +224,7 @@ public class DocumentoPdf {
      */
     public void pasarPagina() {
         document.add(new AreaBreak());
+         canva = new PdfCanvas(pdf.getPage(0));
 
     }
     /**
