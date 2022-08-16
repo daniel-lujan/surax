@@ -17,7 +17,7 @@ public class InterestedModel extends PersonModel {
     private boolean authorization;
     private String emailAdress;
     private long telephone;
-    private AdressModel adress;
+    private AddressModel adress;
     
     //Constructors
 
@@ -31,7 +31,7 @@ public class InterestedModel extends PersonModel {
         this.authorization = false;
         this.emailAdress = null;
         this.telephone = 0;
-        this.adress = new AdressModel();
+        this.adress = new AddressModel();
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
@@ -146,11 +146,11 @@ public class InterestedModel extends PersonModel {
         this.telephone = telephone;
     }
 
-    public AdressModel getAdress() {
+    public AddressModel getAdress() {
         return adress;
     }
 
-    public void setAdress(AdressModel adress) {
+    public void setAdress(AddressModel adress) {
         this.adress = adress;
     }
 

@@ -11,7 +11,7 @@ public class PropertyModel {
     private String typeProperty;
     private String name;
     private String surface;
-    private AdressModel adress;
+    private AddressModel adress;
     private String realStateRegistration;
     private String cadastralIdNumber;
     private LinkedList<CoordinateModel> coordiantes;
@@ -23,7 +23,7 @@ public class PropertyModel {
         this.typeProperty = "";
         this.name = "";
         this.surface = "";
-        this.adress = new AdressModel();
+        this.adress = new AddressModel();
         this.realStateRegistration = "";
         this.cadastralIdNumber = "";
         this.coordiantes = new LinkedList<>();
@@ -34,7 +34,7 @@ public class PropertyModel {
         this.typeProperty = typeProperty;
         this.name = "";
         this.surface = "";
-        this.adress = new AdressModel();
+        this.adress = new AddressModel();
         this.realStateRegistration = "";
         this.cadastralIdNumber = "";
         this.coordiantes = new LinkedList<>();
@@ -42,7 +42,7 @@ public class PropertyModel {
     }
   
     public PropertyModel(String typeProperty, String name, String surface, 
-            AdressModel adress, String realStateRegistration, String cadastralIdNumber,
+            AddressModel adress, String realStateRegistration, String cadastralIdNumber,
             LinkedList<CoordinateModel> coordiantes, LinkedList<SpecieModel> species) {
         this.typeProperty = typeProperty;
         this.name = name;
@@ -80,11 +80,11 @@ public class PropertyModel {
         this.surface = surface;
     }
 
-    public AdressModel getAdress() {
+    public AddressModel getAdress() {
         return adress;
     }
 
-    public void setAdress(AdressModel adress) {
+    public void setAdress(AddressModel adress) {
         this.adress = adress;
     }
 
