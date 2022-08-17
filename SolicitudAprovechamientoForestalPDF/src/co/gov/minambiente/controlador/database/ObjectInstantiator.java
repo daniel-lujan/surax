@@ -44,7 +44,10 @@ class ObjectInstantiator {
                 (ArrayList)info.get("projectCost"),
                 (boolean)info.get("authorization"),
                 (String)info.get("emailAdress"),
-                (String)info.get("telephone")
+                (String)info.get("telephone"),
+                (String)info.get("name"),
+                (String)info.get("typeId"),
+                (String)info.get("id")
         );
     }
     
