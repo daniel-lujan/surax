@@ -35,7 +35,7 @@ public class Controlador {
     public static void main(String[] args) throws FileNotFoundException, IOException, FontFormatException {
         PdfWorkspace generatedDoc = new PdfWorkspace("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
         
-        RequestModel form1 = new RequestModel(1);
+        RequestModel form1 = new RequestModel("1");
         ArrayList <String> a = new ArrayList<> ();
         a.add("1200000");
         a.add("Doce millones de pesos");
