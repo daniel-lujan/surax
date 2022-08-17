@@ -1,6 +1,5 @@
 package co.gov.minambiente.modelo;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -13,7 +12,7 @@ public class InterestedModel extends PersonModel {
     private LinkedList<Integer> requests;
     private AttorneyModel attorney;
     private String interestedQuality;
-    private HashMap<Integer,String> projectCost;
+    private String[] projectCost;
     private boolean authorization;
     private String emailAdress;
     private long telephone;
@@ -27,7 +26,7 @@ public class InterestedModel extends PersonModel {
         this.requests = new LinkedList();
         this.attorney = null;
         this.interestedQuality = null;
-        this.projectCost = new HashMap<>();
+        this.projectCost = new String[2];
         this.authorization = false;
         this.emailAdress = null;
         this.telephone = 0;
@@ -35,7 +34,7 @@ public class InterestedModel extends PersonModel {
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
-            String interestedQuality, HashMap<Integer, String> projectCost,
+            String interestedQuality, String[] projectCost,
             boolean authorization, String emailAdress,long telephone) {
 
         this.typePerson = typePerson;
@@ -49,7 +48,7 @@ public class InterestedModel extends PersonModel {
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
-           String interestedQuality, HashMap<Integer,String> projectCost,
+           String interestedQuality, String[] projectCost,
            boolean authorization, String emailAdress, long telephone, 
            String name, String typeId, long id) {
 
@@ -65,7 +64,7 @@ public class InterestedModel extends PersonModel {
     }
     
         public InterestedModel(String typePerson, int requestReference,
-           String interestedQuality, HashMap<Integer,String> projectCost,
+           String interestedQuality, String[] projectCost,
            boolean authorization, String emailAdress, long telephone, 
            String name, String typeId, long id) {
 
@@ -114,11 +113,11 @@ public class InterestedModel extends PersonModel {
         this.attorney = attorney;
     }
 
-    public HashMap<Integer, String> getProjectCost() {
+    public String[] getProjectCost() {
         return projectCost;
     }
 
-    public void setProjectCost(HashMap<Integer, String> projectCost) {
+    public void setProjectCost(String[] projectCost) {
         this.projectCost = projectCost;
     }
 

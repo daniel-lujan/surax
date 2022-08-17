@@ -14,7 +14,6 @@ public class SpecieModel {
     private String habit;
     private String closure;
     private String threatClassification;
-    private String intendedUse;
     
     //Construnctors
     
@@ -27,12 +26,11 @@ public class SpecieModel {
         this.habit = "";
         this.closure = "";
         this.threatClassification = "";
-        this.intendedUse = "";
     }
 
     public SpecieModel(double quantity, String unit, String commonName,
             String scientificName, String habit, String closure, 
-            String threatClassification, String intendedUse, String partUsed) {
+            String threatClassification, String partUsed) {
         this.partUsed = partUsed;
         this.quantity = quantity;
         this.unit = unit;
@@ -41,7 +39,6 @@ public class SpecieModel {
         this.habit = habit;
         this.closure = closure;
         this.threatClassification = threatClassification;
-        this.intendedUse = intendedUse;
     }
     
     //Setters & getters
@@ -101,15 +98,4 @@ public class SpecieModel {
     public void setThreatClassification(String threatClassification) {
         this.threatClassification = threatClassification;
     }
-
-    public String getIntendedUse() {
-        return intendedUse;
-    }
-
-    public void setIntendedUse(String intendedUse) {
-        this.intendedUse = intendedUse;
-    }
-    
-    
-    
 }

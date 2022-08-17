@@ -1,0 +1,33 @@
+[ {
+  "typeRequest" : "",
+  "interested" : {
+    "name" : null,
+    "typeId" : null,
+    "id" : 0,
+    "typePerson" : null,
+    "requests" : [ ],
+    "attorney" : null,
+    "interestedQuality" : null,
+    "projectCost" : { },
+    "authorization" : false,
+    "emailAdress" : null,
+    "telephone" : 0,
+    "adress" : {
+      "street" : "",
+      "typeArea" : "",
+      "department" : {
+        "departmentname" : "",
+        "municipalities" : [ ]
+      },
+      "sidewalk" : ""
+    }
+  },
+  "properties" : [ ],
+  "howToAcquire" : "",
+  "categories" : [ ],
+  "approved" : false,
+  "validity" : null,
+  "fileNumber" : 0,
+  "actNumber" : 0,
+  "reference" : 1
+} ]

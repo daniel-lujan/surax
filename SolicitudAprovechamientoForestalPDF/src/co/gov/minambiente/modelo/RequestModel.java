@@ -24,6 +24,7 @@ public class RequestModel {
     private Date validity;
     private int fileNumber;
     private int actNumber;
+    private String intendedUse;
     
     //constructors
 
@@ -36,6 +37,7 @@ public class RequestModel {
         this.categories = new LinkedList<>();
         this.fileNumber = 0;
         this.actNumber = 0;
+        this.intendedUse = "";
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
@@ -48,11 +50,12 @@ public class RequestModel {
         this.categories = new LinkedList<>();
         this.fileNumber = 0;
         this.actNumber = 0;
+        this.intendedUse = "";
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
             interested, LinkedList<PropertyModel> properties, String howToAcquire, LinkedList<CategoryModel>
-                    categories) {
+                    categories, String intendedUse) {
         this.REFERENCE = reference;
         this.typeRequest = typeRequest;
         this.interested = interested;
@@ -61,6 +64,7 @@ public class RequestModel {
         this.categories = categories;
         this.fileNumber = 0;
         this.actNumber = 0;
+        this.intendedUse = intendedUse;
     }
     
     //Getters & setters
@@ -140,4 +144,14 @@ public class RequestModel {
     public void setActNumber(int actNumber){
         this.actNumber = actNumber;
     } 
+
+    public String getIntendedUse() {
+        return intendedUse;
+    }
+
+    public void setIntendedUse(String intendedUse) {
+        this.intendedUse = intendedUse;
+    }
+    
+    
 }
