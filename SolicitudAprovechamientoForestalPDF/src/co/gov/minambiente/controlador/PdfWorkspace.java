@@ -35,6 +35,8 @@ import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.layout.element.Tab;
+import com.itextpdf.layout.element.TabStop;
 
 /**
  *
@@ -43,7 +45,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
  *
  * @author Andrés Güiza
  */
-public class DocumentoPdf {
+public class PdfWorkspace {
 
     private String nombre;
     private File destino;
@@ -62,7 +64,7 @@ public class DocumentoPdf {
     private PdfAcroForm form;
     private PdfButtonFormField check;
 
-    public DocumentoPdf(String nombre, int numeroPaginas, String rutaFuente)
+    public PdfWorkspace(String nombre, int numeroPaginas, String rutaFuente)
             throws FileNotFoundException, IOException, FontFormatException {
 
         this.actualPage = 0;
@@ -140,16 +142,19 @@ public class DocumentoPdf {
      * @param texto El texto a almacenar
      * @param nombreFuente Nombre de la fuente con extensión
      * @param tamano Tamaño de la fuente
+     * @param tabStop
      * @return Retorna el párrafo
      * @throws IOException Excepción que ocurre si la ruta de la fuente está mal
      */
-    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano) throws IOException {
+    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano, int tabStop) throws IOException {
         FontProgram temporal;
         temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
         Paragraph parrafo = new Paragraph(texto);
+        parrafo.addTabStops(new TabStop(tabStop));
+        //parrafo.add(new Tab());
         parrafo.setFontColor(ColorConstants.BLACK);
         return parrafo;
     }
@@ -162,18 +167,20 @@ public class DocumentoPdf {
      * @param alto y
      * @param fixAncho Valor de ancho
      * @param fixAlto Valor de alto
+     * @param tabStop
      * @return Retorna el párrafo
      * @throws MalformedURLException
      */
     public Paragraph nuevoParrafo(String nombreImagen, int ancho, int alto, 
-            int fixAncho, int fixAlto) throws MalformedURLException {
+            int fixAncho, int fixAlto, int tabStop) throws MalformedURLException {
         Image temporal = new Image(ImageDataFactory.create(this.destinoImagen.getPath() 
                 + "\\" + nombreImagen));
         Paragraph parrafo = new Paragraph("");
+       /* parrafo.addTabStops(new TabStop(0));
+        parrafo.add(new Tab());*/
         parrafo.add(temporal);
         temporal.setMaxHeight(ancho * 3 / 4);
         temporal.setMaxWidth(alto * 3 / 4);
-        //temporal.setRelativePosition(-100, 0, 200, 0);
         temporal.setFixedPosition(fixAncho, fixAlto);
         return parrafo;
     }
@@ -209,16 +216,16 @@ public class DocumentoPdf {
      * @throws MalformedURLException
      * @throws IOException 
      */
-    public void empujarTexto(Paragraph parrafo, Text texto, String nombreFuente, 
-            float tamano, float espacio) throws MalformedURLException, IOException {
+    public void pushText(Paragraph parrafo, Text texto, String nombreFuente, 
+            float tamano) throws MalformedURLException, IOException {
         FontProgram temporal;
         temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
-        texto.setRelativePosition(espacio, 0, 0, 0);
         parrafo.setFontColor(ColorConstants.BLACK);
         parrafo.add(texto);
+        parrafo.add(new Tab());
     }
 
     /**
@@ -226,7 +233,7 @@ public class DocumentoPdf {
      */
     public void pasarPagina() {
         document.add(new AreaBreak());
-         canva = new PdfCanvas(pdf.getPage(0));
+        canva = new PdfCanvas(pdf.getPage(0));
 
     }
     /**
