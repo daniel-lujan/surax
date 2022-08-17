@@ -51,7 +51,7 @@ public class InterestedModel extends PersonModel {
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
            String interestedQuality, ArrayList projectCost,
            boolean authorization, String emailAdress, long telephone, 
-           String name, String typeId, long id) {
+           String name, String typeId, String id) {
 
         super(name, typeId, id);
         this.typePerson = typePerson;
@@ -67,7 +67,7 @@ public class InterestedModel extends PersonModel {
         public InterestedModel(String typePerson, int requestReference,
            String interestedQuality, ArrayList projectCost,
            boolean authorization, String emailAdress, long telephone, 
-           String name, String typeId, long id) {
+           String name, String typeId, String id) {
 
         super(name, typeId, id);
         this.typePerson = typePerson;
@@ -155,12 +155,12 @@ public class InterestedModel extends PersonModel {
     }
 
     @Override
-    public void setId(long id) {
+    public void setId(String id) {
         super.setId(id); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public long getId() {
+    public String getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
 
