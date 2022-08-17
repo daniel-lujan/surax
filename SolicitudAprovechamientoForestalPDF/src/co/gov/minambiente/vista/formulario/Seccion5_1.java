@@ -28,43 +28,43 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbMetodoA = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblEspecies = new javax.swing.JTable();
         jLabel34 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtUso = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("    flora silvestre y los productos forestales no maderables");
 
-        jButton1.setText("Siguiente");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnSiguienteMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Anterior");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAnterior.setText("Anterior");
+        btnAnterior.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnAnteriorMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
 
@@ -80,12 +80,17 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel20.setText("5.1. Información de las especies objeto de la solicitud de aprovechamiento forestal o manejo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Mecánico", "Manual", "Mecánico-Manual" }));
+        cmbMetodoA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Mecánico", "Manual", "Mecánico-Manual" }));
+        cmbMetodoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMetodoAActionPerformed(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel21.setText("Método de aprovechamiento o manejo sostenible:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEspecies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 { new Short((short) 1), null, null, null, null, null, null, null, null},
                 { new Short((short) 2), null, null, null, null, null, null, null, null},
@@ -117,7 +122,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblEspecies);
 
         jLabel34.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
         jLabel34.setText("Nota: Para los aprovechamientos forestales únicos la información sobre el volumen corresponde a la establecida por el inventario estadístico.");
@@ -129,11 +134,16 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel17.setText("Especies objeto de la solicitud:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtUso.setColumns(20);
+        txtUso.setLineWrap(true);
+        txtUso.setRows(5);
+        txtUso.setWrapStyleWord(true);
+        txtUso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsoKeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(txtUso);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,7 +160,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbMetodoA, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel17)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33)
@@ -158,9 +168,9 @@ public class Seccion5_1 extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnAnterior)
                         .addGap(637, 637, 637)
-                        .addComponent(jButton1))))
+                        .addComponent(btnSiguiente))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +192,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbMetodoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addComponent(jLabel17)
                 .addGap(6, 6, 6)
@@ -199,8 +209,8 @@ public class Seccion5_1 extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)))
+                    .addComponent(btnAnterior)
+                    .addComponent(btnSiguiente)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,26 +222,38 @@ public class Seccion5_1 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         this.setVisible(false);
         new Seccion5_2(controlador).setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnSiguienteMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAnteriorActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
         this.setVisible(false);
         new Seccion4_2(controlador).setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnAnteriorMouseClicked
+
+    private void txtUsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsoKeyTyped
+        if (txtUso.getText().length() >= 150) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUsoKeyTyped
+
+    private void cmbMetodoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMetodoAActionPerformed
+         if (cmbMetodoA.getSelectedIndex() == 3) {
+            
+        }
+    }//GEN-LAST:event_cmbMetodoAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,9 +306,9 @@ public class Seccion5_1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JComboBox<String> cmbMetodoA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -300,7 +322,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTable tblEspecies;
+    private javax.swing.JTextArea txtUso;
     // End of variables declaration//GEN-END:variables
 }
