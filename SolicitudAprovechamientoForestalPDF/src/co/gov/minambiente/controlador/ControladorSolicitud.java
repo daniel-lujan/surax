@@ -1,5 +1,6 @@
 package co.gov.minambiente.controlador;
 
+import co.gov.minambiente.modelo.AddressModel;
 import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.RequestModel;
 import co.gov.minambiente.modelo.AttorneyModel;
@@ -81,8 +82,16 @@ public class ControladorSolicitud {
         }
     }
 
-    public void guardarInformacionSeccion4_1() {
-
+    public void guardarInformacionSeccion4_1(String nombre, String superficie, String direccion, String tipo, String departamento, 
+            String municipio, String vereda, String matriculaInmobiliaria, String cedulaCatastral) {
+        LinkedList<PropertyModel> properties = request.getProperties();
+        for(PropertyModel property : properties){
+            property.setName(nombre);
+            property.setSurface(superficie);
+            property.setAdress(new AddressModel(direccion, tipo, departamento, municipio, vereda));
+            property.setRealEstateRegistration(matriculaInmobiliaria);
+            property.setCadastralIdNumber(cedulaCatastral);
+        }
     }
 
     public void guardarInformacionSeccion4_2() {

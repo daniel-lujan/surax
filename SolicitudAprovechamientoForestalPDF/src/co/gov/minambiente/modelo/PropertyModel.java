@@ -12,7 +12,7 @@ public class PropertyModel {
     private String name;
     private String surface;
     private AddressModel adress;
-    private String realStateRegistration;
+    private String realEstateRegistration;
     private String cadastralIdNumber;
     private LinkedList<CoordinateModel> coordiantes;
     private LinkedList<SpecieModel> species;
@@ -24,7 +24,7 @@ public class PropertyModel {
         this.name = "";
         this.surface = "";
         this.adress = new AddressModel();
-        this.realStateRegistration = "";
+        this.realEstateRegistration = "";
         this.cadastralIdNumber = "";
         this.coordiantes = new LinkedList<>();
         this.species = new LinkedList<>();
@@ -35,20 +35,20 @@ public class PropertyModel {
         this.name = "";
         this.surface = "";
         this.adress = new AddressModel();
-        this.realStateRegistration = "";
+        this.realEstateRegistration = "";
         this.cadastralIdNumber = "";
         this.coordiantes = new LinkedList<>();
         this.species = new LinkedList<>();
     }
   
     public PropertyModel(String typeProperty, String name, String surface, 
-            AddressModel adress, String realStateRegistration, String cadastralIdNumber,
+            AddressModel adress, String realEstateRegistration, String cadastralIdNumber,
             LinkedList<CoordinateModel> coordiantes, LinkedList<SpecieModel> species) {
         this.typeProperty = typeProperty;
         this.name = name;
         this.surface = surface;
         this.adress = adress;
-        this.realStateRegistration = realStateRegistration;
+        this.realEstateRegistration = realEstateRegistration;
         this.cadastralIdNumber = cadastralIdNumber;
         this.coordiantes = coordiantes;
         this.species = species;
@@ -88,12 +88,12 @@ public class PropertyModel {
         this.adress = adress;
     }
 
-    public String getRealStateRegistration() {
-        return realStateRegistration;
+    public String getRealEstateRegistration() {
+        return realEstateRegistration;
     }
 
-    public void setRealStateRegistration(String realStateRegistration) {
-        this.realStateRegistration = realStateRegistration;
+    public void setRealEstateRegistration(String realEstateRegistration) {
+        this.realEstateRegistration = realEstateRegistration;
     }
 
     public String getCadastralIdNumber() {

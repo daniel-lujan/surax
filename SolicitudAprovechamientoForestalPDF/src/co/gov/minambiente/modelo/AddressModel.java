@@ -8,31 +8,26 @@ public class AddressModel {
     
     private String street;
     private String typeArea;
-    private DepartmentModel department;
+    private String department;
+    private String municipality;
     private String sidewalk;
 
     //Constructors 
     public AddressModel(){
         this.street = "";
         this.typeArea = "";
-        this.department = new DepartmentModel();
+        this.department = "";
+        this.municipality = "";
         this.sidewalk = "";
     }
     
-    public AddressModel(String street, String typeArea, DepartmentModel department){
+    public AddressModel(String street, String typeArea, String department, String municipality, String sidewalk){
         this.street = street;
         this.typeArea = typeArea;
         this.department = department;
-        this.sidewalk = null;
-    }
-    
-    public AddressModel(String street, String typeArea, DepartmentModel department, String sidewalk) {
-        this.street = street;
-        this.typeArea = typeArea;
-        this.department = department;
+        this.municipality = municipality;
         this.sidewalk = sidewalk;
     }
-    
     
     //Setters & getters
 
@@ -52,11 +47,11 @@ public class AddressModel {
         this.typeArea = typeArea;
     }
 
-    public DepartmentModel getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(DepartmentModel department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -67,6 +62,14 @@ public class AddressModel {
     public void setSidewalk(String sidewalk) {
         this.sidewalk = sidewalk;
     }
-    
 
+    public String getMunicipality() {
+        return municipality;
+    }
+
+    public void setMunicipality(String municipality) {
+        this.municipality = municipality;
+    }
+    
+    
 }

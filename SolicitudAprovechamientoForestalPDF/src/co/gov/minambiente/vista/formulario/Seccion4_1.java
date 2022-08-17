@@ -49,6 +49,11 @@ public class Seccion4_1 extends javax.swing.JFrame {
         txtCedulaCatastral.setEnabled(false);
     }
 
+    private void mostrarSiguienteVentana() {
+        this.setVisible(false);
+        new Seccion4_2(controlador).setVisible(true);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -426,15 +431,17 @@ public class Seccion4_1 extends javax.swing.JFrame {
                 && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
             if (rbSi.isSelected()) {
                 if (!matriculaInmobiliaria.equals("")) {
-                    this.setVisible(false);
-                    new Seccion4_2(controlador).setVisible(true);
+                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda, 
+                            matriculaInmobiliaria, cedulaCatastral);
+                    mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             } else if (rbNo.isSelected()) {
                 if (!cedulaCatastral.equals("")) {
-                    this.setVisible(false);
-                    new Seccion4_2(controlador).setVisible(true);
+                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda, 
+                            matriculaInmobiliaria, cedulaCatastral);
+                    mostrarSiguienteVentana();
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
