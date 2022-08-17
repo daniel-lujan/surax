@@ -21,7 +21,7 @@ public class RequestModel {
     private String howToAcquire;
     private LinkedList<CategoryModel> categories;
     private boolean approved;
-    private Date validity;
+    private Date creationDate;
     private String fileNumber;
     private String actNumber;
     private String intendedUse;
@@ -117,12 +117,12 @@ public class RequestModel {
         this.approved = approved;
     }
 
-    public Date getValidity() {
-        return validity;
+    public Date getcreationDate() {
+        return creationDate;
     }
 
-    public void setValidity(Date validity) {
-        this.validity = validity;
+    public void setcreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public String getREFERENCE() {

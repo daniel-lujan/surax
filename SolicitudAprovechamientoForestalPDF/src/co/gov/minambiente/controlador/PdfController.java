@@ -52,7 +52,7 @@ public class PdfController {
             lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 9);
             
             Paragraph p;
-            p = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            p = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f);
             lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
             lineCounter = addTitleLine(p, generatedDoc, lineCounter);
             lineCounter = addBodyLine(p, generatedDoc, lineCounter);
@@ -102,38 +102,54 @@ public class PdfController {
 
             p.setFixedLeading(20);
             p.setBorder(new SolidBorder(0.75f));
-            p.setMarginLeft(-5);
+            //p.setMarginLeft(-5);
             p.setMarginRight(-5);
+            p.setPaddingLeft(5);
             p.setRelativePosition(0, -18, 0, 0);
             generatedDoc.empujarParrafo(p);
 
             lineCounter = addSingleTitle(generatedDoc, lineCounter, blueBg, 27);
             Paragraph q;
 
-            q = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            q = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f);
             lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getFileNumber() + "\n");
-            lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getActNumber() + "\n");
+            lineCounter = addBodyLine(q, generatedDoc, lineCounter, String.valueOf(solicitude.getActNumber()) + "\n");
             lineCounter = addBodyTitleLine(q, generatedDoc, lineCounter);
             
-            q.setFixedLeading(15);
+            q.setFixedLeading(20);
             q.setBorder(new SolidBorder(0.75f));
-            q.setMarginLeft(-5);
+            //q.setMarginLeft(-5);
             q.setMarginRight(-5);
             q.setRelativePosition(0, -36, 0, 0);
             q.setPaddingTop(5);
+            q.setPaddingLeft(5);
             generatedDoc.empujarParrafo(q);
             
-            lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 27);
+            lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 45);
             Paragraph r;
-            r = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            r = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f);
             lineCounter = addBodyTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter, 7.5f);
+            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
+            
+ 
+
             
             r.setFixedLeading(20);
             r.setBorder(new SolidBorder(0.75f));
-            r.setMarginLeft(-5);
+            //r.setMarginLeft(-5);
             r.setMarginRight(-5);
-            r.setRelativePosition(0, -54, 0, 0);
+            r.setPaddingLeft(5);
             r.setPaddingTop(5);
+            r.setRelativePosition(0, -54, 0, 0);
             generatedDoc.empujarParrafo(r);
             generatedDoc.crearPdf();
             
@@ -245,13 +261,25 @@ public class PdfController {
         generatedDoc.pushText(p, new Text(temporal), bodyFont, 9f);
         return lineCounter;
     }
+    
+    public static int addBodyLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter, float fontSize) throws IOException {
+
+        try {
+            generatedDoc.pushText(p, texts.get(lineCounter), bodyFont, fontSize);
+            lineCounter++;
+        } catch (IOException e) {
+            System.out.println("Imposible generar la linea, la fuente no es válida");
+        }
+        return lineCounter;
+    }
 
     public static int addSingleTitle(PdfWorkspace generatedDoc, int i, Color color, int relativePosition) throws IOException {
-        Paragraph title = generatedDoc.nuevoParrafo(new Text(espacio + espacio), "ArialNarrowBold.ttf", 10f, 5);
+        Paragraph title = generatedDoc.nuevoParrafo(new Text(espacio + espacio), "ArialNarrowBold.ttf", 10f);
         generatedDoc.pushText(title, texts.get(i), "ArialNarrowBold.ttf", 10f);
         title.setBorder(new SolidBorder(0.75f));
-        title.setMarginLeft(-5);
+        //title.setMarginLeft(-5);
         title.setMarginRight(-5);
+        title.setPaddingLeft(5);
         i++;
         title.setBackgroundColor(color, 0.75f);
         title.setRelativePosition(0, 0, 0, relativePosition);
@@ -272,7 +300,7 @@ public class PdfController {
 
     public static void addHeader(PdfWorkspace generatedDoc, LinkedList<Text> texts) throws MalformedURLException, IOException {
 
-        Paragraph encabezado = generatedDoc.nuevoParrafo("minambiente.png", 44, 214, 30, 920, 0);
+        Paragraph encabezado = generatedDoc.nuevoParrafo("minambiente.png", 44, 214, 30, 920);
         encabezado.setTextAlignment(TextAlignment.CENTER);
         //Interlineado
         encabezado.setFixedLeading(12);
@@ -283,13 +311,11 @@ public class PdfController {
         encabezado.setMargin(-5);
         generatedDoc.empujarParrafo(encabezado);
 
-        encabezado = generatedDoc.nuevoParrafo(texts.get(2), "ArialMT.ttf", 8.3f, 0);
+        encabezado = generatedDoc.nuevoParrafo(texts.get(2), "ArialMT.ttf", 8.3f);
         encabezado.setBorder(new SolidBorder(0.75f));
         encabezado.setMarginLeft(-5);
         encabezado.setTextAlignment(TextAlignment.CENTER);
         encabezado.setMarginRight(-5);
         generatedDoc.empujarParrafo(encabezado);
-
     }
-
 }

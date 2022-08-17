@@ -8,7 +8,7 @@ Decreto 1076 de 2015, Resolución 1740 de 2016, Decreto 2106
 de 2019, Decreto 690 de 2021,
 -POR FAVOR LEA ATENTAMENTE LAS INSTRUCCIONES QUE SE INTEGRAN AL PRESENTE FORMATO ANTES DE SU DILIGENCIAMIENTO
 -DATOS BÁSICOS DE LA SOLICITUD:
--1.   Datos del interesado
+-1.		Datos del interesado
 -1.1.   Tipo de Solicitud:  -Nueva			Prórroga
 -1.2.   Identificación del interesado
 -Tipo de persona:   Natural	 		Jurídica Pública			Jurídica Privada
@@ -25,32 +25,31 @@ de 2019, Decreto 690 de 2021,
 -1.6. Costo del Proyecto, Obra o Actividad (Si aplica)
 -$-
 -Valor en letras:	-
--2. Si es una prórroga de un aprovechamiento o manejo sostenible aprobado
+-2.		Si es una prórroga de un aprovechamiento o manejo sostenible aprobado
 -Indique el número del expediente:-
--Indique el número de acto administrativo mediante el cual se otorgó el derecho al uso del recurso forestal (permiso, asociación, concesión
-	forestal o autorización)
--Nota: En caso de prórroga no diligencie los -numerales 3, 4 y 5
--3. Descripción detallada de la solicitud
--3.1. Modo de adquirir el derecho al uso del recurso-(ver instructivo):
--Seleccione de acuerdo con el tipo de solicitud el modo por el cual pretende adquirir el derecho al uso del recurso forestal:-
--Terrenos de dominio público:Permiso			 Asociación			 Concesión Forestal
--Predios de propiedad privada o colectiva: Autorización 
+-Indique el número de acto administrativo mediante el cual se otorgó el derecho al uso del recurso forestal (permiso, asociación, concesión forestal o autorización)-
+-Nota: -En caso de prórroga no diligencie los numerales 3, 4 y 5
+-3.		Descripción detallada de la solicitud
+-3.1. Modo de adquirir el derecho al uso del recurso	-(ver instructivo):
+-Seleccione de acuerdo con el tipo de solicitud el modo por el cual pretende adquirir el derecho al uso del recurso forestal:
+-Terrenos de dominio público:		Permiso			 	Asociación			 Concesión Forestal
+-Predios de propiedad privada o colectiva:	Autorización 
 -3.2. Productos forestales objeto de la solicitud de aprovechamiento o manejo sostenible-(ver instructivo):-
--De acuerdo con el tipo de solicitud a presentar, marque con una “X” la categoría respectiva:
+-De acuerdo con el tipo de solicitud a presentar, rellene la categoría respectiva:
 -A. Productos forestales maderables
 -Seleccione la clase de aprovechamiento a solicitar: Persistente			 Único			 Doméstico			 Manejo Forestal Unificado
 -B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables
 -Seleccione la clase de manejo sostenible a solicitar: Doméstico			 Persistente 
--Ingresos mensuales en Salarios Mínimos Legales Mensuales Vigentes – (SMLMV) esperados para la actividad comercial que se pretende desarrollar:-
+-Ingresos mensuales en Salarios Mínimos Legales Mensuales Vigentes – (SMLMV) esperados para la actividad comercial que se pretende desarrollar:
 -$-
--Valor en letras:-
+-Valor en letras:	-
 -En caso de que se seleccione la clase de manejo sostenible persistente, indique la categoría asociada:-
 -a. Pequeños			 b. Medianos			 c. Grandes
 -C. Árboles Aislados 
 -D. Guaduales y bambusales
 -Seleccione el tipo de aprovechamiento a solicitar:-
 -Tipo 1			 Tipo 2			 Cambio definitivo de uso del suelo			 Establecimiento y Manejo
--4. Información general del predio
+-4.		Información general del predio
 -4.1. Información del (los) predio(s) a intervenir:
 -Nombre del predio:-			 Superficie (ha):-
 -Dirección del predio-			 Urbano			 Rural
@@ -71,7 +70,7 @@ de 2019, Decreto 690 de 2021,
 
 -Nota. Para los aprovechamientos forestales domésticos de bosque natural, de árboles aislados y el manejo sostenible doméstico de la flora silvestre y
 -de los productos forestales no maderables, la autoridad ambiental competente en la visita, tomará las coordenadas planas o geográficas respectivas.
--5. Información sobre el aprovechamiento forestal o manejo sostenible de la flora silvestre y los productos forestales no maderables
+-5.		Información sobre el aprovechamiento forestal o manejo sostenible de la flora silvestre y los productos forestales no maderables
 -5.1. Información de las especies objeto de la solicitud de aprovechamiento forestal o manejo sostenible de flora silvestre y los productos forestales no
 -maderables y método-(Aplica para todas las categorías)
 -Método de aprovechamiento o manejo sostenible:- Mecánico			 Manual			 Mecánico-Manual			 
@@ -98,7 +97,7 @@ de 2019, Decreto 690 de 2021,
 -Tala			 Trasplante/Reubicación			
 -Actividad dentro de obras de infraestructura:- 
 -Construcción /Realización			 Remodelación			 Ampliación			 Instalación			 Similares * (especificar cuál):-
--6. Notificación
+-6.		Notificación
 -6.1. Tipo de notificación autorizada por los interesados
 -¿Autoriza la notificación electrónica? Si			 Correo electrónico:Teléfono(s):-			 
 -No			 Dirección de Notificación:-			 Municipio:-			 

@@ -28,15 +28,21 @@ import java.net.MalformedURLException;
 import java.util.LinkedList;
 import com.itextpdf.forms.fields.PdfButtonFormField;
 import com.itextpdf.forms.fields.PdfFormField;
+import com.itextpdf.io.source.RandomAccessSourceFactory;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceCmyk;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
+import static com.itextpdf.kernel.pdf.PdfName.List;
+import com.itextpdf.kernel.pdf.ReaderProperties;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.element.Tab;
-import com.itextpdf.layout.element.TabStop;
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -142,19 +148,17 @@ public class PdfWorkspace {
      * @param texto El texto a almacenar
      * @param nombreFuente Nombre de la fuente con extensión
      * @param tamano Tamaño de la fuente
-     * @param tabStop
      * @return Retorna el párrafo
      * @throws IOException Excepción que ocurre si la ruta de la fuente está mal
      */
-    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano, int tabStop) throws IOException {
+    public Paragraph nuevoParrafo(Text texto, String nombreFuente, float tamano) throws IOException {
         FontProgram temporal;
         temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
         Paragraph parrafo = new Paragraph(texto);
-        parrafo.addTabStops(new TabStop(tabStop));
-        //parrafo.add(new Tab());
+        parrafo.setFirstLineIndent(-5);
         parrafo.setFontColor(ColorConstants.BLACK);
         return parrafo;
     }
@@ -167,20 +171,18 @@ public class PdfWorkspace {
      * @param alto y
      * @param fixAncho Valor de ancho
      * @param fixAlto Valor de alto
-     * @param tabStop
      * @return Retorna el párrafo
      * @throws MalformedURLException
      */
     public Paragraph nuevoParrafo(String nombreImagen, int ancho, int alto, 
-            int fixAncho, int fixAlto, int tabStop) throws MalformedURLException {
+            int fixAncho, int fixAlto) throws MalformedURLException {
         Image temporal = new Image(ImageDataFactory.create(this.destinoImagen.getPath() 
                 + "\\" + nombreImagen));
         Paragraph parrafo = new Paragraph("");
-       /* parrafo.addTabStops(new TabStop(0));
-        parrafo.add(new Tab());*/
         parrafo.add(temporal);
         temporal.setMaxHeight(ancho * 3 / 4);
         temporal.setMaxWidth(alto * 3 / 4);
+        parrafo.setFirstLineIndent(-5);
         temporal.setFixedPosition(fixAncho, fixAlto);
         return parrafo;
     }
@@ -225,7 +227,6 @@ public class PdfWorkspace {
         texto.setFontSize(tamano);
         parrafo.setFontColor(ColorConstants.BLACK);
         parrafo.add(texto);
-        parrafo.add(new Tab());
     }
 
     /**
@@ -236,6 +237,53 @@ public class PdfWorkspace {
         canva = new PdfCanvas(pdf.getPage(0));
 
     }
+    
+    
+    public void allPAgesHeader() throws IOException{
+    
+        this.pdf.close();
+        
+       this.pdf = new PdfDocument(new PdfReader(new RandomAccessSourceFactory()
+                .createSource(createBaos().toByteArray()), new ReaderProperties()));
+
+        PdfDocument resultDoc = new PdfDocument(new PdfWriter(this.destino + "\\" + "prueba de prueba" +  this.nombre));
+        
+        resultDoc.initializeOutlines();
+
+        List<Integer> pages = new ArrayList<>();
+        pages.add(1);
+        for (int i = 8; i <= 10; i++) {
+            pages.add(i);
+        }
+        for (int i = 2; i <= 7; i++) {
+            pages.add(i);
+        }
+        pages.add(10);
+        this.pdf.copyPagesTo(pages, resultDoc);
+
+        resultDoc.close();
+        this.pdf.close();
+    }
+    
+    private static ByteArrayOutputStream createBaos() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(baos));
+        Document doc = new Document(pdfDoc);
+
+        for (int i = 1; i <= 10; i++) {
+            doc.add(new Paragraph(String.format("Page %s", i)));
+            if (10 != i) {
+                doc.add(new AreaBreak());
+            }
+        }
+        
+        doc.add(new Paragraph("aiuda"));
+        doc.close();
+
+        return baos;
+    }
+    
     /**
      * 
      * @param p 
@@ -252,7 +300,7 @@ public class PdfWorkspace {
         this.document.close();
         System.out.println("Documento creado");
     }
-
+ 
 
     //Setters & getters
     /**
