@@ -92,8 +92,6 @@ public class PdfController {
         } else {
             p.add(new Text("No aplica").setFontSize(9.5f));
         }
-        
-        
 
         p.setFixedLeading(20);
         p.setBorder(new SolidBorder(0.75f));
