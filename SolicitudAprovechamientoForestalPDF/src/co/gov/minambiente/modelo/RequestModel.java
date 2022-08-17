@@ -22,8 +22,8 @@ public class RequestModel {
     private LinkedList<CategoryModel> categories;
     private boolean approved;
     private Date validity;
-    private int fileNumber;
-    private int actNumber;
+    private String fileNumber;
+    private String actNumber;
     private String intendedUse;
     
     //constructors
@@ -35,8 +35,8 @@ public class RequestModel {
         this.properties = new LinkedList<>();
         this.howToAcquire = "";
         this.categories = new LinkedList<>();
-        this.fileNumber = 0;
-        this.actNumber = 0;
+        this.fileNumber = "";
+        this.actNumber = "";
         this.intendedUse = "";
     }
     
@@ -48,22 +48,22 @@ public class RequestModel {
         this.properties = properties;
         this.howToAcquire = "";
         this.categories = new LinkedList<>();
-        this.fileNumber = 0;
-        this.actNumber = 0;
+        this.fileNumber = "";
+        this.actNumber = "";
         this.intendedUse = "";
     }
     
     public RequestModel(int reference, String typeRequest, InterestedModel
             interested, LinkedList<PropertyModel> properties, String howToAcquire, LinkedList<CategoryModel>
-                    categories, String intendedUse) {
+                    categories, String intendedUse, String fileNumber, String actNumber) {
         this.REFERENCE = reference;
         this.typeRequest = typeRequest;
         this.interested = interested;
         this.properties = properties;
         this.howToAcquire = howToAcquire;
         this.categories = categories;
-        this.fileNumber = 0;
-        this.actNumber = 0;
+        this.fileNumber = fileNumber;
+        this.actNumber = actNumber;
         this.intendedUse = intendedUse;
     }
     
@@ -129,19 +129,19 @@ public class RequestModel {
         return REFERENCE;
     }
 
-    public int getFileNumber() {
+    public String getFileNumber() {
         return fileNumber;
     }
     
-    public void setFileNumber(int fileNumber){
+    public void setFileNumber(String fileNumber){
         this.fileNumber = fileNumber;
     }
     
-    public int getActNumber() {
+    public String getActNumber() {
         return actNumber;
     }
     
-    public void setActNumber(int actNumber){
+    public void setActNumber(String actNumber){
         this.actNumber = actNumber;
     } 
 
