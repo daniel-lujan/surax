@@ -15,6 +15,7 @@ import co.gov.minambiente.modelo.RequestModel;
 public class RequestsDatabase{
     
     private static ArrayList<RequestModel> db = new ArrayList();
+    private static final int REFERENCE_LENGTH = 10;
     
     /**
      * Adds a request into the database
@@ -102,5 +103,20 @@ public class RequestsDatabase{
             array[i] = req;
         });
         return array;
+    }
+    
+    /**
+     * Gets a new request reference
+     * @return reference
+     */
+    public static String getNewReference(){
+        String ref;
+        while (true){
+            ref = String.valueOf(Math.random()).substring(2, 2+REFERENCE_LENGTH);
+            if (get(ref) == null){
+                break;
+            }
+        }
+        return ref;
     }
 }

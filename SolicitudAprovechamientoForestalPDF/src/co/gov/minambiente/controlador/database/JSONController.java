@@ -48,8 +48,11 @@ public class JSONController {
         ArrayList<java.util.LinkedHashMap> lista;
         try {
             lista = om.readerFor(ArrayList.class).readValue(new File(REQUESTS_PATH));
-            System.out.println(lista.get(0).get("properties").getClass().getSimpleName());
-            System.out.println(lista);
+            ObjectInstantiator oi;
+            for (java.util.LinkedHashMap hm : lista){
+                oi = new ObjectInstantiator(hm);
+                RequestsDatabase.add(oi.getRequestInstance());
+            }
         } catch (com.fasterxml.jackson.core.JsonProcessingException ex) {
             ex.printStackTrace();
         } catch (java.io.IOException e){
