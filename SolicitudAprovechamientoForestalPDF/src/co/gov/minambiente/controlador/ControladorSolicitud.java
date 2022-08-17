@@ -3,11 +3,15 @@ package co.gov.minambiente.controlador;
 import co.gov.minambiente.modelo.DepartmentModel;
 import co.gov.minambiente.modelo.RequestModel;
 import co.gov.minambiente.modelo.AttorneyModel;
+import co.gov.minambiente.modelo.CategoryAModel;
+import co.gov.minambiente.modelo.CategoryBModel;
+import co.gov.minambiente.modelo.CategoryCModel;
+import co.gov.minambiente.modelo.CategoryDModel;
+import co.gov.minambiente.modelo.CategoryModel;
 import co.gov.minambiente.modelo.PropertyModel;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -40,8 +44,9 @@ public class ControladorSolicitud {
         request.addProperties(new PropertyModel(tipoPredio));
         
         if(aplicaCosto){
-            HashMap<Integer, String> cost = new HashMap<>();
-            cost.put(Integer.parseInt(costo), costoLetras);
+            ArrayList<String> cost = new ArrayList<>();
+            cost.add(costo);
+            cost.add(costoLetras);
             request.getInterested().setProjectCost(cost);
         }
     }
@@ -51,9 +56,29 @@ public class ControladorSolicitud {
         request.setActNumber(Integer.parseInt(numeroActo));
     }
 
-    public void guardarInformacionSeccion3(String terrenosDominio, ArrayList<String> categorias, String tipoAprovechamientoA, String claseManejo, 
-            String ingresos, String ingresosLetras, String categoriaAsociada, String tipoAprovechamiento) {
+    public void guardarInformacionSeccion3(String terrenosDominio, LinkedList<String> categorias, String tipoAprovechamientoA, String claseManejo, 
+            String ingresos, String ingresosLetras, String categoriaAsociada, String tipoAprovechamientoD) {
         request.setHowToAcquire(terrenosDominio);
+        ArrayList<CategoryModel> categoriasModelo = new ArrayList<>();
+        for(String categoria : categorias){
+            switch (categoria){
+                case "A":
+                    categoriasModelo.add(new CategoryAModel(tipoAprovechamientoA, "Productos forestales maderables"));
+                    break;
+                case "B":
+                    ArrayList<String> revenues = new ArrayList<>();
+                    revenues.add(ingresos);
+                    revenues.add(ingresosLetras);
+                    categoriasModelo.add(new CategoryBModel(claseManejo, revenues, categoriaAsociada, "Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables"));
+                    break;
+                case "C":
+                    categoriasModelo.add(new CategoryCModel("Árboles Aislados"));
+                    break;
+                case "D":
+                    categoriasModelo.add(new CategoryDModel(tipoAprovechamientoD, "Guaduales y bambusales"));
+                    break;
+            }
+        }
     }
 
     public void guardarInformacionSeccion4_1() {
@@ -98,5 +123,11 @@ public class ControladorSolicitud {
             }
         }
         return null;
+    }
+
+    private static class LinkedLink<T> {
+
+        public LinkedLink() {
+        }
     }
 }

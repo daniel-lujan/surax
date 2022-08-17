@@ -12,7 +12,7 @@ public class CategoryDModel extends CategoryModel{
         this.typeUtilization = "";
     }
     
-    public CategoryDModel(String name, String typeUtilization) {
+    public CategoryDModel(String typeUtilization, String name) {
         super(name);
         this.typeUtilization = typeUtilization;
     }

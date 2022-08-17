@@ -3,6 +3,7 @@ package co.gov.minambiente.vista.formulario;
 import co.gov.minambiente.controlador.ControladorSolicitud;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,6 +42,7 @@ public class Seccion3 extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -66,10 +68,10 @@ public class Seccion3 extends javax.swing.JFrame {
         cmbTipoAprovechamientoA = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         cmbClaseManejo = new javax.swing.JComboBox<>();
-        rbD = new javax.swing.JRadioButton();
-        rbA = new javax.swing.JRadioButton();
-        rbB = new javax.swing.JRadioButton();
-        rbC = new javax.swing.JRadioButton();
+        lbA = new javax.swing.JCheckBox();
+        lbB = new javax.swing.JCheckBox();
+        lbC = new javax.swing.JCheckBox();
+        lbD = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,39 +200,35 @@ public class Seccion3 extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(rbD);
-        rbD.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        rbD.setText("D. Guaduales y bambusales");
-        rbD.addActionListener(new java.awt.event.ActionListener() {
+        lbA.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lbA.setText("A. Productos forestales maderables");
+        lbA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbDActionPerformed(evt);
+                lbAActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rbA);
-        rbA.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        rbA.setText("A. Productos forestales maderables");
-        rbA.addActionListener(new java.awt.event.ActionListener() {
+        lbB.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lbB.setText("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
+        lbB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbAActionPerformed(evt);
+                lbBActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rbB);
-        rbB.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        rbB.setText("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
-        rbB.addActionListener(new java.awt.event.ActionListener() {
+        lbC.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lbC.setText("C. Árboles Aislados ");
+        lbC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbBActionPerformed(evt);
+                lbCActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rbC);
-        rbC.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        rbC.setText("C. Árboles Aislados ");
-        rbC.addActionListener(new java.awt.event.ActionListener() {
+        lbD.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        lbD.setText("D. Guaduales y bambusales");
+        lbD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbCActionPerformed(evt);
+                lbDActionPerformed(evt);
             }
         });
 
@@ -239,9 +237,9 @@ public class Seccion3 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel13)
@@ -255,12 +253,6 @@ public class Seccion3 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbAutorizacion))
                             .addComponent(jLabel11)
-                            .addComponent(rbA, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbTipoAprovechamientoA, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rbB, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -278,18 +270,30 @@ public class Seccion3 extends javax.swing.JFrame {
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cmbCategoriaAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rbC, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbD, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(11, 11, 11)
                                 .addComponent(cmbTipoAprovechamientoD, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAnterior)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSiguiente)
-                                .addGap(42, 42, 42))))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbTipoAprovechamientoA, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(734, 734, 734))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSiguiente)
+                        .addGap(133, 133, 133))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -314,14 +318,14 @@ public class Seccion3 extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel11)
                 .addGap(9, 9, 9)
-                .addComponent(rbA)
-                .addGap(6, 6, 6)
+                .addComponent(lbA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(cmbTipoAprovechamientoA, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(rbB)
-                .addGap(6, 6, 6)
+                .addGap(8, 8, 8)
+                .addComponent(lbB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(cmbClaseManejo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -338,26 +342,26 @@ public class Seccion3 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
                     .addComponent(cmbCategoriaAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(rbC)
-                .addGap(20, 20, 20)
-                .addComponent(rbD)
-                .addGap(10, 10, 10)
+                .addGap(14, 14, 14)
+                .addComponent(lbC)
+                .addGap(14, 14, 14)
+                .addComponent(lbD)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(cmbTipoAprovechamientoD, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAnterior)
                     .addComponent(btnSiguiente))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,16 +371,19 @@ public class Seccion3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void setEnabledSection1(boolean state) {
+        lbA.setSelected(state);
         cmbTipoAprovechamientoA.setEnabled(state);
     }
 
     private void setEnabledSection2(boolean state) {
+        lbB.setSelected(state);
         cmbClaseManejo.setEnabled(state);
         txtIngresosLetras.setEnabled(state);
         txtIngresos.setEnabled(state);
     }
 
     private void setEnabledSection4(boolean state) {
+        lbD.setSelected(state);
         cmbTipoAprovechamientoD.setEnabled(state);
     }
 
@@ -423,10 +430,10 @@ public class Seccion3 extends javax.swing.JFrame {
         String ingresosLetras = txtIngresosLetras.getText().trim();
         String categoriaAsociada = (String) cmbCategoriaAsociada.getSelectedItem();
         String tipoAprovechamientoD = (String) cmbTipoAprovechamientoD.getSelectedItem();
-        ArrayList<String> categorias = new ArrayList<>();
+        LinkedList<String> categorias = new LinkedList<>();
 
         if (!terrenosDominio.equals("Seleccione")) {
-            if (rbA.isSelected()) {
+            if (lbA.isSelected()) {
                 categorias.add("A");
                 if (!tipoAprovechamientoA.equals("Seleccione")) {
                     controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
@@ -435,7 +442,9 @@ public class Seccion3 extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } else if (rbB.isSelected()) {
+            }
+            
+            if (lbB.isSelected()) {
                 categorias.add("B");
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
                     if (cmbClaseManejo.getSelectedIndex() == 2) {
@@ -454,12 +463,16 @@ public class Seccion3 extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } else if (rbC.isSelected()) {
+            } 
+            
+            if (lbC.isSelected()) {
                 categorias.add("C");
                 controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                         ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                 mostrarSiguienteVentana();
-            } else if (rbD.isSelected()) {
+            } 
+            
+            if (lbD.isSelected()) {
                 categorias.add("C");
                 if (!tipoAprovechamientoD.equals("Seleccione")) {
                     controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
@@ -468,9 +481,12 @@ public class Seccion3 extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } else {
+            } 
+            
+            if(!lbA.isSelected() && !lbB.isSelected() && !lbC.isSelected() && !lbD.isSelected()){
                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
             }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
         }
@@ -510,30 +526,6 @@ public class Seccion3 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbClaseManejoActionPerformed
 
-    private void rbDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbDActionPerformed
-        setEnabledSection1(false);
-        setEnabledSection2(false);
-        setEnabledSection4(true);
-    }//GEN-LAST:event_rbDActionPerformed
-
-    private void rbBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBActionPerformed
-        setEnabledSection1(false);
-        setEnabledSection2(true);
-        setEnabledSection4(false);
-    }//GEN-LAST:event_rbBActionPerformed
-
-    private void rbCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCActionPerformed
-        setEnabledSection1(false);
-        setEnabledSection2(false);
-        setEnabledSection4(false);
-    }//GEN-LAST:event_rbCActionPerformed
-
-    private void rbAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAActionPerformed
-        setEnabledSection1(true);
-        setEnabledSection2(false);
-        setEnabledSection4(false);
-    }//GEN-LAST:event_rbAActionPerformed
-
     private void txtIngresosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosKeyTyped
         if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
@@ -545,6 +537,51 @@ public class Seccion3 extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtIngresosLetrasKeyTyped
+
+    private void lbAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbAActionPerformed
+        if (lbA.isSelected()) {
+            setEnabledSection1(true);
+            lbC.setSelected(false);
+            setEnabledSection4(false);
+        } else {
+            setEnabledSection1(false);
+            lbC.setSelected(false);
+            setEnabledSection4(false);
+        }
+    }//GEN-LAST:event_lbAActionPerformed
+
+    private void lbBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbBActionPerformed
+        if (lbB.isSelected()) {
+            setEnabledSection2(true);
+            lbC.setSelected(false);
+            setEnabledSection4(false);
+        } else {
+            setEnabledSection2(false);
+            lbC.setSelected(false);
+            setEnabledSection4(false);
+        }
+    }//GEN-LAST:event_lbBActionPerformed
+
+    private void lbCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbCActionPerformed
+        if (lbC.isSelected()) {
+            setEnabledSection1(false);
+            setEnabledSection2(false);
+            setEnabledSection4(false);
+        } else {
+            lbC.setSelected(false);
+        }
+    }//GEN-LAST:event_lbCActionPerformed
+
+    private void lbDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbDActionPerformed
+        if (lbD.isSelected()) {
+            setEnabledSection1(false);
+            setEnabledSection2(false);
+            lbC.setSelected(false);
+            setEnabledSection4(true);
+        } else {
+            setEnabledSection4(false);
+        }
+    }//GEN-LAST:event_lbDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -592,6 +629,7 @@ public class Seccion3 extends javax.swing.JFrame {
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbCategoriaAsociada;
     private javax.swing.JComboBox<String> cmbClaseManejo;
     private javax.swing.JComboBox<String> cmbTerrenosDominio;
@@ -612,11 +650,11 @@ public class Seccion3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JCheckBox lbA;
     private javax.swing.JCheckBox lbAutorizacion;
-    private javax.swing.JRadioButton rbA;
-    private javax.swing.JRadioButton rbB;
-    private javax.swing.JRadioButton rbC;
-    private javax.swing.JRadioButton rbD;
+    private javax.swing.JCheckBox lbB;
+    private javax.swing.JCheckBox lbC;
+    private javax.swing.JCheckBox lbD;
     private javax.swing.JTextField txtIngresos;
     private javax.swing.JTextField txtIngresosLetras;
     // End of variables declaration//GEN-END:variables

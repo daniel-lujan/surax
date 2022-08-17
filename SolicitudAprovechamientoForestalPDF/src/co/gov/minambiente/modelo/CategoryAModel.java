@@ -7,19 +7,16 @@ package co.gov.minambiente.modelo;
 public class CategoryAModel extends CategoryModel {
     
     private String typeUtilization;
-    private String MethodUtilization;
 
     //Constructors  
     public CategoryAModel(String name){
         super(name);
-        this.MethodUtilization = null;
         this.typeUtilization = null;
     }
 
-    public CategoryAModel(String typeUtilization, String MethodUtilization, String name) {
+    public CategoryAModel(String typeUtilization, String name) {
         super(name);
         this.typeUtilization = typeUtilization;
-        this.MethodUtilization = MethodUtilization;
     }
     
     //Setters & getters
@@ -30,14 +27,6 @@ public class CategoryAModel extends CategoryModel {
 
     public void setTypeUtilization(String typeUtilization) {
         this.typeUtilization = typeUtilization;
-    }
-
-    public String getMethodUtilization() {
-        return MethodUtilization;
-    }
-
-    public void setMethodUtilization(String MethodUtilization) {
-        this.MethodUtilization = MethodUtilization;
     }
 
     @Override

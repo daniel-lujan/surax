@@ -1,5 +1,6 @@
 package co.gov.minambiente.modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -8,24 +9,21 @@ import java.util.HashMap;
  */
 public class CategoryBModel extends CategoryModel{
     private String typeOperation;
-    private HashMap<Integer, String> revenuesExpected;
+    private ArrayList<String> revenuesExpected;
     private String associatedCategory;
-    private String methodUtilization;
 
     public CategoryBModel(String name) {
         super(name);
         this.typeOperation = "";
-        this.revenuesExpected = new HashMap<>();
+        this.revenuesExpected = new ArrayList<>();
         this.associatedCategory = "";
-        this.methodUtilization = "";
     }
 
-    public CategoryBModel(String typeOperation, HashMap<Integer, String> revenuesExpected, String associatedCategory, String methodUtilization, String name) {
+    public CategoryBModel(String typeOperation, ArrayList<String> revenuesExpected, String associatedCategory, String name) {
         super(name);
         this.typeOperation = typeOperation;
         this.revenuesExpected = revenuesExpected;
         this.associatedCategory = associatedCategory;
-        this.methodUtilization = methodUtilization;
     }
 
     public String getTypeOperation() {
@@ -36,11 +34,11 @@ public class CategoryBModel extends CategoryModel{
         this.typeOperation = typeOperation;
     }
 
-    public HashMap<Integer, String> getRevenuesExpected() {
+    public ArrayList<String> getRevenuesExpected() {
         return revenuesExpected;
     }
 
-    public void setRevenuesExpected(HashMap<Integer, String> revenuesExpected) {
+    public void setRevenuesExpected(ArrayList<String> revenuesExpected) {
         this.revenuesExpected = revenuesExpected;
     }
 
@@ -50,13 +48,5 @@ public class CategoryBModel extends CategoryModel{
 
     public void setAssociatedCategory(String associatedCategory) {
         this.associatedCategory = associatedCategory;
-    }
-
-    public String getMethodUtilization() {
-        return methodUtilization;
-    }
-
-    public void setMethodUtilization(String methodUtilization) {
-        this.methodUtilization = methodUtilization;
     } 
 }
