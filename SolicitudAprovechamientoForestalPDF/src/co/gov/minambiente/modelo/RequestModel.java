@@ -5,7 +5,6 @@
  */
 package co.gov.minambiente.modelo;
 
-import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -19,12 +18,11 @@ public class RequestModel {
     private InterestedModel interested;
     private LinkedList<PropertyModel> properties;
     private String howToAcquire;
-    private CategoryAModel categoryA = new CategoryAModel();
-    private CategoryBModel categoryB = new CategoryBModel();
-    private CategoryCModel categoryC = new CategoryCModel();
-    private CategoryDModel categoryD = new CategoryDModel();
-    private boolean approved;
-    private Date creationDate;
+    private CategoryAModel categoryA;
+    private CategoryBModel categoryB;
+    private CategoryCModel categoryC;
+    private CategoryDModel categoryD;
+    private DateModel creationDate;
     private String fileNumber;
     private String actNumber;
     private String intendedUse;
@@ -39,6 +37,11 @@ public class RequestModel {
         this.fileNumber = "";
         this.actNumber = "";
         this.intendedUse = "";
+        this.categoryA = new CategoryAModel();
+        this.categoryB = new CategoryBModel();
+        this.categoryC = new CategoryCModel();
+        this.categoryD = new CategoryDModel();
+        this.creationDate = new DateModel();
     }
 
     public RequestModel(String reference, String typeRequest, InterestedModel interested, LinkedList<PropertyModel> properties) {
@@ -50,15 +53,24 @@ public class RequestModel {
         this.fileNumber = "";
         this.actNumber = "";
         this.intendedUse = "";
+        this.categoryA = new CategoryAModel();
+        this.categoryB = new CategoryBModel();
+        this.categoryC = new CategoryCModel();
+        this.categoryD = new CategoryDModel();
+        this.creationDate = new DateModel();
     }
 
-    public RequestModel(String reference, String typeRequest, InterestedModel interested, LinkedList<PropertyModel> properties, 
-            String howToAcquire, String intendedUse, String fileNumber, String actNumber) {
-        this.REFERENCE = reference;
+    public RequestModel(String REFERENCE, String typeRequest, InterestedModel interested, LinkedList<PropertyModel> properties, String howToAcquire, CategoryAModel categoryA, CategoryBModel categoryB, CategoryCModel categoryC, CategoryDModel categoryD, DateModel creationDate, String fileNumber, String actNumber, String intendedUse) {
+        this.REFERENCE = REFERENCE;
         this.typeRequest = typeRequest;
         this.interested = interested;
         this.properties = properties;
         this.howToAcquire = howToAcquire;
+        this.categoryA = categoryA;
+        this.categoryB = categoryB;
+        this.categoryC = categoryC;
+        this.categoryD = categoryD;
+        this.creationDate = creationDate;
         this.fileNumber = fileNumber;
         this.actNumber = actNumber;
         this.intendedUse = intendedUse;
@@ -129,27 +141,11 @@ public class RequestModel {
         this.categoryD = categoryD;
     }
 
-    public Date getCreationDate() {
+    public DateModel getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
-    }
-
-    public Date getcreationDate() {
-        return creationDate;
-    }
-
-    public void setcreationDate(Date creationDate) {
+    public void setCreationDate(DateModel creationDate) {
         this.creationDate = creationDate;
     }
 
