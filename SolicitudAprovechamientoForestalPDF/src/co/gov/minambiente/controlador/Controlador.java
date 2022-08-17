@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -35,15 +36,16 @@ public class Controlador {
         PdfWorkspace generatedDoc = new PdfWorkspace("Prueba.pdf", 10, "src\\co\\gov\\minambiente\\fonts\\");
         
         RequestModel form1 = new RequestModel(1);
-        HashMap<Integer, String> a = new HashMap<>();
-        a.put(12000000, "Doce millones de pesos");
-
+        ArrayList <String> a = new ArrayList<> ();
+        a.add("1200000");
+        a.add("Doce millones de pesos");
+        
         InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(),
                 "Propietario", a, false, "bob_esponja@gmail.com", 304446985, "Bob Esponja", "cc", 1101760080);
-
+        
         AttorneyModel attorney = new AttorneyModel("856413T", "Patricio Estrella",
                 "CC", 552116447);
-
+        
         interested.setAttorney(attorney);
         
         form1.setTypeRequest("nueva");
@@ -54,12 +56,4 @@ public class Controlador {
         PdfController.generateCheckBoxes(generatedDoc, new DeviceRgb(212,216,210));
         PdfController.fillDocument(generatedDoc, form1);
     }
-
-    /**
-     *
-     * @param generatedDoc
-     * @throws MalformedURLException
-     * @throws IOException
-     */
-    
 }

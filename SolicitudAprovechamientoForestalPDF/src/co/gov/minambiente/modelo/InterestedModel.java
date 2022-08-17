@@ -1,5 +1,6 @@
 package co.gov.minambiente.modelo;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -12,7 +13,7 @@ public class InterestedModel extends PersonModel {
     private LinkedList<Integer> requests;
     private AttorneyModel attorney;
     private String interestedQuality;
-    private String[] projectCost;
+    private ArrayList<String> projectCost;
     private boolean authorization;
     private String emailAdress;
     private long telephone;
@@ -26,7 +27,7 @@ public class InterestedModel extends PersonModel {
         this.requests = new LinkedList();
         this.attorney = null;
         this.interestedQuality = null;
-        this.projectCost = new String[2];
+        this.projectCost = new ArrayList<>();
         this.authorization = false;
         this.emailAdress = null;
         this.telephone = 0;
@@ -34,7 +35,7 @@ public class InterestedModel extends PersonModel {
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
-            String interestedQuality, String[] projectCost,
+            String interestedQuality, ArrayList projectCost,
             boolean authorization, String emailAdress,long telephone) {
 
         this.typePerson = typePerson;
@@ -48,7 +49,7 @@ public class InterestedModel extends PersonModel {
     }
 
     public InterestedModel(String typePerson, LinkedList<Integer> requests,
-           String interestedQuality, String[] projectCost,
+           String interestedQuality, ArrayList projectCost,
            boolean authorization, String emailAdress, long telephone, 
            String name, String typeId, long id) {
 
@@ -64,7 +65,7 @@ public class InterestedModel extends PersonModel {
     }
     
         public InterestedModel(String typePerson, int requestReference,
-           String interestedQuality, String[] projectCost,
+           String interestedQuality, ArrayList projectCost,
            boolean authorization, String emailAdress, long telephone, 
            String name, String typeId, long id) {
 
@@ -113,11 +114,11 @@ public class InterestedModel extends PersonModel {
         this.attorney = attorney;
     }
 
-    public String[] getProjectCost() {
+    public ArrayList getProjectCost() {
         return projectCost;
     }
 
-    public void setProjectCost(String[] projectCost) {
+    public void setProjectCost(ArrayList projectCost) {
         this.projectCost = projectCost;
     }
 

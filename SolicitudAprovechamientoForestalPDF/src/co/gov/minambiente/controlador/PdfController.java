@@ -86,7 +86,7 @@ public class PdfController {
         lineCounter = addBodyLine(p, generatedDoc, lineCounter);
         lineCounter = addTitleLine(p, generatedDoc, lineCounter);
 
-        if (solicitude.getInterested().getProjectCost().get(0) != null) {
+        if (solicitude.getInterested().getProjectCost() != null) {
             lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(0)) + "\n");
             lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(1)) + "\n");
         } else {
@@ -111,22 +111,26 @@ public class PdfController {
      */
     public static void generateCheckBoxes(PdfWorkspace generatedDoc, Color color) {
 
+        int y = 817;
+            
         //first
-        generatedDoc.createRectangle(color, 160, 801, 18, 10);
-        generatedDoc.createRectangle(color, 225, 801, 18, 10);
+        generatedDoc.createRectangle(color, 160, y, 18, 10);
+        generatedDoc.createRectangle(color, 225, y, 18, 10);
         //second
-        generatedDoc.createRectangle(color, 144, 761, 18, 10);
-        generatedDoc.createRectangle(color, 239, 761, 18, 10);
-        generatedDoc.createRectangle(color, 334, 761, 18, 10);
+        generatedDoc.createRectangle(color, 144, y-40, 18, 10);
+        generatedDoc.createRectangle(color, 239, y-40, 18, 10);
+        generatedDoc.createRectangle(color, 334, y-40, 18, 10);
         //thirth
-        generatedDoc.createRectangle(color, 149, 721, 18, 10);
-        generatedDoc.createRectangle(color, 194, 721, 18, 10);
-        generatedDoc.createRectangle(color, 239, 721, 18, 10);
-        generatedDoc.createRectangle(color, 286, 721, 18, 10);
+        generatedDoc.createRectangle(color, 149, y-80, 18, 10);
+        generatedDoc.createRectangle(color, 194, y-80, 18, 10);
+        generatedDoc.createRectangle(color, 239, y-80, 18, 10);
+        generatedDoc.createRectangle(color, 286, y-80, 18, 10);
         //Fourth
-        generatedDoc.createRectangle(color, 149, 661, 18, 10);
-        generatedDoc.createRectangle(color, 194, 661, 18, 10);
-        generatedDoc.createRectangle(color, 239, 661, 18, 10);
+        generatedDoc.createRectangle(color, 149, y-140, 18, 10);
+        generatedDoc.createRectangle(color, 194, y-140, 18, 10);
+        generatedDoc.createRectangle(color, 239, y-140, 18, 10); 
+        //Fifth
+        
     }
 
     public static int addBodyTitleLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter) throws IOException {
@@ -226,7 +230,7 @@ public class PdfController {
         encabezado.setMargin(-5);
         generatedDoc.empujarParrafo(encabezado);
 
-        encabezado = generatedDoc.nuevoParrafo(texts.get(2), "ArialMT.ttf", 9f, 0);
+        encabezado = generatedDoc.nuevoParrafo(texts.get(2), "ArialMT.ttf", 8.3f, 0);
         encabezado.setBorder(new SolidBorder(0.75f));
         encabezado.setMarginLeft(-5);
         encabezado.setTextAlignment(TextAlignment.CENTER);
