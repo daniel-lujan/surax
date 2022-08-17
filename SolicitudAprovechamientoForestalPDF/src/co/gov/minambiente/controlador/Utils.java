@@ -122,5 +122,8 @@ public class Utils {
 
         return departments;
     }
-
+    
+    public static String capString(String str, int length){
+        return (length >= str.length() ? str : str.substring(0,length));
+    }
 }
