@@ -17,26 +17,26 @@ import java.util.ArrayList;
 public class JSONTesting {
     public static void main(String[] args) {
         JSONController controller = new JSONController();
-//        RequestModel form1 = new RequestModel("1");
-//        ArrayList <String> a = new ArrayList<> ();
-//        a.add("1200000");
-//        a.add("Doce millones de pesos");
-//        
-//        InterestedModel interested = new InterestedModel("Natural",
-//                "Propietario", a, false, "bob_esponja@gmail.com", "304446985", "Bob Esponja", "cc", "1101760080");
-//        
-//        AttorneyModel attorney = new AttorneyModel("856413T", "Patricio Estrella",
-//                "CC", "552116447");
-//        
-//        interested.setAttorney(attorney);
-//        
-//        form1.setTypeRequest("nueva");
-//        form1.setInterested(interested);
-//        
-//        RequestsDatabase.add(form1);
-//        controller.saveRequestsDatabase();
-        controller.loadRequestsDatabase();
+        RequestModel form1 = new RequestModel("1");
+        ArrayList <String> a = new ArrayList<> ();
+        a.add("1200000");
+        a.add("Doce millones de pesos");
         
-        controller.saveRequestsDatabase();
+        InterestedModel interested = new InterestedModel("Natural",
+                "Propietario", a, false, "bob_esponja@gmail.com", "304446985", "Bob Esponja", "cc", "1101760080");
+        
+        AttorneyModel attorney = new AttorneyModel("856413T", "Patricio Estrella",
+                "CC", "552116447");
+        
+        interested.setAttorney(attorney);
+        
+        form1.setTypeRequest("nueva");
+        form1.setInterested(interested);
+        
+        RequestsDatabase.add(form1);
+        
+        //controller.saveRequestsDatabase();
+//        controller.loadRequestsDatabase();
+        
     }
 }

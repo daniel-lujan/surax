@@ -29,7 +29,11 @@ class ObjectInstantiator {
                 getInterestedInstance((LinkedHashMap) hm.get("interested")),
                 getPropertiesList((ArrayList) hm.get("properties")),
                 (String) hm.get("howToAcquire"),
-                getCategoriesList((ArrayList) hm.get("categories")),
+                (CategoryAModel)getCategoryInstance((LinkedHashMap)hm.get("categoryA")),
+                (CategoryBModel)getCategoryInstance((LinkedHashMap)hm.get("categoryB")),
+                (CategoryCModel)getCategoryInstance((LinkedHashMap)hm.get("categoryC")),
+                (CategoryDModel)getCategoryInstance((LinkedHashMap)hm.get("categoryD")),
+                (DateModel)getDateInstance((LinkedHashMap)hm.get("creationDate")),
                 (String) hm.get("intendedUse"),
                 (String) hm.get("fileNumber"),
                 (String) hm.get("actNumber")
@@ -161,65 +165,60 @@ class ObjectInstantiator {
     private CategoryModel getCategoryInstance(LinkedHashMap info) {
         String[] keys = (String[]) info.keySet().toArray();
         CategoryModel category;
-        if (keys.length > 1) {
-            switch (keys[1]) {
-                case "typeUtilization":
-                    if (((String) info.get("name")).equals(" - nombre de categoria A")) {
-                        category = new CategoryAModel(
-                                (String) info.get("typeUtilization"),
-                                (String) info.get("name")
+        switch ((String) info.get("name")) {
+            case "A. Productos forestales maderables":
+                category = new CategoryAModel((String) info.get("typeUtilization"));
+                break;
+            case "B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables":
+                category = new CategoryBModel(
+                        (String) info.get("typeOperation"),
+                        (ArrayList) info.get("revenuesExpected"),
+                        (String) info.get("associatedCategory")
+                );
+                break;
+            case "C. Árboles Aislados":
+                switch (keys.length) {
+                    case 2:
+                        category = new CategoryC2Model((String) info.get("locationOrType"));
+                        break;
+                    case 3:
+                        category = new CategoryC1Model(
+                                (String) info.get("locationOrType"),
+                                (String) info.get("individualStatus")
                         );
-                    } else {
-                        category = new CategoryDModel(
-                                (String) info.get("typeUtilization"),
-                                (String) info.get("name")
+                        break;
+                    case 4:
+                        category = new CategoryC4Model(
+                                (boolean) info.get("logging"),
+                                (String) info.get("activity"),
+                                (String) info.get("locationOrType")
                         );
-                    }
-                    break;
-                case "typeOperation":
-                    category = new CategoryBModel(
-                            (String) info.get("typeOperation"),
-                            (ArrayList) info.get("revenuesExpected"),
-                            (String) info.get("associatedCategory"),
-                            (String) info.get("name")
-                    );
-                    break;
-                default:
-                    switch (keys.length) {
-                        case 3:
-                            category = new CategoryC1Model(
-                                    (String) info.get("locationOrType"),
-                                    (String) info.get("name"),
-                                    (String) info.get("individualStatus")
-                            );
-                            break;
-                        case 5:
-                            category = new CategoryC3Model(
-                                    (String) info.get("locationOrType"),
-                                    (String) info.get("name"),
-                                    (boolean) info.get("logging"),
-                                    (String) info.get("individualStatus"),
-                                    (String) info.get("cause")
-                            );
-                            break;
-                        default:
-                            category = new CategoryC4Model(
-                                    (boolean) info.get("logging"),
-                                    (String) info.get("activity"),
-                                    (String) info.get("locationOrType"),
-                                    (String) info.get("name")
-                            );
-                            break;
-                    }
-                    break;
-            }
-        } else {
-            category = new CategoryC2Model(
-                    (String) info.get("locationOrType"),
-                    (String) info.get("name")
-            );
+                        break;
+                    default:
+                        category = new CategoryC3Model(
+                                (String) info.get("locationOrType"),
+                                (boolean) info.get("logging"),
+                                (String) info.get("individualStatus"),
+                                (String) info.get("cause")
+                        );
+                        break;
+                }
+                break;
+            default:
+                category = new CategoryDModel(
+                        (String)info.get("typeUtilization")
+                );
+                break;
         }
         return category;
+    }
+    
+    private DateModel getDateInstance(LinkedHashMap info){
+        return new DateModel(
+                (int)info.get("year"),
+                (int)info.get("month"),
+                (int)info.get("day")
+        );
     }
 
 }
