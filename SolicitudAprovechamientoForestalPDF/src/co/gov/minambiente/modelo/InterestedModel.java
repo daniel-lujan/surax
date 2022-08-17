@@ -60,6 +60,21 @@ public class InterestedModel extends PersonModel {
         this.emailAdress = emailAdress;
         this.telephone = telephone;
     }
+    
+    public InterestedModel(String typePerson, AttorneyModel attorney,
+           String interestedQuality, ArrayList projectCost,
+           boolean authorization, String emailAdress, String telephone, 
+           String name, String typeId, String id) {
+
+        super(name, typeId, id);
+        this.typePerson = typePerson;
+        this.attorney = attorney;
+        this.interestedQuality = interestedQuality;
+        this.projectCost = projectCost;
+        this.authorization = authorization;
+        this.emailAdress = emailAdress;
+        this.telephone = telephone;
+    }
 
     //Getters & setters
     public String getTypePerson() {
