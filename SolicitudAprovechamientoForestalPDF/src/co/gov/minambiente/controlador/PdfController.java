@@ -5,9 +5,15 @@
  */
 package co.gov.minambiente.controlador;
 
+import co.gov.minambiente.modelo.CategoryAModel;
+import co.gov.minambiente.modelo.CategoryBModel;
+import co.gov.minambiente.modelo.CategoryCModel;
+import co.gov.minambiente.modelo.CategoryDModel;
+import co.gov.minambiente.modelo.CategoryModel;
 import co.gov.minambiente.modelo.RequestModel;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import static com.itextpdf.kernel.pdf.PdfName.Page;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
@@ -36,7 +42,7 @@ public class PdfController {
     public static Color blueBg = new DeviceRgb(152, 228, 235);
 
     public static void fillDocument(PdfWorkspace generatedDoc, RequestModel solicitude) throws MalformedURLException, IOException {
-      
+
         fillPage1(generatedDoc, solicitude);
     }
 
@@ -50,7 +56,7 @@ public class PdfController {
 
             lineCounter = addSingleTitle(generatedDoc, lineCounter, grayBg, 0);
             lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 9);
-            
+
             Paragraph p;
             p = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f);
             lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
@@ -115,7 +121,7 @@ public class PdfController {
             lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getFileNumber() + "\n");
             lineCounter = addBodyLine(q, generatedDoc, lineCounter, String.valueOf(solicitude.getActNumber()) + "\n");
             lineCounter = addBodyTitleLine(q, generatedDoc, lineCounter);
-            
+
             q.setFixedLeading(20);
             q.setBorder(new SolidBorder(0.75f));
             //q.setMarginLeft(-5);
@@ -124,7 +130,7 @@ public class PdfController {
             q.setPaddingTop(5);
             q.setPaddingLeft(5);
             generatedDoc.empujarParrafo(q);
-            
+
             lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 45);
             Paragraph r;
             r = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f);
@@ -136,13 +142,21 @@ public class PdfController {
             lineCounter = addBodyLine(r, generatedDoc, lineCounter);
             lineCounter = addBodyLine(r, generatedDoc, lineCounter, 7.5f);
             lineCounter = addTitleLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
             lineCounter = addTitleLine(r, generatedDoc, lineCounter);
-            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
-            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
-            
- 
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
 
-            
+            if (solicitude.getCategoryB() != null) {
+                lineCounter = addBodyTitleLine(r, generatedDoc, lineCounter, solicitude.getCategoryB().getRevenuesExpected().get(0));
+                lineCounter = addBodyLine(r, generatedDoc, lineCounter, solicitude.getCategoryB().getRevenuesExpected().get(1));
+            } else {
+                lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+                lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+                lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+                lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            }
+
             r.setFixedLeading(20);
             r.setBorder(new SolidBorder(0.75f));
             //r.setMarginLeft(-5);
@@ -152,7 +166,7 @@ public class PdfController {
             r.setRelativePosition(0, -54, 0, 0);
             generatedDoc.empujarParrafo(r);
             generatedDoc.crearPdf();
-            
+
         } catch (IOException ex) {
             System.out.println("Error de entrada y salida de datos" + espacio + ex);
         }
@@ -261,7 +275,7 @@ public class PdfController {
         generatedDoc.pushText(p, new Text(temporal), bodyFont, 9f);
         return lineCounter;
     }
-    
+
     public static int addBodyLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter, float fontSize) throws IOException {
 
         try {
@@ -317,5 +331,20 @@ public class PdfController {
         encabezado.setTextAlignment(TextAlignment.CENTER);
         encabezado.setMarginRight(-5);
         generatedDoc.empujarParrafo(encabezado);
+    }
+
+    public static void allPagesHeader(PdfWorkspace generatedDoc) throws IOException {
+
+        for (int i = 0; i < 9; i++) {
+            addHeader(generatedDoc, texts);
+            generatedDoc.pasarPagina();
+        }
+        addHeader(generatedDoc, texts);
+
+        Paragraph p = new Paragraph("asdasdasd");
+        generatedDoc.empujarParrafo(p);
+        generatedDoc.getPdf().movePage(10, 9);
+        p = new Paragraph("ailummm");
+        generatedDoc.empujarParrafo(p);
     }
 }

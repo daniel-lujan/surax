@@ -15,7 +15,9 @@ public class CategoryBModel extends CategoryModel{
     public CategoryBModel() {
         super("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
         this.typeOperation = "";
-        this.revenuesExpected = null;
+        this.revenuesExpected = new ArrayList<>();
+        this.revenuesExpected.add("");
+        this.revenuesExpected.add("");
         this.associatedCategory = "";
     }
 

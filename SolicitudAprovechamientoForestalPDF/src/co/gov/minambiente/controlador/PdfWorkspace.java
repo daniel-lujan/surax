@@ -34,6 +34,7 @@ import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceCmyk;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.Rectangle;
+import com.itextpdf.kernel.pdf.IPdfPageExtraCopier;
 import com.itextpdf.kernel.pdf.PdfAConformanceLevel;
 import static com.itextpdf.kernel.pdf.PdfName.List;
 import com.itextpdf.kernel.pdf.ReaderProperties;
@@ -89,7 +90,7 @@ public class PdfWorkspace {
      * @param numeroPaginas El número de páginas que contendrá el documento
      * final (se pueden sumar en el futuro)
      */
-    private void inicializarDocumento(int numeroPaginas) throws FileNotFoundException {
+    private void inicializarDocumento(int numeroPaginas) throws FileNotFoundException, IOException {
           
         this.validarDirectorio();
         // Seteo de PdfDocument
@@ -98,9 +99,11 @@ public class PdfWorkspace {
                 + this.nombre)).setSmartMode(true);
         this.pdf = new PdfDocument(writer);
         this.pdf.setDefaultPageSize(new PageSize(612.0f, 1008.0f));
-        for (int i = 0; i < numeroPaginas; i++) {
+       /* for (int i = 0; i < numeroPaginas; i++) {
             this.pdf.addNewPage();
-        }
+        }*/
+       
+       this.pdf.addNewPage();
         //Seteo del Document
         this.document = new Document(this.pdf);
         this.document.setMargins(30f, 27f, 58f, 34f);       
@@ -234,55 +237,8 @@ public class PdfWorkspace {
      */
     public void pasarPagina() {
         document.add(new AreaBreak());
-        canva = new PdfCanvas(pdf.getPage(0));
-
     }
-    
-    
-    public void allPAgesHeader() throws IOException{
-    
-        this.pdf.close();
-        
-       this.pdf = new PdfDocument(new PdfReader(new RandomAccessSourceFactory()
-                .createSource(createBaos().toByteArray()), new ReaderProperties()));
 
-        PdfDocument resultDoc = new PdfDocument(new PdfWriter(this.destino + "\\" + "prueba de prueba" +  this.nombre));
-        
-        resultDoc.initializeOutlines();
-
-        List<Integer> pages = new ArrayList<>();
-        pages.add(1);
-        for (int i = 8; i <= 10; i++) {
-            pages.add(i);
-        }
-        for (int i = 2; i <= 7; i++) {
-            pages.add(i);
-        }
-        pages.add(10);
-        this.pdf.copyPagesTo(pages, resultDoc);
-
-        resultDoc.close();
-        this.pdf.close();
-    }
-    
-    private static ByteArrayOutputStream createBaos() {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(baos));
-        Document doc = new Document(pdfDoc);
-
-        for (int i = 1; i <= 10; i++) {
-            doc.add(new Paragraph(String.format("Page %s", i)));
-            if (10 != i) {
-                doc.add(new AreaBreak());
-            }
-        }
-        
-        doc.add(new Paragraph("aiuda"));
-        doc.close();
-
-        return baos;
-    }
     
     /**
      * 
