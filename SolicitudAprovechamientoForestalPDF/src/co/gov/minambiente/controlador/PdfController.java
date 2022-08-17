@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,76 +33,98 @@ public class PdfController {
     public static String bodyFont = "ArialMT.ttf";
     public static Color grayBg = new DeviceRgb(200, 188, 190);
     public static Color greenBg = new DeviceRgb(185, 229, 161);
-    public static Color blueBg = new DeviceRgb(57, 205, 220);
+    public static Color blueBg = new DeviceRgb(152, 228, 235);
 
     public static void fillDocument(PdfWorkspace generatedDoc, RequestModel solicitude) throws MalformedURLException, IOException {
+      
+        fillPage1(generatedDoc, solicitude);
+    }
 
-        texts = PdfController.cargarBD();
+    public static void fillPage1(PdfWorkspace generatedDoc, RequestModel solicitude) {
 
-        addHeader(generatedDoc, texts);
+        try {
 
-        int lineCounter = 3;
+            texts = cargarBD();
+            addHeader(generatedDoc, texts);
+            int lineCounter = 3;
 
-        lineCounter = addSingleTitle(generatedDoc, lineCounter, grayBg, 0);
-        lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 9);
-
-        Paragraph p;
-        p = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
-        lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
-        lineCounter = addTitleLine(p, generatedDoc, lineCounter);
-        lineCounter = addBodyLine(p, generatedDoc, lineCounter);
-        lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getName() + "\n");
-        lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getId()) + "\n");
-        lineCounter = addTitleLine(p, generatedDoc, lineCounter);
-
-        if (solicitude.getInterested().getAttorney().getName() != null) {
-            lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getAttorney().getName() + "\n");
-            lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter,
-                    String.valueOf(solicitude.getInterested().getAttorney().getId()),
-                    String.valueOf(solicitude.getInterested().getAttorney().getProfesionalCard()) + "\n");
-        } else {
-            lineCounter = addBodyLine(p, generatedDoc, lineCounter, "" + "\n");
-            lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter,
-                    "",
-                    "" + "\n");
-        }
-
-        lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
-        lineCounter = addBodyLine(p, generatedDoc, lineCounter);
-
-        if (!(solicitude.getInterested().getInterestedQuality().equals("Propietario")
-                || solicitude.getInterested().getInterestedQuality().equals("Poseedor")
-                || solicitude.getInterested().getInterestedQuality().equals("Tenedor")
-                || solicitude.getInterested().getInterestedQuality().equals("Ocupante")
-                || solicitude.getInterested().getInterestedQuality().equals("Autorizado")
-                || solicitude.getInterested().getInterestedQuality().equals("Ente territorial")
-                || solicitude.getInterested().getInterestedQuality().equals("Consejo comunitario")
-                || solicitude.getInterested().getInterestedQuality().equals("Resguardo indígena"))) {
-            lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getInterestedQuality() + "\n");
-        } else {
+            lineCounter = addSingleTitle(generatedDoc, lineCounter, grayBg, 0);
+            lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 9);
+            
+            Paragraph p;
+            p = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(p, generatedDoc, lineCounter);
             lineCounter = addBodyLine(p, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getName() + "\n");
+            lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getId()) + "\n");
+            lineCounter = addTitleLine(p, generatedDoc, lineCounter);
+
+            if (solicitude.getInterested().getAttorney().getName() != null) {
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getAttorney().getName() + "\n");
+                lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter,
+                        String.valueOf(solicitude.getInterested().getAttorney().getId()),
+                        String.valueOf(solicitude.getInterested().getAttorney().getProfesionalCard()) + "\n");
+            } else {
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter, "" + "\n");
+                lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter,
+                        "",
+                        "" + "\n");
+            }
+
+            lineCounter = addBodyTitleLine(p, generatedDoc, lineCounter);
             lineCounter = addBodyLine(p, generatedDoc, lineCounter);
+
+            if (!(solicitude.getInterested().getInterestedQuality().equals("Propietario")
+                    || solicitude.getInterested().getInterestedQuality().equals("Poseedor")
+                    || solicitude.getInterested().getInterestedQuality().equals("Tenedor")
+                    || solicitude.getInterested().getInterestedQuality().equals("Ocupante")
+                    || solicitude.getInterested().getInterestedQuality().equals("Autorizado")
+                    || solicitude.getInterested().getInterestedQuality().equals("Ente territorial")
+                    || solicitude.getInterested().getInterestedQuality().equals("Consejo comunitario")
+                    || solicitude.getInterested().getInterestedQuality().equals("Resguardo indígena"))) {
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter, solicitude.getInterested().getInterestedQuality() + "\n");
+            } else {
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter);
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter);
+            }
+
+            lineCounter = addTitleLine(p, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(p, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(p, generatedDoc, lineCounter);
+
+            if (solicitude.getInterested().getProjectCost() != null) {
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(0)) + "\n");
+                lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(1)) + "\n");
+            } else {
+                p.add(new Text("No aplica").setFontSize(9.5f));
+            }
+
+            p.setFixedLeading(20);
+            p.setBorder(new SolidBorder(0.75f));
+            p.setMarginLeft(-5);
+            p.setMarginRight(-5);
+            p.setRelativePosition(0, -18, 0, 0);
+            generatedDoc.empujarParrafo(p);
+
+            lineCounter = addSingleTitle(generatedDoc , lineCounter, blueBg, 27);
+            Paragraph q;
+            q = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getFileNumber() + "\n");
+            lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getActNumber() + "\n");
+            
+            q.setFixedLeading(20);
+            q.setBorder(new SolidBorder(0.75f));
+            q.setMarginLeft(-5);
+            q.setMarginRight(-5);
+            q.setRelativePosition(0, -36, 0, 0);
+            generatedDoc.empujarParrafo(q);
+            
+            generatedDoc.crearPdf();
+            
+        } catch (IOException ex) {
+            System.out.println("Error de entrada y salida de datos" + espacio + ex);
         }
-
-        lineCounter = addTitleLine(p, generatedDoc, lineCounter);
-        lineCounter = addBodyLine(p, generatedDoc, lineCounter);
-        lineCounter = addTitleLine(p, generatedDoc, lineCounter);
-
-        if (solicitude.getInterested().getProjectCost() != null) {
-            lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(0)) + "\n");
-            lineCounter = addBodyLine(p, generatedDoc, lineCounter, String.valueOf(solicitude.getInterested().getProjectCost().get(1)) + "\n");
-        } else {
-            p.add(new Text("No aplica").setFontSize(9.5f));
-        }
-
-        p.setFixedLeading(20);
-        p.setBorder(new SolidBorder(0.75f));
-        p.setMarginLeft(-5);
-        p.setMarginRight(-5);
-        p.setRelativePosition(0, -18, 0, 0);
-        generatedDoc.empujarParrafo(p);
-
-        generatedDoc.crearPdf();
     }
 
     /**
@@ -112,25 +136,39 @@ public class PdfController {
     public static void generateCheckBoxes(PdfWorkspace generatedDoc, Color color) {
 
         int y = 817;
-            
+
         //first
         generatedDoc.createRectangle(color, 160, y, 18, 10);
         generatedDoc.createRectangle(color, 225, y, 18, 10);
         //second
-        generatedDoc.createRectangle(color, 144, y-40, 18, 10);
-        generatedDoc.createRectangle(color, 239, y-40, 18, 10);
-        generatedDoc.createRectangle(color, 334, y-40, 18, 10);
+        generatedDoc.createRectangle(color, 144, y - 40, 18, 10);
+        generatedDoc.createRectangle(color, 239, y - 40, 18, 10);
+        generatedDoc.createRectangle(color, 334, y - 40, 18, 10);
         //thirth
-        generatedDoc.createRectangle(color, 149, y-80, 18, 10);
-        generatedDoc.createRectangle(color, 194, y-80, 18, 10);
-        generatedDoc.createRectangle(color, 239, y-80, 18, 10);
-        generatedDoc.createRectangle(color, 286, y-80, 18, 10);
+        generatedDoc.createRectangle(color, 149, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 194, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 239, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 286, y - 80, 18, 10);
         //Fourth
-        generatedDoc.createRectangle(color, 149, y-140, 18, 10);
-        generatedDoc.createRectangle(color, 194, y-140, 18, 10);
-        generatedDoc.createRectangle(color, 239, y-140, 18, 10); 
+        generatedDoc.createRectangle(color, 149, y - 140, 18, 10);
+        generatedDoc.createRectangle(color, 194, y - 140, 18, 10);
+        generatedDoc.createRectangle(color, 239, y - 140, 18, 10);
         //Fifth
-        
+        generatedDoc.createRectangle(color, 83, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 154, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 221, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 291, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 366, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 454, y - 180, 18, 10);
+        //sixth
+        generatedDoc.createRectangle(color, 121, y - 200, 18, 10);
+        generatedDoc.createRectangle(color, 234, y - 200, 18, 10);
+        generatedDoc.createRectangle(color, 284, y - 200, 18, 10);
+        //Seventh
+        generatedDoc.createRectangle(color, 142, y - 240, 18, 10);
+        generatedDoc.createRectangle(color, 211, y - 240, 18, 10);
+        generatedDoc.createRectangle(color, 274, y - 240, 18, 10);
+
     }
 
     public static int addBodyTitleLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter) throws IOException {
