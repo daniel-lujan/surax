@@ -53,8 +53,8 @@ public class ControladorSolicitud {
     }
     
     public void guardarInformacionSeccion2(String numeroExpediente, String numeroActo) {
-        request.setFileNumber(Integer.parseInt(numeroExpediente));
-        request.setActNumber(Integer.parseInt(numeroActo));
+        request.setFileNumber(numeroExpediente);
+        request.setActNumber(numeroActo);
     }
 
     public void guardarInformacionSeccion3(String terrenosDominio, LinkedList<String> categorias, String tipoAprovechamientoA, String claseManejo, 
