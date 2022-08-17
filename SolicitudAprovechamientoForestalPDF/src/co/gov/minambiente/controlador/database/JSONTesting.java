@@ -14,9 +14,9 @@ import co.gov.minambiente.modelo.RequestModel;
 public class JSONTesting {
     public static void main(String[] args) {
         JSONController controller = new JSONController();
-//        RequestModel req = new RequestModel(1);
-//        RequestsDatabase.add(req);
-//        controller.saveRequestsDatabase();
-        controller.loadRequestsDatabase();
+        RequestModel req = new RequestModel("123");
+        RequestsDatabase.add(req);
+        controller.saveRequestsDatabase();
+        //controller.loadRequestsDatabase();
     }
 }

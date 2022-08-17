@@ -8,6 +8,7 @@ package co.gov.minambiente.controlador.database;
 import co.gov.minambiente.modelo.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 
 /**
  *
@@ -22,25 +23,46 @@ class ObjectInstantiator {
     }
     
     RequestModel getRequestInstance(){
-        return null;
+        return new RequestModel(
+                (String)hm.get("reference"),
+                (String)hm.get("typeRequest"),
+                getInterestedInstance((LinkedHashMap)hm.get("interested")),
+                getPropertiesList((ArrayList)hm.get("properties")),
+                (String)hm.get("howToAcquire"),
+                getCategoriesList((ArrayList)hm.get("categories")),
+                (String)hm.get("intendedUse"),
+                (String)hm.get("fileNumber"),
+                (String)hm.get("actNumber")
+        );
     }
     
     private InterestedModel getInterestedInstance(LinkedHashMap info){
-        // instantiate InterestedModel() according to info
-        return null;
+        return new InterestedModel(
+                (String)info.get("typePerson"),
+                getAttorney((LinkedHashMap)info.get("attorney")),
+                (String)info.get("interestedQuality"),
+                (ArrayList)info.get("projectCost"),
+                (boolean)info.get("authorization"),
+                (String)info.get("emailAdress"),
+                (String)info.get("telephone")
+        );
     }
     
-    private ArrayList<PropertyModel> getPropertiesList(ArrayList<LinkedHashMap> info){
-        ArrayList<PropertyModel> properties = new ArrayList();
+    private AttorneyModel getAttorney(LinkedHashMap info){
+        return new AttorneyModel(
+                (String)info.get("profesionalCard"),
+                (String)info.get("name"),
+                (String)info.get("typeId"),
+                (String)info.get("id")
+        );
+    }
+    
+    private LinkedList<PropertyModel> getPropertiesList(ArrayList<LinkedHashMap> info){
+        LinkedList<PropertyModel> properties = new LinkedList();
         for (LinkedHashMap pHm : info){
             properties.add(getPropertyInstance(pHm));
         }
         return properties;
-    }
-    
-    private AttorneyModel getAttorney(LinkedHashMap info){
-        // instantiate AttorneyModel() according to info
-        return null;
     }
     
     private PropertyModel getPropertyInstance(LinkedHashMap info){
@@ -97,8 +119,8 @@ class ObjectInstantiator {
         return null;
     }
     
-    private ArrayList<CategoryModel> getCategoriesList(ArrayList<LinkedHashMap> info){
-        ArrayList<CategoryModel> categories = new ArrayList();
+    private LinkedList<CategoryModel> getCategoriesList(ArrayList<LinkedHashMap> info){
+        LinkedList<CategoryModel> categories = new LinkedList();
         info.forEach((pHm) -> {
             categories.add(getCategoryInstance(pHm));
         });
