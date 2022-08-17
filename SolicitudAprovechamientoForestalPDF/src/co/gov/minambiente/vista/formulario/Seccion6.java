@@ -1,10 +1,13 @@
 package co.gov.minambiente.vista.formulario;
 
 import co.gov.minambiente.controlador.ControladorSolicitud;
+import co.gov.minambiente.controlador.Utils;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +17,7 @@ import javax.swing.JOptionPane;
 public class Seccion6 extends javax.swing.JFrame {
 
     private ControladorSolicitud controlador;
+    private Utils metodo;
 
     public Seccion6() throws IOException {
         initComponents();
@@ -142,6 +146,11 @@ public class Seccion6 extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel26.setText("Correo electrónico:");
 
+        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCorreoFocusLost(evt);
+            }
+        });
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -460,6 +469,15 @@ public class Seccion6 extends javax.swing.JFrame {
     private void cmbMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMunicipioActionPerformed
 
     }//GEN-LAST:event_cmbMunicipioActionPerformed
+  
+    private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
+     if(metodo.isEmail(txtCorreo.getText())){
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Email incorrecto", "Validar email",JOptionPane.INFORMATION_MESSAGE);
+            txtCorreo.requestFocus();
+        }
+    }//GEN-LAST:event_txtCorreoFocusLost
 
     /**
      * @param args the command line arguments

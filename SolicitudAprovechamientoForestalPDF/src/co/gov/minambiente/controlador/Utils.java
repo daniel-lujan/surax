@@ -16,6 +16,8 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -56,6 +58,7 @@ public class Utils {
         cutter = temporal.split("-");
         return cutter;
     }
+     
 
     /**
      *
@@ -125,5 +128,18 @@ public class Utils {
     
     public static String capString(String str, int length){
         return (length >= str.length() ? str : str.substring(0,length));
+    }
+     public static boolean isEmail(String correo){
+        Pattern pat= null;
+        Matcher mat = null;
+        pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        mat = pat.matcher(correo);
+        if(mat.find()){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 }
