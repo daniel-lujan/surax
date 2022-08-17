@@ -1,6 +1,9 @@
 package co.gov.minambiente.vista.formulario;
 
 import co.gov.minambiente.controlador.ControladorSolicitud;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -175,7 +178,11 @@ public class Seccion2 extends javax.swing.JFrame {
         if (!numeroExpediente.equals("") && !numeroActo.equals("")) {
             this.setVisible(false);
             controlador.guardarInformacionSeccion2(numeroExpediente, numeroActo);
-            new Seccion6(controlador).setVisible(true);
+            try {
+                new Seccion6(controlador).setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Seccion2.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
         }
