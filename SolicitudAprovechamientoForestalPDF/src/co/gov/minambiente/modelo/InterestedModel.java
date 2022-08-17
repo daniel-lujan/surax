@@ -16,7 +16,7 @@ public class InterestedModel extends PersonModel {
     private ArrayList<String> projectCost;
     private boolean authorization;
     private String emailAdress;
-    private long telephone;
+    private String telephone;
     private AddressModel adress;
     
     //Constructors
@@ -24,23 +24,21 @@ public class InterestedModel extends PersonModel {
     public InterestedModel(){
         super();
         this.typePerson = null;
-        this.requests = new LinkedList();
         this.attorney = null;
         this.interestedQuality = null;
         this.projectCost = new ArrayList<>();
         this.authorization = false;
         this.emailAdress = null;
-        this.telephone = 0;
+        this.telephone = "";
         this.adress = new AddressModel();
     }
 
-    public InterestedModel(String typePerson, LinkedList<Integer> requests,
+    public InterestedModel(String typePerson, AttorneyModel attorney,
             String interestedQuality, ArrayList projectCost,
-            boolean authorization, String emailAdress,long telephone) {
+            boolean authorization, String emailAdress,String telephone) {
 
         this.typePerson = typePerson;
-        this.requests = requests;
-        this.attorney = null;
+        this.attorney = attorney;
         this.interestedQuality = interestedQuality;
         this.projectCost = projectCost;
         this.authorization = authorization;
@@ -48,31 +46,13 @@ public class InterestedModel extends PersonModel {
         this.telephone = telephone;
     }
 
-    public InterestedModel(String typePerson, LinkedList<Integer> requests,
+    public InterestedModel(String typePerson,
            String interestedQuality, ArrayList projectCost,
-           boolean authorization, String emailAdress, long telephone, 
+           boolean authorization, String emailAdress, String telephone, 
            String name, String typeId, String id) {
 
         super(name, typeId, id);
         this.typePerson = typePerson;
-        this.requests = requests;
-        this.attorney = null;
-        this.interestedQuality = interestedQuality;
-        this.projectCost = projectCost;
-        this.authorization = authorization;
-        this.emailAdress = emailAdress;
-        this.telephone = telephone;
-    }
-    
-        public InterestedModel(String typePerson, int requestReference,
-           String interestedQuality, ArrayList projectCost,
-           boolean authorization, String emailAdress, long telephone, 
-           String name, String typeId, String id) {
-
-        super(name, typeId, id);
-        this.typePerson = typePerson;
-        this.requests = new LinkedList<>();
-        this.requests.add(requestReference);
         this.attorney = null;
         this.interestedQuality = interestedQuality;
         this.projectCost = projectCost;
@@ -138,11 +118,11 @@ public class InterestedModel extends PersonModel {
         this.emailAdress = emailAdress;
     }
 
-    public long getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(long telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
