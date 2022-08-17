@@ -8,14 +8,14 @@ public class CategoryC4Model extends CategoryCModel{
     private boolean logging;
     private String activity;
     
-    public CategoryC4Model(String locationOrType, String name) {
-        super(locationOrType, name);
+    public CategoryC4Model(String locationOrType) {
+        super(locationOrType);
         this.logging = false;
         this.activity = "";
     }
     
-    public CategoryC4Model(boolean logging, String activity, String locationOrType, String name) {
-        super(locationOrType, name);
+    public CategoryC4Model(boolean logging, String activity, String locationOrType) {
+        super(locationOrType);
         this.logging = logging;
         this.activity = activity;
     }

@@ -6,8 +6,8 @@ package co.gov.minambiente.modelo;
  */
 public class CategoryC2Model extends CategoryCModel{
 
-    public CategoryC2Model(String locationOrType, String name) {
-        super(locationOrType, name);
+    public CategoryC2Model(String locationOrType) {
+        super(locationOrType);
     }
     
 }

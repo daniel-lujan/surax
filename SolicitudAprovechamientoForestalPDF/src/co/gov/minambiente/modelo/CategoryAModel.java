@@ -9,13 +9,13 @@ public class CategoryAModel extends CategoryModel {
     private String typeUtilization;
 
     //Constructors  
-    public CategoryAModel(String name){
-        super(name);
-        this.typeUtilization = null;
+    public CategoryAModel(){
+        super("A. Productos forestales maderables");
+        this.typeUtilization = "";
     }
 
-    public CategoryAModel(String typeUtilization, String name) {
-        super(name);
+    public CategoryAModel(String typeUtilization) {
+        super("A. Productos forestales maderables");
         this.typeUtilization = typeUtilization;
     }
     

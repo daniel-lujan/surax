@@ -7,13 +7,13 @@ package co.gov.minambiente.modelo;
 public class CategoryC1Model extends CategoryCModel{
     private String individualStatus;
 
-    public CategoryC1Model(String locationOrType, String name) {
-        super(locationOrType, name);
+    public CategoryC1Model(String locationOrType) {
+        super(locationOrType);
         individualStatus = "";
     }
 
-    public CategoryC1Model(String locationOrType, String name, String individualStatus) {
-        super(locationOrType, name);
+    public CategoryC1Model(String locationOrType, String individualStatus) {
+        super(locationOrType);
         this.individualStatus = individualStatus;
     } 
 

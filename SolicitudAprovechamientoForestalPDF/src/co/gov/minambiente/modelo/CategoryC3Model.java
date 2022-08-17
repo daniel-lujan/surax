@@ -9,15 +9,15 @@ public class CategoryC3Model extends CategoryCModel{
     private String individualStatus;
     private String cause;
 
-    public CategoryC3Model(String locationOrType, String name) {
-        super(locationOrType, name);
+    public CategoryC3Model(String locationOrType) {
+        super(locationOrType);
         this.logging = false;
         this.individualStatus = "";
         this.cause = "";
     }
     
-    public CategoryC3Model(String locationOrType, String name, boolean logging, String individualStatus, String cause) {
-        super(locationOrType, name);
+    public CategoryC3Model(String locationOrType, boolean logging, String individualStatus, String cause) {
+        super(locationOrType);
         this.logging = false;
         this.individualStatus = individualStatus;
         this.cause = cause;

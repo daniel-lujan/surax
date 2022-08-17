@@ -12,15 +12,15 @@ public class CategoryBModel extends CategoryModel{
     private ArrayList<String> revenuesExpected;
     private String associatedCategory;
 
-    public CategoryBModel(String name) {
-        super(name);
+    public CategoryBModel() {
+        super("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
         this.typeOperation = "";
-        this.revenuesExpected = new ArrayList<>();
+        this.revenuesExpected = null;
         this.associatedCategory = "";
     }
 
-    public CategoryBModel(String typeOperation, ArrayList<String> revenuesExpected, String associatedCategory, String name) {
-        super(name);
+    public CategoryBModel(String typeOperation, ArrayList<String> revenuesExpected, String associatedCategory) {
+        super("B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables");
         this.typeOperation = typeOperation;
         this.revenuesExpected = revenuesExpected;
         this.associatedCategory = associatedCategory;

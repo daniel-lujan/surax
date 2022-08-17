@@ -7,13 +7,13 @@ package co.gov.minambiente.modelo;
 public class CategoryCModel extends CategoryModel{
     private String locationOrType;
     
-    public CategoryCModel(String name) {
-        super(name);
+    public CategoryCModel() {
+        super("C. Árboles Aislados");
         this.locationOrType = "";
     }
     
-    public CategoryCModel(String locationOrType, String name) {
-        super(name);
+    public CategoryCModel(String locationOrType) {
+        super("C. Árboles Aislados");
         this.locationOrType = locationOrType;
     }
 

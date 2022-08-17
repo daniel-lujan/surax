@@ -7,13 +7,13 @@ package co.gov.minambiente.modelo;
 public class CategoryDModel extends CategoryModel{
     private String typeUtilization;
 
-    public CategoryDModel(String name) {
-        super(name);
+    public CategoryDModel() {
+        super("D. Guaduales y bambusales");
         this.typeUtilization = "";
     }
     
-    public CategoryDModel(String typeUtilization, String name) {
-        super(name);
+    public CategoryDModel(String typeUtilization) {
+        super("D. Guaduales y bambusales");
         this.typeUtilization = typeUtilization;
     }
 
