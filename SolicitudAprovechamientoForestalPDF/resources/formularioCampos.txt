@@ -27,7 +27,8 @@ de 2019, Decreto 690 de 2021,
 -Valor en letras:	-
 -2. Si es una prórroga de un aprovechamiento o manejo sostenible aprobado
 -Indique el número del expediente:-
--Indique el número de acto administrativo mediante el cual se otorgó el derecho al uso del recurso forestal (permiso, asociación, concesión forestal o autorización)
+-Indique el número de acto administrativo mediante el cual se otorgó el derecho al uso del recurso forestal (permiso, asociación, concesión
+	forestal o autorización)
 -Nota: En caso de prórroga no diligencie los -numerales 3, 4 y 5
 -3. Descripción detallada de la solicitud
 -3.1. Modo de adquirir el derecho al uso del recurso-(ver instructivo):

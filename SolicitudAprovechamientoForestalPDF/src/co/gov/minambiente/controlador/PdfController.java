@@ -107,19 +107,34 @@ public class PdfController {
             p.setRelativePosition(0, -18, 0, 0);
             generatedDoc.empujarParrafo(p);
 
-            lineCounter = addSingleTitle(generatedDoc , lineCounter, blueBg, 27);
+            lineCounter = addSingleTitle(generatedDoc, lineCounter, blueBg, 27);
             Paragraph q;
+
             q = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
             lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getFileNumber() + "\n");
             lineCounter = addBodyLine(q, generatedDoc, lineCounter, solicitude.getActNumber() + "\n");
+            lineCounter = addBodyTitleLine(q, generatedDoc, lineCounter);
             
-            q.setFixedLeading(20);
+            q.setFixedLeading(15);
             q.setBorder(new SolidBorder(0.75f));
             q.setMarginLeft(-5);
             q.setMarginRight(-5);
             q.setRelativePosition(0, -36, 0, 0);
+            q.setPaddingTop(5);
             generatedDoc.empujarParrafo(q);
             
+            lineCounter = addSingleTitle(generatedDoc, lineCounter, greenBg, 27);
+            Paragraph r;
+            r = generatedDoc.nuevoParrafo(new Text(espacio + espacio), titleFont, 10f, 5);
+            lineCounter = addBodyTitleLine(r, generatedDoc, lineCounter);
+            
+            r.setFixedLeading(20);
+            r.setBorder(new SolidBorder(0.75f));
+            r.setMarginLeft(-5);
+            r.setMarginRight(-5);
+            r.setRelativePosition(0, -54, 0, 0);
+            r.setPaddingTop(5);
+            generatedDoc.empujarParrafo(r);
             generatedDoc.crearPdf();
             
         } catch (IOException ex) {
