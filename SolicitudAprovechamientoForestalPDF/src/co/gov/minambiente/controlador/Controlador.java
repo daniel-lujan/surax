@@ -40,11 +40,11 @@ public class Controlador {
         a.add("1200000");
         a.add("Doce millones de pesos");
         
-        InterestedModel interested = new InterestedModel("Natural", form1.getREFERENCE(),
-                "Propietario", a, false, "bob_esponja@gmail.com", 304446985, "Bob Esponja", "cc", 1101760080);
+        InterestedModel interested = new InterestedModel("Natural",
+                "Propietario", a, false, "bob_esponja@gmail.com", "304446985", "Bob Esponja", "cc", "1101760080");
         
         AttorneyModel attorney = new AttorneyModel("856413T", "Patricio Estrella",
-                "CC", 552116447);
+                "CC", "552116447");
         
         interested.setAttorney(attorney);
         

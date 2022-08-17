@@ -59,7 +59,6 @@ public class Utils {
         return cutter;
     }
      
-
     /**
      *
      * @param tabla Archivo File con la dirección de la tabla a cargar
@@ -83,7 +82,6 @@ public class Utils {
         catch(FileNotFoundException e){
             System.out.println("No se encontró el directorio");
         }
-  
         
         String temporal = "";
         String[] cutter;

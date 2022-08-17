@@ -35,7 +35,7 @@ public class InterestedModel extends PersonModel {
 
     public InterestedModel(String typePerson,
             String interestedQuality, ArrayList projectCost,
-            boolean authorization, String emailAdress,String telephone) {
+            boolean authorization, String emailAdress, String telephone) {
 
         this.typePerson = typePerson;
         this.attorney = null;
@@ -45,6 +45,21 @@ public class InterestedModel extends PersonModel {
         this.emailAdress = emailAdress;
         this.telephone = telephone;
     }
+
+    public InterestedModel(String typePerson,
+            String interestedQuality, ArrayList projectCost,
+            boolean authorization, String name, String typeId, String id) {
+
+        super(name, typeId, id);
+        this.typePerson = typePerson;
+        this.attorney = null;
+        this.interestedQuality = interestedQuality;
+        this.projectCost = projectCost;
+        this.authorization = authorization;
+        this.emailAdress = null;
+        this.telephone = null;
+    }
+    
 
     public InterestedModel(String typePerson,
            String interestedQuality, ArrayList projectCost,
