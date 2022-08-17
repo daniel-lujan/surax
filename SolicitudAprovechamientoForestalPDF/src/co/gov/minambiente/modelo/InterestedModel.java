@@ -46,14 +46,14 @@ public class InterestedModel extends PersonModel {
         this.telephone = telephone;
     }
 
-    public InterestedModel(String typePerson,
+    public InterestedModel(String typePerson, AttorneyModel attorney,
            String interestedQuality, ArrayList projectCost,
            boolean authorization, String emailAdress, String telephone, 
            String name, String typeId, String id) {
 
         super(name, typeId, id);
         this.typePerson = typePerson;
-        this.attorney = null;
+        this.attorney = attorney;
         this.interestedQuality = interestedQuality;
         this.projectCost = projectCost;
         this.authorization = authorization;
