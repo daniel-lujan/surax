@@ -14,7 +14,7 @@ import java.util.LinkedList;
  */
 public class RequestModel {
     
-    private final Integer REFERENCE;
+    private final String REFERENCE;
     private String typeRequest;
     private InterestedModel  interested;
     private LinkedList<PropertyModel> properties;
@@ -28,7 +28,7 @@ public class RequestModel {
     
     //constructors
 
-    public RequestModel(int reference){
+    public RequestModel(String reference){
         this.REFERENCE = reference;
         this.typeRequest = "";
         this.interested = new InterestedModel();
@@ -40,7 +40,7 @@ public class RequestModel {
         this.intendedUse = "";
     }
     
-    public RequestModel(int reference, String typeRequest, InterestedModel
+    public RequestModel(String reference, String typeRequest, InterestedModel
             interested, LinkedList<PropertyModel> properties) {
         this.REFERENCE = reference;
         this.typeRequest = typeRequest;
@@ -53,7 +53,7 @@ public class RequestModel {
         this.intendedUse = "";
     }
     
-    public RequestModel(int reference, String typeRequest, InterestedModel
+    public RequestModel(String reference, String typeRequest, InterestedModel
             interested, LinkedList<PropertyModel> properties, String howToAcquire, LinkedList<CategoryModel>
                     categories, String intendedUse, String fileNumber, String actNumber) {
         this.REFERENCE = reference;
@@ -125,7 +125,7 @@ public class RequestModel {
         this.validity = validity;
     }
 
-    public Integer getREFERENCE() {
+    public String getREFERENCE() {
         return REFERENCE;
     }
 
