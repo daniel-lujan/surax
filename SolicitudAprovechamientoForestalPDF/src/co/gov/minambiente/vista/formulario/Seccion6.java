@@ -95,7 +95,6 @@ public class Seccion6 extends javax.swing.JFrame {
         cmbDepartamento = new javax.swing.JComboBox<>();
         btnAbrirFirma = new javax.swing.JButton();
         txtMostrar = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -230,13 +229,6 @@ public class Seccion6 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("PRUEBA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -247,8 +239,6 @@ public class Seccion6 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnAnterior)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(194, 194, 194)
                         .addComponent(btnGuardar)
                         .addGap(47, 47, 47))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -363,8 +353,7 @@ public class Seccion6 extends javax.swing.JFrame {
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAnterior)
-                    .addComponent(btnGuardar)
-                    .addComponent(jButton1))
+                    .addComponent(btnGuardar))
                 .addGap(18, 18, Short.MAX_VALUE))
         );
 
@@ -493,16 +482,28 @@ public class Seccion6 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVeredaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+          String correo = txtCorreo.getText();
+        int telefono = Integer.parseInt(txtTelefono.getText());
+        String direccion = txtDireccionNot.getText();
+        String departamento = (String) cmbDepartamento.getSelectedItem();
+        String vereda = txtVereda.getText();
+        String municipio = (String) cmbMunicipio.getSelectedItem();
+        String nombre = txtNombre.getText();
+        //falta obtener la firma
+        
+        System.out.println(correo + telefono);
+        if (rbSI.isSelected()) {
+            if (!correo.equals("") && !direccion.equals("") && !nombre.equals("") && !vereda.equals("") && !municipio.equals("") && !departamento.equals("")) {
+               controlador.guardarInformacionSeccion6(correo, telefono, direccion, departamento, vereda, municipio, nombre);
+            }
+            
+
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controlador.guardarSeccion6();
-    }//GEN-LAST:event_jButton1ActionPerformed
     
    
      public static void main(String args[]) {
@@ -550,7 +551,6 @@ public class Seccion6 extends javax.swing.JFrame {
     public javax.swing.JButton btnGuardar;
     public javax.swing.JComboBox<String> cmbDepartamento;
     public javax.swing.JComboBox<String> cmbMunicipio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;

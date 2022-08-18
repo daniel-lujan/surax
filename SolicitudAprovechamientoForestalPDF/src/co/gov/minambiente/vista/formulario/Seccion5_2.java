@@ -5,6 +5,7 @@ import co.gov.minambiente.controlador.ControladorSolicitud;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.RadioButton;
 
 /**
  *
@@ -12,24 +13,24 @@ import java.util.logging.Logger;
  */
 public class Seccion5_2 extends javax.swing.JFrame {
 
-   // private ControladorSolicitud controlador;
+    private ControladorSolicitud controlador;
 
-//    public Seccion5_2() {
-//        initComponents();
-//        this.setLocationRelativeTo(null);
-//        setEnabledSection1(false);
-//        setEnabledSection3(false);
-//        setEnabledSection4(false);
-//    }
-//
-//    public Seccion5_2(ControladorSolicitud controlador) {
-//        initComponents();
-//        this.setLocationRelativeTo(null);
-//        this.controlador = controlador;
-//        setEnabledSection1(false);
-//        setEnabledSection3(false);
-//        setEnabledSection4(false);
-//    }
+    public Seccion5_2() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
+    }
+
+    public Seccion5_2(ControladorSolicitud controlador) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.controlador = controlador;
+        setEnabledSection1(false);
+        setEnabledSection3(false);
+        setEnabledSection4(false);
+    }
 
     private void setEnabledSection1(boolean state) {
         cmbEstado.setEnabled(state);
@@ -363,17 +364,17 @@ public class Seccion5_2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguiente2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguiente2MouseClicked
-//        this.setVisible(false);
-//        try {
-//            new Seccion6(controlador).setVisible(true);
-//        } catch (IOException ex) {
-//            Logger.getLogger(Seccion5_2.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        this.setVisible(false);
+        try {
+            new Seccion6(controlador).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Seccion5_2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSiguiente2MouseClicked
 
     private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
-//        this.setVisible(false);
-//        new Seccion5_1(controlador).setVisible(true);
+        this.setVisible(false);
+        new Seccion5_1(controlador).setVisible(true);
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void cmb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb1ActionPerformed
@@ -427,14 +428,93 @@ public class Seccion5_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void btnSiguiente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente2ActionPerformed
-    
+     
+        String estado = (String) cmbEstado.getSelectedItem();
+        String otro = txtOtro.getText().trim();
+        String tipo = (String) cmbTipo.getSelectedItem();
+           RadioButton rb = (RadioButton) cmb2.getChildAt();
+            String texto = rb.getText().toString();
+        String tipoA = (String) cmbTipo3.getSelectedItem();
+        String causa = (String) cmbCausa.getSelectedItem();
+        String otro1 = txtOtro1.getText().trim();
+        String estadoIndividual = (String) cmbEstadoI.getSelectedItem();
+        String actividad = (String) cmbActividad.getSelectedItem();
+        String similar = txtOtro.getText().trim();
+        if (cmb1.isSelected() && (!estado.equals("Seleccione"))) {
+            if (estado.equals("Otro")) {
+                if (!otro.equals("")) {
+                    controlador.guardarInformacionSeccion5_2(otro, estadoIndividual, otro1);
+                } else {
+                    controlador.guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
+                }
+            }
+        } else if (cmb2.isSelected()) {
+            controlador.guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
+        }
+        if (cmb3.isSelected() && (!estadoIndividual.equals("Seleccione") && (!tipoA.equals("Seleccione")))) {
+            if (causa.equals("Otro")) {
+                if (!otro1.equals("")) {
+                    controlador.guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
+                }
+            }
+        } else {
+            controlador.guardarInformacionSeccion5_2(tipoA, estadoIndividual, causa);
+        }
+        if (cmb4.isSelected() && (!actividad.equals("Seleccione")) && (!tipo.equals("Seleccione"))) {
+            if (actividad.equals("Similar")) {
+                if (!actividad.equals("")) {
+                    controlador.guardarInformacionSeccion5_2(actividad, tipo, similar);
+                }
+            } else {
+                controlador.guardarInformacionSeccion5_2(actividad, tipo, similar);
+
+            }
+        }
+
 
     }//GEN-LAST:event_btnSiguiente2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
+     public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Seccion4_2().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAnterior;
