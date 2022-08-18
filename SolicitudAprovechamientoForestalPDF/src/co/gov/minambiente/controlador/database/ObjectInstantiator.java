@@ -154,16 +154,8 @@ class ObjectInstantiator {
         );
     }
 
-    private LinkedList<CategoryModel> getCategoriesList(ArrayList<LinkedHashMap> info) {
-        LinkedList<CategoryModel> categories = new LinkedList();
-        info.forEach((pHm) -> {
-            categories.add(getCategoryInstance(pHm));
-        });
-        return categories;
-    }
-
     private CategoryModel getCategoryInstance(LinkedHashMap info) {
-        String[] keys = (String[]) info.keySet().toArray();
+        String[] keys = java.util.Arrays.asList(info.keySet().toArray()).toArray(new String[info.keySet().toArray().length]);
         CategoryModel category;
         switch ((String) info.get("name")) {
             case "A. Productos forestales maderables":

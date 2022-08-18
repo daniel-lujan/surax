@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class JSONTesting {
     public static void main(String[] args) {
         JSONController controller = new JSONController();
+        
         RequestModel form1 = new RequestModel("1");
         ArrayList <String> a = new ArrayList<> ();
         a.add("1200000");
@@ -35,7 +36,20 @@ public class JSONTesting {
         
         RequestsDatabase.add(form1);
         
-        //controller.saveRequestsDatabase();
+        RequestModel form2 = new RequestModel("3");
+        ArrayList <String> a2 = new ArrayList<> ();
+        a.add("134134");
+        a.add("un monton");
+        
+        InterestedModel interested2 = new InterestedModel("Natural",
+                "Propietario", a2, false, "example@gmail.com", "3141345", "Mister R", "cc", "123");
+        
+        
+        form2.setTypeRequest("nueva");
+        form2.setInterested(interested2);
+        RequestsDatabase.add(form2);
+        
+        controller.saveRequestsDatabase();
 //        controller.loadRequestsDatabase();
         
     }

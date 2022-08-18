@@ -1,33 +1,96 @@
 [ {
-  "typeRequest" : "",
+  "typeRequest" : "nueva",
   "interested" : {
-    "name" : null,
-    "typeId" : null,
-    "id" : 0,
-    "typePerson" : null,
-    "requests" : [ ],
-    "attorney" : null,
-    "interestedQuality" : null,
-    "projectCost" : { },
+    "name" : "Bob Esponja",
+    "typeId" : "cc",
+    "id" : "1101760080",
+    "typePerson" : "Natural",
+    "requests" : null,
+    "attorney" : {
+      "name" : "Patricio Estrella",
+      "typeId" : "CC",
+      "id" : "552116447",
+      "profesionalCard" : "856413T"
+    },
+    "interestedQuality" : "Propietario",
+    "projectCost" : [ "1200000", "Doce millones de pesos", "134134", "un monton" ],
     "authorization" : false,
-    "emailAdress" : null,
-    "telephone" : 0,
-    "adress" : {
-      "street" : "",
-      "typeArea" : "",
-      "department" : {
-        "departmentname" : "",
-        "municipalities" : [ ]
-      },
-      "sidewalk" : ""
-    }
+    "emailAdress" : "bob_esponja@gmail.com",
+    "telephone" : "304446985",
+    "adress" : null
   },
   "properties" : [ ],
   "howToAcquire" : "",
-  "categories" : [ ],
-  "approved" : false,
-  "validity" : null,
-  "fileNumber" : 0,
-  "actNumber" : 0,
-  "reference" : 1
+  "categoryA" : {
+    "name" : "A. Productos forestales maderables",
+    "typeUtilization" : ""
+  },
+  "categoryB" : {
+    "name" : "B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables",
+    "typeOperation" : "",
+    "revenuesExpected" : null,
+    "associatedCategory" : ""
+  },
+  "categoryC" : {
+    "name" : "C. Árboles Aislados",
+    "locationOrType" : ""
+  },
+  "categoryD" : {
+    "name" : "D. Guaduales y bambusales",
+    "typeUtilization" : ""
+  },
+  "creationDate" : {
+    "year" : 0,
+    "month" : 0,
+    "day" : 0
+  },
+  "fileNumber" : "",
+  "actNumber" : "",
+  "intendedUse" : "",
+  "reference" : "1"
+}, {
+  "typeRequest" : "nueva",
+  "interested" : {
+    "name" : "Mister R",
+    "typeId" : "cc",
+    "id" : "123",
+    "typePerson" : "Natural",
+    "requests" : null,
+    "attorney" : null,
+    "interestedQuality" : "Propietario",
+    "projectCost" : [ ],
+    "authorization" : false,
+    "emailAdress" : "example@gmail.com",
+    "telephone" : "3141345",
+    "adress" : null
+  },
+  "properties" : [ ],
+  "howToAcquire" : "",
+  "categoryA" : {
+    "name" : "A. Productos forestales maderables",
+    "typeUtilization" : ""
+  },
+  "categoryB" : {
+    "name" : "B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables",
+    "typeOperation" : "",
+    "revenuesExpected" : null,
+    "associatedCategory" : ""
+  },
+  "categoryC" : {
+    "name" : "C. Árboles Aislados",
+    "locationOrType" : ""
+  },
+  "categoryD" : {
+    "name" : "D. Guaduales y bambusales",
+    "typeUtilization" : ""
+  },
+  "creationDate" : {
+    "year" : 0,
+    "month" : 0,
+    "day" : 0
+  },
+  "fileNumber" : "",
+  "actNumber" : "",
+  "intendedUse" : "",
+  "reference" : "3"
 } ]

@@ -58,7 +58,7 @@ public class Utils {
         cutter = temporal.split("-");
         return cutter;
     }
-     
+
     /**
      *
      * @param tabla Archivo File con la dirección de la tabla a cargar
@@ -74,15 +74,14 @@ public class Utils {
         boolean esPrimero = true;
         int contador = 0;
         BufferedReader br = null;
-        
+
         try {
             br = new BufferedReader(new InputStreamReader(
                     new FileInputStream(tabla), "ISO-8859-1"));
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("No se encontró el directorio");
         }
-        
+
         String temporal = "";
         String[] cutter;
         String entrada;
@@ -115,7 +114,6 @@ public class Utils {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
         System.out.println("Cargados los siguientes departamentos:");
         departments.forEach((department) -> {
             System.out.println(department.toString());
@@ -123,21 +121,41 @@ public class Utils {
 
         return departments;
     }
-    
-    public static String capString(String str, int length){
-        return (length >= str.length() ? str : str.substring(0,length));
+
+    public static String capString(String str, int length) {
+        return (length >= str.length() ? str : str.substring(0, length));
     }
-     public static boolean isEmail(String correo){
-        Pattern pat= null;
+
+    public static boolean isEmail(String correo) {
+        Pattern pat = null;
         Matcher mat = null;
         pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         mat = pat.matcher(correo);
-        if(mat.find()){
+        if (mat.find()) {
             return true;
-        }else{
+        } else {
             return false;
         }
-        
+    }
+    
+    public static String stripSpaces(String string){
+        String str = "";
+        for (char c : string.toCharArray()){
+            if (c != ' '){
+                str += c;
+            }
+        }
+        return str;
+    }
+    
+    public static String[] toStringArray(java.util.ArrayList<String> list){
+        String[] array = new String[list.size()];
+        int i = 0;
+        for (String s : list){
+            array[i] = s;
+            i++;
+        }
+        return array;
     }
 }

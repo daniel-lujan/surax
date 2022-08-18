@@ -5,6 +5,7 @@
  */
 package co.gov.minambiente.controlador.database;
 
+import co.gov.minambiente.controlador.Utils;
 import java.util.ArrayList;
 import co.gov.minambiente.modelo.RequestModel;
 
@@ -70,6 +71,15 @@ public class RequestsDatabase{
         }
         return null;
     }
+    
+    public static ArrayList<RequestModel> searchByReference(String reference){
+        ArrayList<RequestModel> list = new ArrayList();
+        RequestModel r;
+        if ((r = get(reference)) != null){
+            list.add(r);
+        }
+        return list;
+    }
  
     /**
      * Gets a list containing all requests associated to a person's id
@@ -118,5 +128,18 @@ public class RequestsDatabase{
             }
         }
         return ref;
+    }
+    
+    public static String requestSummary(RequestModel request){
+        return request.getREFERENCE() + "  -  " + request.getInterested().getName() + "("
+                + request.getInterested().getTypeId() + " " + request.getInterested().getId() + ")";
+    }
+    
+    public static String[] getSearchResult(ArrayList<RequestModel> requests){
+        ArrayList<String> list = new ArrayList();
+        requests.forEach((r) -> {
+            list.add(requestSummary(r));
+        });
+        return Utils.toStringArray(list);
     }
 }
