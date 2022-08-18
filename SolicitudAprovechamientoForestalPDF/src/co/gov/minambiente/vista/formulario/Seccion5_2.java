@@ -183,7 +183,7 @@ public class Seccion5_2 extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel19.setText("Tipo:");
 
-        cmbActividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Construcción/Realización", "Remodelación", "Ampliación", "Instalación", "Similares" }));
+        cmbActividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Construcción/Realización", "Remodelación", "Ampliación", "Instalación", "Similar" }));
 
         jLabel22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel22.setText("Estado del individuo:");

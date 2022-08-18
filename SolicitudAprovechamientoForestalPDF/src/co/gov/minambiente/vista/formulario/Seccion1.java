@@ -14,7 +14,7 @@ public class Seccion1 extends javax.swing.JFrame {
     public Seccion1() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.controlador = new ControladorSolicitud();
+       // this.controlador = new ControladorSolicitud();
         txtOtro.setEnabled(false);
         txtCosto.setEnabled(false);
         txtCostoLetras.setEnabled(false);

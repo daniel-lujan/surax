@@ -26,13 +26,15 @@ import javafx.scene.control.RadioButton;
  *
  * @author Natalia García
  */
-public class ControladorSolicitud implements ActionListener{
- private Seccion4_2 a;
+public class ControladorSolicitud implements ActionListener {
+
+    private Seccion4_2 a;
     private Seccion5_1 b;
     private Seccion5_2 c;
     private Seccion6 d;
     private RequestModel request = new RequestModel("1");
-     public ControladorSolicitud() throws IOException {
+
+    public ControladorSolicitud() throws IOException {
 
         a = new Seccion4_2();
         b = new Seccion5_1();
@@ -41,7 +43,8 @@ public class ControladorSolicitud implements ActionListener{
 
         init();
     }
-     public void init() {
+
+    public void init() {
         a.setVisible(true);
         a.btnSiguiente.addActionListener(this);
         b.setVisible(false);
@@ -159,30 +162,26 @@ public class ControladorSolicitud implements ActionListener{
         }
         return null;
     }
-     public void guardarSeccion6() {
-        String correo = d.txtCorreo.getText();
-        int telefono = Integer.parseInt(d.txtTelefono.getText());
-        String direccion = d.txtDireccionNot.getText();
-        String departamento = (String) d.cmbDepartamento.getSelectedItem();
-        String vereda = d.txtVereda.getText();
-        String municipio = (String) d.cmbMunicipio.getSelectedItem();
-        String nombre = d.txtNombre.getText();
-        //falta obtener la firma
-        if (d.rbSI.isSelected()) {
-            if (!correo.equals("") && !direccion.equals("") && !nombre.equals("") && !vereda.equals("") && !municipio.equals("") && !departamento.equals("")) {
-                guardarInformacionSeccion6(correo, telefono, direccion, departamento, vereda, municipio, nombre);
-            }
+
+    public void guardarSeccion4_2() {
+        if (a.cblCoordenadasPlanas.isSelected()) {
 
         }
-     }
-     
-     
+        if (a.cblCoordenadasGeograficas.isSelected()) {
+
+        }
+    }
+
+    public void guardarSeccion5_1() {
+        String uso = b.txtUso.getText();
+    }
+
     public void guardarSeccion5_2() {
         String estado = (String) c.cmbEstado.getSelectedItem();
         String otro = c.txtOtro.getText().trim();
         String tipo = (String) c.cmbTipo.getSelectedItem();
-        RadioButton rb = (RadioButton)  c.cmb2.getChildAt();
-        String texto = rb.getText().toString();
+//        RadioButton rb = (RadioButton) c.cmb2.getChildAt();
+ //String texto = rb.getText().toString();
         String tipoA = (String) c.cmbTipo3.getSelectedItem();
         String causa = (String) c.cmbCausa.getSelectedItem();
         String otro1 = c.txtOtro1.getText().trim();
@@ -194,29 +193,57 @@ public class ControladorSolicitud implements ActionListener{
                 if (!otro.equals("")) {
                     guardarInformacionSeccion5_2(otro, estadoIndividual, otro1);
                 } else {
-                    guardarInformacionSeccion5_2(texto, estadoIndividual, otro1);
+                    guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
                 }
             }
         } else if (c.cmb2.isSelected()) {
-            guardarInformacionSeccion5_2(texto, estadoIndividual, otro1);
+            guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
         }
-        if(c.cmb3.isSelected() && (!estadoIndividual.equals("Seleccione") && (!tipoA.equals("Seleccione")) )){
-            if(causa.equals("Otro"))
+        if (c.cmb3.isSelected() && (!estadoIndividual.equals("Seleccione") && (!tipoA.equals("Seleccione")))) {
+            if (causa.equals("Otro")) {
                 if (!otro1.equals("")) {
-                    guardarInformacionSeccion5_2(tipoA,estadoIndividual,otro1);
+                    guardarInformacionSeccion5_2(tipoA, estadoIndividual, otro1);
+                }
+            }
+        } else {
+            guardarInformacionSeccion5_2(tipoA, estadoIndividual, causa);
         }
-        }else{
-            guardarInformacionSeccion5_2(tipoA,estadoIndividual,causa);
+        if (c.cmb4.isSelected() && (!actividad.equals("Seleccione")) && (!tipo.equals("Seleccione"))) {
+            if (actividad.equals("Similar")) {
+                if (!actividad.equals("")) {
+                    guardarInformacionSeccion5_2(actividad, tipo, similar);
+                }
+            } else {
+                guardarInformacionSeccion5_2(actividad, tipo, similar);
+
+            }
         }
-        if(c.cmb4.isSelected() ){
+
+    }
+
+    public void guardarSeccion6() {
+        String correo = d.txtCorreo.getText();
+        int telefono = Integer.parseInt(d.txtTelefono.getText());
+        String direccion = d.txtDireccionNot.getText();
+        String departamento = (String) d.cmbDepartamento.getSelectedItem();
+        String vereda = d.txtVereda.getText();
+        String municipio = (String) d.cmbMunicipio.getSelectedItem();
+        String nombre = d.txtNombre.getText();
+        //falta obtener la firma
+        
+        System.out.println(correo + telefono);
+        if (d.rbSI.isSelected()) {
+            if (!correo.equals("") && !direccion.equals("") && !nombre.equals("") && !vereda.equals("") && !municipio.equals("") && !departamento.equals("")) {
+                guardarInformacionSeccion6(correo, telefono, direccion, departamento, vereda, municipio, nombre);
+            }
             
+
         }
-    
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       if (ae.getSource() == a.btnSiguiente) {
+        if (ae.getSource() == a.btnSiguiente) {
             guardarSeccion4_2();
         }
         if (ae.getSource() == b.btnSiguiente1) {

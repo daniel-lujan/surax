@@ -424,7 +424,7 @@
                 <StringItem index="2" value="Remodelaci&#xf3;n"/>
                 <StringItem index="3" value="Ampliaci&#xf3;n"/>
                 <StringItem index="4" value="Instalaci&#xf3;n"/>
-                <StringItem index="5" value="Similares"/>
+                <StringItem index="5" value="Similar"/>
               </StringArray>
             </Property>
           </Properties>

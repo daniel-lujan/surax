@@ -51,7 +51,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
 
     private void mostrarSiguienteVentana() {
         this.setVisible(false);
-        new Seccion4_2(controlador).setVisible(true);
+        //new Seccion4_2(controlador).setVisible(true);
     }
 
     /**
