@@ -28,7 +28,7 @@
   "categoryB" : {
     "name" : "B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables",
     "typeOperation" : "",
-    "revenuesExpected" : null,
+    "revenuesExpected" : [ "", "" ],
     "associatedCategory" : ""
   },
   "categoryC" : {
@@ -47,7 +47,7 @@
   "fileNumber" : "",
   "actNumber" : "",
   "intendedUse" : "",
-  "reference" : "1"
+  "reference" : "1717556084"
 }, {
   "typeRequest" : "nueva",
   "interested" : {
@@ -73,7 +73,7 @@
   "categoryB" : {
     "name" : "B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables",
     "typeOperation" : "",
-    "revenuesExpected" : null,
+    "revenuesExpected" : [ "", "" ],
     "associatedCategory" : ""
   },
   "categoryC" : {
@@ -92,5 +92,5 @@
   "fileNumber" : "",
   "actNumber" : "",
   "intendedUse" : "",
-  "reference" : "3"
+  "reference" : "2714415735"
 } ]

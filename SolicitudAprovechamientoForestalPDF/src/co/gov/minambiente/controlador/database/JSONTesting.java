@@ -18,7 +18,7 @@ public class JSONTesting {
     public static void main(String[] args) {
         JSONController controller = new JSONController();
         
-        RequestModel form1 = new RequestModel("1");
+        RequestModel form1 = new RequestModel(RequestsDatabase.getNewReference());
         ArrayList <String> a = new ArrayList<> ();
         a.add("1200000");
         a.add("Doce millones de pesos");
@@ -36,7 +36,7 @@ public class JSONTesting {
         
         RequestsDatabase.add(form1);
         
-        RequestModel form2 = new RequestModel("3");
+        RequestModel form2 = new RequestModel(RequestsDatabase.getNewReference());
         ArrayList <String> a2 = new ArrayList<> ();
         a.add("134134");
         a.add("un monton");

@@ -11,13 +11,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Natalia García
  */
 public class Seccion4_2 extends javax.swing.JFrame {
-DefaultTableModel modelo = new DefaultTableModel();
-    //private ControladorSolicitud controlador;
 
-//    public Seccion4_2() {
-//        initComponents();
-//        this.setLocationRelativeTo(null);
-//    }
+    private ControladorSolicitud controlador;
+
+    public Seccion4_2() {
+        initComponents();
+    }
 
    
    
@@ -59,8 +58,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel5 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblGeograficas = new javax.swing.JTable();
@@ -74,8 +71,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         jLabel27 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -84,6 +79,8 @@ DefaultTableModel modelo = new DefaultTableModel();
         jLabel3 = new javax.swing.JLabel();
         cblCoordenadasPlanas = new javax.swing.JRadioButton();
         cblCoordenadasGeograficas = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setText("4. Información general del predio");
@@ -171,6 +168,7 @@ DefaultTableModel modelo = new DefaultTableModel();
         jLabel28.setText("coordenadas geográficas utilizar el sistema de coordenadas Magna-Sirgas.");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1057, 653));
 
         jPanel5.setToolTipText("");
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,14 +178,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         jLabel19.setToolTipText("");
         jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, -1, 50));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel30.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel30.setText("Latitud");
-        jPanel4.add(jLabel30);
-
-        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 200, 30));
-
         jLabel38.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
         jLabel38.setText("Magna-Sirgas.");
         jLabel38.setToolTipText("");
@@ -195,15 +185,32 @@ DefaultTableModel modelo = new DefaultTableModel();
 
         tblGeograficas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {"1", null, null, null, null, null, null, null},
+                {"2", null, null, null, null, null, null, null},
+                {"3", null, null, null, null, null, null, null},
+                {"4", null, null, null, null, null, null, null},
+                {"5", null, null, null, null, null, null, null},
+                {"6", null, null, null, null, null, null, null},
+                {"7", null, null, null, null, null, null, null},
+                {"8", null, null, null, null, null, null, null},
+                {"9", null, null, null, null, null, null, null},
+                {"10", null, null, null, null, null, null, null},
+                {"11", null, null, null, null, null, null, null},
+                {"12", null, null, null, null, null, null, null}
             },
             new String [] {
                 "Punto", "Grados", "Minutos", "Segundos", "Grados", "Minutos", "Segundos", "Altitud"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblGeograficas.setEnabled(false);
         jScrollPane3.setViewportView(tblGeograficas);
 
         jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 540, 210));
@@ -231,19 +238,36 @@ DefaultTableModel modelo = new DefaultTableModel();
 
         jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel26.setText("Coordenadas Planas");
-        jPanel5.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+        jPanel5.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, -1));
 
         tblPlanas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {"1", null, null},
+                {"2", null, null},
+                {"3", null, null},
+                {"4", null, null},
+                {"5", null, null},
+                {"6", null, null},
+                {"7", null, null},
+                {"8", null, null},
+                {"9", null, null},
+                {"10", null, null},
+                {"11", null, null},
+                {"12", null, null}
             },
             new String [] {
                 "Punto", "X", "Y"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblPlanas.setEnabled(false);
         jScrollPane4.setViewportView(tblPlanas);
 
         jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 440, 210));
@@ -258,21 +282,13 @@ DefaultTableModel modelo = new DefaultTableModel();
 
         jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel27.setText("Coordenadas Geográficas");
-        jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, -1, -1));
+        jPanel5.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
         jLabel33.setText("Para los aprovechamientos forestales persistentes y únicos de bosque natual, y para el manejo pesistente de la flora silvestre y los productos forestales no maderables,");
         jLabel33.setToolTipText("");
         jPanel5.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 98, -1, -1));
         jPanel5.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 49, 830, 10));
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel29.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel29.setText("Longitud");
-        jPanel3.add(jLabel29);
-
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 200, 30));
 
         jLabel34.setFont(new java.awt.Font("Arial Narrow", 2, 13)); // NOI18N
         jLabel34.setText("se deberá señalar:");
@@ -318,6 +334,18 @@ DefaultTableModel modelo = new DefaultTableModel();
         });
         jPanel5.add(cblCoordenadasGeograficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Longitud");
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, 200, 20));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Latitud");
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 200, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -336,22 +364,32 @@ DefaultTableModel modelo = new DefaultTableModel();
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
-//        this.setVisible(false);
-//        try {
-//            new Seccion4_1(controlador).setVisible(true);
-//        } catch (IOException ex) {
-//            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }//GEN-LAST:event_btnAnteriorMouseClicked
+    private void cblCoordenadasGeograficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cblCoordenadasGeograficasActionPerformed
+        setEnabledSection4_2(false);
+        setEnabledSection4_2_1(true);
+    }//GEN-LAST:event_cblCoordenadasGeograficasActionPerformed
+
+    private void cblCoordenadasPlanasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cblCoordenadasPlanasActionPerformed
+        setEnabledSection4_2(true);
+        setEnabledSection4_2_1(false);
+    }//GEN-LAST:event_cblCoordenadasPlanasActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
+    private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
+        //        this.setVisible(false);
+        //        try {
+            //            new Seccion4_1(controlador).setVisible(true);
+            //        } catch (IOException ex) {
+            //            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
+            //        }
+    }//GEN-LAST:event_btnAnteriorMouseClicked
+
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-//        this.setVisible(false);
-//        new Seccion5_1(controlador).setVisible(true);
+        //        this.setVisible(false);
+        //        new Seccion5_1(controlador).setVisible(true);
     }//GEN-LAST:event_btnSiguienteMouseClicked
     private void setEnabledSection4_2(boolean state) {
         tblPlanas.setEnabled(state);
@@ -360,27 +398,56 @@ DefaultTableModel modelo = new DefaultTableModel();
     private void setEnabledSection4_2_1(boolean state) {
         tblGeograficas.setEnabled(state);
     }
-    private void cblCoordenadasPlanasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cblCoordenadasPlanasActionPerformed
-        setEnabledSection4_2(true);
-        setEnabledSection4_2_1(false);
-    }//GEN-LAST:event_cblCoordenadasPlanasActionPerformed
-
-    private void cblCoordenadasGeograficasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cblCoordenadasGeograficasActionPerformed
-        setEnabledSection4_2(false);
-        setEnabledSection4_2_1(true);
-    }//GEN-LAST:event_cblCoordenadasGeograficasActionPerformed
-
     /**
      * @param args the command line arguments
      */
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Seccion4_2().setVisible(true);
+            }
+        });
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
-    public javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup3;
-    public javax.swing.JRadioButton cblCoordenadasGeograficas;
-    public javax.swing.JRadioButton cblCoordenadasPlanas;
+    private javax.swing.JRadioButton cblCoordenadasGeograficas;
+    private javax.swing.JRadioButton cblCoordenadasPlanas;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -400,9 +467,7 @@ DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -413,10 +478,10 @@ DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -426,7 +491,7 @@ DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    public javax.swing.JTable tblGeograficas;
-    public javax.swing.JTable tblPlanas;
+    private javax.swing.JTable tblGeograficas;
+    private javax.swing.JTable tblPlanas;
     // End of variables declaration//GEN-END:variables
 }

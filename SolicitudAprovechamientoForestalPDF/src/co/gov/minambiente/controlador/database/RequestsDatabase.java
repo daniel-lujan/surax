@@ -16,7 +16,7 @@ import co.gov.minambiente.modelo.RequestModel;
 public class RequestsDatabase{
     
     private static ArrayList<RequestModel> db = new ArrayList();
-    private static final int REFERENCE_LENGTH = 10;
+    public static final int REFERENCE_LENGTH = 10;
     
     /**
      * Adds a request into the database
@@ -131,7 +131,7 @@ public class RequestsDatabase{
     }
     
     public static String requestSummary(RequestModel request){
-        return request.getREFERENCE() + "  -  " + request.getInterested().getName() + "("
+        return request.getREFERENCE() + "  -  " + request.getTypeRequest() + "  -  " + request.getInterested().getName() + " ("
                 + request.getInterested().getTypeId() + " " + request.getInterested().getId() + ")";
     }
     
