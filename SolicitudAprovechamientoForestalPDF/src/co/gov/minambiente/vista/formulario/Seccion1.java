@@ -144,6 +144,11 @@ public class Seccion1 extends javax.swing.JFrame {
                 txtTPApoderadoActionPerformed(evt);
             }
         });
+        txtTPApoderado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTPApoderadoKeyTyped(evt);
+            }
+        });
 
         txtNumeroIdApoderado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -552,9 +557,7 @@ public class Seccion1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -767,46 +770,84 @@ public class Seccion1 extends javax.swing.JFrame {
     }//GEN-LAST:event_rbSi1ActionPerformed
 
     private void txtNumeroIdInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdInteresadoKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        if (txtNumeroIdInteresado.getText().length() > 15) {
             evt.consume();
+        } else {
+            if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtNumeroIdInteresadoKeyTyped
 
     private void txtNumeroIdApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIdApoderadoKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        if (txtNumeroIdApoderado.getText().length() > 15) {
             evt.consume();
+        } else {
+            if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtNumeroIdApoderadoKeyTyped
 
     private void txtCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        if (txtCosto.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtCostoKeyTyped
 
     private void txtNombreInteresadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreInteresadoKeyTyped
-        if (!Character.isAlphabetic(evt.getKeyChar())) {
+        if (txtNombreInteresado.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtNombreInteresadoKeyTyped
 
     private void txtNombreApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreApoderadoKeyTyped
-        if (!Character.isAlphabetic(evt.getKeyChar())) {
+        if (txtNombreApoderado.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtNombreApoderadoKeyTyped
 
     private void txtOtroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOtroKeyTyped
-        if (!Character.isAlphabetic(evt.getKeyChar())) {
+        if (txtOtro.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtOtroKeyTyped
 
     private void txtCostoLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCostoLetrasKeyTyped
-        if (!Character.isAlphabetic(evt.getKeyChar())) {
+        if (txtCostoLetras.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtCostoLetrasKeyTyped
+
+    private void txtTPApoderadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTPApoderadoKeyTyped
+        if (txtTPApoderado.getText().length() > 10) {
+            evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar()) && !Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtTPApoderadoKeyTyped
 
     /**
      * @param args the command line arguments

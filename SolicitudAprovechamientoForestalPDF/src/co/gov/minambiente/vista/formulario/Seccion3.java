@@ -443,7 +443,7 @@ public class Seccion3 extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
             }
-            
+
             if (lbB.isSelected()) {
                 categorias.add("B");
                 if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
@@ -463,15 +463,15 @@ public class Seccion3 extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } 
-            
+            }
+
             if (lbC.isSelected()) {
                 categorias.add("C");
                 controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
                         ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
                 mostrarSiguienteVentana();
-            } 
-            
+            }
+
             if (lbD.isSelected()) {
                 categorias.add("C");
                 if (!tipoAprovechamientoD.equals("Seleccione")) {
@@ -481,12 +481,12 @@ public class Seccion3 extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
                 }
-            } 
-            
-            if(!lbA.isSelected() && !lbB.isSelected() && !lbC.isSelected() && !lbD.isSelected()){
+            }
+
+            if (!lbA.isSelected() && !lbB.isSelected() && !lbC.isSelected() && !lbD.isSelected()) {
                 JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
         }
@@ -527,14 +527,22 @@ public class Seccion3 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbClaseManejoActionPerformed
 
     private void txtIngresosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        if (txtIngresos.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtIngresosKeyTyped
 
     private void txtIngresosLetrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresosLetrasKeyTyped
-        if (!Character.isAlphabetic(evt.getKeyChar())) {
+        if (txtIngresosLetras.getText().length() > 25) {
             evt.consume();
+        } else {
+            if (!Character.isAlphabetic(evt.getKeyChar())) {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtIngresosLetrasKeyTyped
 
