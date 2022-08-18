@@ -173,7 +173,19 @@ public class Seccion2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroActoActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        
+        String numeroExpediente = txtNumeroExpediente.getText().trim();
+        String numeroActo = txtNumeroActo.getText().trim();
+        if (!numeroExpediente.equals("") && !numeroActo.equals("")) {
+            this.setVisible(false);
+            controlador.guardarInformacionSeccion2(numeroExpediente, numeroActo);
+            try {
+                new Seccion6(controlador).setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Seccion2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -186,22 +198,14 @@ public class Seccion2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void txtNumeroExpedienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroExpedienteKeyTyped
-        if (txtNumeroExpediente.getText().length() > 15) {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtNumeroExpedienteKeyTyped
 
     private void txtNumeroActoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroActoKeyTyped
-        if (txtNumeroActo.getText().length() > 15) {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtNumeroActoKeyTyped
 
@@ -244,8 +248,8 @@ public class Seccion2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAnterior;
-    public javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel26;
@@ -253,7 +257,7 @@ public class Seccion2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JTextField txtNumeroActo;
-    public javax.swing.JTextField txtNumeroExpediente;
+    private javax.swing.JTextField txtNumeroActo;
+    private javax.swing.JTextField txtNumeroExpediente;
     // End of variables declaration//GEN-END:variables
 }

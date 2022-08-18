@@ -51,7 +51,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
 
     private void mostrarSiguienteVentana() {
         this.setVisible(false);
-        //new Seccion4_2(controlador).setVisible(true);
+       // new Seccion4_2(controlador).setVisible(true);
     }
 
     /**
@@ -138,11 +138,6 @@ public class Seccion4_1 extends javax.swing.JFrame {
         txtCedulaCatastral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaCatastralActionPerformed(evt);
-            }
-        });
-        txtCedulaCatastral.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCedulaCatastralKeyTyped(evt);
             }
         });
 
@@ -422,7 +417,40 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTipoActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        
+        String nombre = txtNombre.getText().trim();
+        String superficie = txtSuperficie.getText().trim();
+        String direccion = txtDireccion.getText().trim();
+        String tipo = (String) cmbTipo.getSelectedItem();
+        String departamento = (String) cmbDepartamento.getSelectedItem();
+        String municipio = (String) cmbMunicipio.getSelectedItem();
+        String vereda = txtVereda.getText().trim();
+        String matriculaInmobiliaria = txtMatriculaInmobiliaria.getText().trim();
+        String cedulaCatastral = txtCedulaCatastral.getText().trim();
+
+        if (!nombre.equals("") && !superficie.equals("") && !direccion.equals("") && !tipo.equals("Seleccione")
+                && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
+            if (rbSi.isSelected()) {
+                if (!matriculaInmobiliaria.equals("")) {
+                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda, 
+                            matriculaInmobiliaria, cedulaCatastral);
+                    mostrarSiguienteVentana();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else if (rbNo.isSelected()) {
+                if (!cedulaCatastral.equals("")) {
+                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda, 
+                            matriculaInmobiliaria, cedulaCatastral);
+                    mostrarSiguienteVentana();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
+        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -471,68 +499,36 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbMunicipioActionPerformed
 
     private void txtVeredaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVeredaActionPerformed
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_txtVeredaActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-        if (txtNombre.getText().length() > 25) {
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isAlphabetic(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtSuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSuperficieKeyTyped
-        if (txtSuperficie.getText().length() > 25) {
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtSuperficieKeyTyped
 
     private void txtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyTyped
-        if (txtDireccion.getText().length() > 25) {
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isAlphabetic(evt.getKeyChar()) && !Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtDireccionKeyTyped
 
     private void txtVeredaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVeredaKeyTyped
-        if (txtVereda.getText().length() > 25) {
+        if (!Character.isAlphabetic(evt.getKeyChar())) {
             evt.consume();
-        } else {
-            if (!Character.isAlphabetic(evt.getKeyChar())) {
-                evt.consume();
-            }
         }
     }//GEN-LAST:event_txtVeredaKeyTyped
 
     private void txtMatriculaInmobiliariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatriculaInmobiliariaKeyTyped
-        if (txtMatriculaInmobiliaria.getText().length() > 10) {
-            evt.consume();
-        } else {
-            if (!Character.isAlphabetic(evt.getKeyChar()) && !Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
-        }
-    }//GEN-LAST:event_txtMatriculaInmobiliariaKeyTyped
 
-    private void txtCedulaCatastralKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaCatastralKeyTyped
-        if (txtCedulaCatastral.getText().length() > 20) {
-            evt.consume();
-        } else {
-            if (!Character.isAlphabetic(evt.getKeyChar()) && !Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-            }
-        }
-    }//GEN-LAST:event_txtCedulaCatastralKeyTyped
+    }//GEN-LAST:event_txtMatriculaInmobiliariaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -575,12 +571,12 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAnterior;
-    public javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
-    public javax.swing.JComboBox<String> cmbDepartamento;
-    public javax.swing.JComboBox<String> cmbMunicipio;
-    public javax.swing.JComboBox<String> cmbTipo;
+    private javax.swing.JComboBox<String> cmbDepartamento;
+    private javax.swing.JComboBox<String> cmbMunicipio;
+    private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -596,13 +592,13 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    public javax.swing.JRadioButton rbNo;
-    public javax.swing.JRadioButton rbSi;
-    public javax.swing.JTextField txtCedulaCatastral;
-    public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtMatriculaInmobiliaria;
-    public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtSuperficie;
-    public javax.swing.JTextField txtVereda;
+    private javax.swing.JRadioButton rbNo;
+    private javax.swing.JRadioButton rbSi;
+    private javax.swing.JTextField txtCedulaCatastral;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtMatriculaInmobiliaria;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtSuperficie;
+    private javax.swing.JTextField txtVereda;
     // End of variables declaration//GEN-END:variables
 }
