@@ -138,8 +138,8 @@ class ObjectInstantiator {
 
     private PlaneCoordinateModel getPlaneCoordinateInstance(LinkedHashMap info) {
         return new PlaneCoordinateModel(
-                (double) info.get("x"),
-                (double) info.get("y"),
+                (double) info.get("X"),
+                (double) info.get("Y"),
                 (short) info.get("point")
         );
     }
