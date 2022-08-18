@@ -4,25 +4,22 @@ import co.gov.minambiente.controlador.ControladorSolicitud;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Natalia García
  */
 public class Seccion4_2 extends javax.swing.JFrame {
+DefaultTableModel modelo = new DefaultTableModel();
+    //private ControladorSolicitud controlador;
 
-    private ControladorSolicitud controlador;
+//    public Seccion4_2() {
+//        initComponents();
+//        this.setLocationRelativeTo(null);
+//    }
 
-    public Seccion4_2() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-    }
-
-    public Seccion4_2(ControladorSolicitud controlador) {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.controlador = controlador;
-    }
+   
    
     
    
@@ -59,8 +56,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel5 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -175,7 +171,6 @@ public class Seccion4_2 extends javax.swing.JFrame {
         jLabel28.setText("coordenadas geográficas utilizar el sistema de coordenadas Magna-Sirgas.");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(820, 545));
 
         jPanel5.setToolTipText("");
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -305,6 +300,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
         jLabel3.setText("4. Información general del predio");
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 17, -1, -1));
 
+        buttonGroup3.add(cblCoordenadasPlanas);
         cblCoordenadasPlanas.setText("Coordenadas Planas");
         cblCoordenadasPlanas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,6 +309,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
         });
         jPanel5.add(cblCoordenadasPlanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
+        buttonGroup3.add(cblCoordenadasGeograficas);
         cblCoordenadasGeograficas.setText("Coordenadas Geográficas");
         cblCoordenadasGeograficas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,12 +337,12 @@ public class Seccion4_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
-        this.setVisible(false);
-        try {
-            new Seccion4_1(controlador).setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        this.setVisible(false);
+//        try {
+//            new Seccion4_1(controlador).setVisible(true);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Seccion4_2.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -353,8 +350,8 @@ public class Seccion4_2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        this.setVisible(false);
-        new Seccion5_1(controlador).setVisible(true);
+//        this.setVisible(false);
+//        new Seccion5_1(controlador).setVisible(true);
     }//GEN-LAST:event_btnSiguienteMouseClicked
     private void setEnabledSection4_2(boolean state) {
         tblPlanas.setEnabled(state);
@@ -376,46 +373,14 @@ public class Seccion4_2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seccion4_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seccion4_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seccion4_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seccion4_2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Seccion4_2().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnSiguiente;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JRadioButton cblCoordenadasGeograficas;
-    private javax.swing.JRadioButton cblCoordenadasPlanas;
+    public javax.swing.JButton btnSiguiente;
+    private javax.swing.ButtonGroup buttonGroup3;
+    public javax.swing.JRadioButton cblCoordenadasGeograficas;
+    public javax.swing.JRadioButton cblCoordenadasPlanas;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -461,7 +426,7 @@ public class Seccion4_2 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable tblGeograficas;
-    private javax.swing.JTable tblPlanas;
+    public javax.swing.JTable tblGeograficas;
+    public javax.swing.JTable tblPlanas;
     // End of variables declaration//GEN-END:variables
 }

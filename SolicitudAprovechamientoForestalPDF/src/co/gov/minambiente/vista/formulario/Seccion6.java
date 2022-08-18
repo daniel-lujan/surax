@@ -90,7 +90,7 @@ public class Seccion6 extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         txtVereda = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rbSI = new javax.swing.JRadioButton();
         cmbMunicipio = new javax.swing.JComboBox<>();
         cmbDepartamento = new javax.swing.JComboBox<>();
         btnAbrirFirma = new javax.swing.JButton();
@@ -102,6 +102,11 @@ public class Seccion6 extends javax.swing.JFrame {
         btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGuardarMouseClicked(evt);
+            }
+        });
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -152,6 +157,11 @@ public class Seccion6 extends javax.swing.JFrame {
                 txtCorreoFocusLost(evt);
             }
         });
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCorreoActionPerformed(evt);
+            }
+        });
         txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCorreoKeyTyped(evt);
@@ -161,11 +171,6 @@ public class Seccion6 extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel27.setText("Teléfono(s):");
 
-        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefonoActionPerformed(evt);
-            }
-        });
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoKeyTyped(evt);
@@ -203,11 +208,11 @@ public class Seccion6 extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel22.setText("Nombre");
 
-        jRadioButton3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jRadioButton3.setText("Sí");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        rbSI.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        rbSI.setText("Sí");
+        rbSI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rbSIActionPerformed(evt);
             }
         });
 
@@ -257,7 +262,7 @@ public class Seccion6 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton3))
+                                .addComponent(rbSI))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -306,7 +311,7 @@ public class Seccion6 extends javax.swing.JFrame {
                         .addComponent(jLabel20)
                         .addGap(19, 19, 19)
                         .addComponent(jLabel18))
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbSI))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26)
@@ -375,17 +380,17 @@ public class Seccion6 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarMouseClicked
 
     private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
-        this.setVisible(false);
-        new Seccion5_2(controlador).setVisible(true);
+        this.dispose();
+//        new Seccion5_2(controlador).setVisible(true);
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void rbSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSIActionPerformed
         setEnabledCampos(true);
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_rbSIActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
          if (txtNombre.getText().length() >= 25) {
@@ -455,6 +460,7 @@ public class Seccion6 extends javax.swing.JFrame {
         JFileChooser jf = new JFileChooser();
         jf.setMultiSelectionEnabled(false);
         if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/imagenes/firma.png");
             txtMostrar.setIcon(new ImageIcon(jf.getSelectedFile().toString()));
         }
     }//GEN-LAST:event_btnAbrirFirmaActionPerformed
@@ -476,118 +482,25 @@ public class Seccion6 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVeredaActionPerformed
 
-    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefonoActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seccion6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seccion6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seccion6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seccion6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Seccion6().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(Seccion6.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAbrirFirma;
-    private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox<String> cmbDepartamento;
-    private javax.swing.JComboBox<String> cmbMunicipio;
+    public javax.swing.JButton btnAbrirFirma;
+    public javax.swing.JButton btnAnterior;
+    public javax.swing.JButton btnGuardar;
+    public javax.swing.JComboBox<String> cmbDepartamento;
+    public javax.swing.JComboBox<String> cmbMunicipio;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -601,13 +514,13 @@ public class Seccion6 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDireccionNot;
-    private javax.swing.JLabel txtMostrar;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtVereda;
+    public javax.swing.JRadioButton rbSI;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtDireccionNot;
+    public javax.swing.JLabel txtMostrar;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtVereda;
     // End of variables declaration//GEN-END:variables
 }

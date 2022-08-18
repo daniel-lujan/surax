@@ -1,6 +1,7 @@
 package co.gov.minambiente.vista.formulario;
 
-import co.gov.minambiente.controlador.ControladorSolicitud;
+
+//import co.gov.minambiente.vista.formulario.Seccion5_2;
 
 /**
  *
@@ -8,18 +9,18 @@ import co.gov.minambiente.controlador.ControladorSolicitud;
  */
 public class Seccion5_1 extends javax.swing.JFrame {
     
-    private ControladorSolicitud controlador;
-    
-    public Seccion5_1() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-    }
-    
-    public Seccion5_1(ControladorSolicitud controlador) {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        this.controlador = controlador;
-    }
+//    private ControladorSolicitud controlador;
+//    
+//    public Seccion5_1() {
+//        initComponents();
+//        this.setLocationRelativeTo(null);
+//    }
+//    
+//    public Seccion5_1(ControladorSolicitud controlador) {
+//        initComponents();
+//        this.setLocationRelativeTo(null);
+//        this.controlador = controlador;
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -28,7 +29,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnSiguiente = new javax.swing.JButton();
+        btnSiguiente1 = new javax.swing.JButton();
         btnAnterior = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -49,10 +50,10 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("    flora silvestre y los productos forestales no maderables");
 
-        btnSiguiente.setText("Siguiente");
-        btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSiguiente1.setText("Siguiente");
+        btnSiguiente1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSiguienteMouseClicked(evt);
+                btnSiguiente1MouseClicked(evt);
             }
         });
 
@@ -81,11 +82,6 @@ public class Seccion5_1 extends javax.swing.JFrame {
         jLabel20.setText("5.1. Información de las especies objeto de la solicitud de aprovechamiento forestal o manejo");
 
         cmbMetodoA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Mecánico", "Manual", "Mecánico-Manual" }));
-        cmbMetodoA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbMetodoAActionPerformed(evt);
-            }
-        });
 
         jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel21.setText("Método de aprovechamiento o manejo sostenible:");
@@ -170,7 +166,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnAnterior)
                         .addGap(637, 637, 637)
-                        .addComponent(btnSiguiente))))
+                        .addComponent(btnSiguiente1))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +206,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAnterior)
-                    .addComponent(btnSiguiente)))
+                    .addComponent(btnSiguiente1)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,18 +225,18 @@ public class Seccion5_1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
+    private void btnSiguiente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguiente1MouseClicked
         this.setVisible(false);
-        new Seccion5_2(controlador).setVisible(true);
-    }//GEN-LAST:event_btnSiguienteMouseClicked
+//        new Seccion5_2(controlador).setVisible(true);
+    }//GEN-LAST:event_btnSiguiente1MouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnteriorMouseClicked
-        this.setVisible(false);
-        new Seccion4_2(controlador).setVisible(true);
+//        this.setVisible(false);
+//        new Seccion4_2(controlador).setVisible(true);
     }//GEN-LAST:event_btnAnteriorMouseClicked
 
     private void txtUsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsoKeyTyped
@@ -249,66 +245,14 @@ public class Seccion5_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUsoKeyTyped
 
-    private void cmbMetodoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMetodoAActionPerformed
-         if (cmbMetodoA.getSelectedIndex() == 3) {
-            
-        }
-    }//GEN-LAST:event_cmbMetodoAActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seccion5_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seccion5_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seccion5_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seccion5_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Seccion5_1().setVisible(true);
-            }
-        });
-    }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnSiguiente;
-    private javax.swing.JComboBox<String> cmbMetodoA;
+    public javax.swing.JButton btnAnterior;
+    public javax.swing.JButton btnSiguiente1;
+    public javax.swing.JComboBox<String> cmbMetodoA;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -322,7 +266,7 @@ public class Seccion5_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable tblEspecies;
-    private javax.swing.JTextArea txtUso;
+    public javax.swing.JTable tblEspecies;
+    public javax.swing.JTextArea txtUso;
     // End of variables declaration//GEN-END:variables
 }
