@@ -40,10 +40,10 @@ de 2019, Decreto 690 de 2021,
 -Seleccione la clase de aprovechamiento a solicitar: Persistente			 Único			 Doméstico			 Manejo Forestal Unificado
 -B. Manejo Sostenible de Flora Silvestre y los Productos Forestales No Maderables
 -Seleccione la clase de manejo sostenible a solicitar: Doméstico			 Persistente 
--Ingresos mensuales en Salarios Mínimos Legales Mensuales Vigentes – (SMLMV) esperados para la actividad comercial que se pretende desarrollar:
+-Ingresos mensuales en Salarios Mínimos Legales Mensuales Vigentes  (SMLMV) esperados para la actividad comercial que se pretende desarrollar:
 -$-
 -Valor en letras:	-
--En caso de que se seleccione la clase de manejo sostenible persistente, indique la categoría asociada:-
+-En caso de que se seleccione la clase de manejo sostenible persistente, indique la categoría asociada:
 -a. Pequeños			 b. Medianos			 c. Grandes
 -C. Árboles Aislados 
 -D. Guaduales y bambusales

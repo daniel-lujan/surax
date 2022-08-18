@@ -47,10 +47,13 @@ public class PdfController {
     }
 
     public static void fillPage1(PdfWorkspace generatedDoc, RequestModel solicitude) {
-
+        try {
+            texts = cargarBD();
+        } catch (IOException ex) {
+            Logger.getLogger(PdfController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
 
-            texts = cargarBD();
             addHeader(generatedDoc, texts);
             int lineCounter = 3;
 
@@ -147,16 +150,19 @@ public class PdfController {
             lineCounter = addBodyLine(r, generatedDoc, lineCounter);
             lineCounter = addBodyLine(r, generatedDoc, lineCounter);
 
-            if (solicitude.getCategoryB() != null) {
+            if (!solicitude.getCategoryB().getTypeOperation().equals("")) {
                 lineCounter = addBodyTitleLine(r, generatedDoc, lineCounter, solicitude.getCategoryB().getRevenuesExpected().get(0));
                 lineCounter = addBodyLine(r, generatedDoc, lineCounter, solicitude.getCategoryB().getRevenuesExpected().get(1));
+                System.out.println("asdasdasd");
             } else {
-                lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+                lineCounter = addTitleLine(r, generatedDoc, lineCounter);
                 lineCounter = addBodyLine(r, generatedDoc, lineCounter);
                 lineCounter = addBodyLine(r, generatedDoc, lineCounter);
                 lineCounter = addBodyLine(r, generatedDoc, lineCounter);
             }
-
+            lineCounter = addUndelinedBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addBodyLine(r, generatedDoc, lineCounter);
+            lineCounter = addTitleLine(r, generatedDoc, lineCounter);
             r.setFixedLeading(20);
             r.setBorder(new SolidBorder(0.75f));
             //r.setMarginLeft(-5);
@@ -183,37 +189,54 @@ public class PdfController {
         int y = 817;
 
         //first
-        generatedDoc.createRectangle(color, 160, y, 18, 10);
-        generatedDoc.createRectangle(color, 225, y, 18, 10);
+        generatedDoc.createRectangle(color, 165, y, 18, 10);
+        generatedDoc.createRectangle(color, 230, y, 18, 10);
         //second
-        generatedDoc.createRectangle(color, 144, y - 40, 18, 10);
-        generatedDoc.createRectangle(color, 239, y - 40, 18, 10);
-        generatedDoc.createRectangle(color, 334, y - 40, 18, 10);
+        generatedDoc.createRectangle(color, 149, y - 40, 18, 10);
+        generatedDoc.createRectangle(color, 244, y - 40, 18, 10);
+        generatedDoc.createRectangle(color, 339, y - 40, 18, 10);
         //thirth
-        generatedDoc.createRectangle(color, 149, y - 80, 18, 10);
-        generatedDoc.createRectangle(color, 194, y - 80, 18, 10);
-        generatedDoc.createRectangle(color, 239, y - 80, 18, 10);
-        generatedDoc.createRectangle(color, 286, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 146, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 191, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 236, y - 80, 18, 10);
+        generatedDoc.createRectangle(color, 283, y - 80, 18, 10);
         //Fourth
-        generatedDoc.createRectangle(color, 149, y - 140, 18, 10);
-        generatedDoc.createRectangle(color, 194, y - 140, 18, 10);
-        generatedDoc.createRectangle(color, 239, y - 140, 18, 10);
+        generatedDoc.createRectangle(color, 146, y - 140, 18, 10);
+        generatedDoc.createRectangle(color, 191, y - 140, 18, 10);
+        generatedDoc.createRectangle(color, 236, y - 140, 18, 10);
         //Fifth
-        generatedDoc.createRectangle(color, 83, y - 180, 18, 10);
-        generatedDoc.createRectangle(color, 154, y - 180, 18, 10);
-        generatedDoc.createRectangle(color, 221, y - 180, 18, 10);
-        generatedDoc.createRectangle(color, 291, y - 180, 18, 10);
-        generatedDoc.createRectangle(color, 366, y - 180, 18, 10);
-        generatedDoc.createRectangle(color, 454, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 88, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 159, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 226, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 296, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 371, y - 180, 18, 10);
+        generatedDoc.createRectangle(color, 459, y - 180, 18, 10);
         //sixth
-        generatedDoc.createRectangle(color, 121, y - 200, 18, 10);
-        generatedDoc.createRectangle(color, 234, y - 200, 18, 10);
-        generatedDoc.createRectangle(color, 284, y - 200, 18, 10);
+        generatedDoc.createRectangle(color, 126, y - 200, 18, 10);
+        generatedDoc.createRectangle(color, 239, y - 200, 18, 10);
+        generatedDoc.createRectangle(color, 289, y - 200, 18, 10);
         //Seventh
-        generatedDoc.createRectangle(color, 142, y - 240, 18, 10);
-        generatedDoc.createRectangle(color, 211, y - 240, 18, 10);
-        generatedDoc.createRectangle(color, 274, y - 240, 18, 10);
-
+        generatedDoc.createRectangle(color, 146, y - 240, 18, 10);
+        generatedDoc.createRectangle(color, 216, y - 240, 18, 10);
+        generatedDoc.createRectangle(color, 279, y - 240, 18, 10);
+        //Eight
+        generatedDoc.createRectangle(color, 157, y - 483, 18, 10);
+        generatedDoc.createRectangle(color, 210, y - 483, 18, 10);
+        generatedDoc.createRectangle(color, 295, y - 483, 18, 10);
+        generatedDoc.createRectangle(color, 405, y - 483, 18, 10);
+        //ninth
+        generatedDoc.createRectangle(color, 265, y - 503, 18, 10);
+        //Tenth
+        generatedDoc.createRectangle(color, 183, y - 563, 18, 10);
+        //Eleventh
+        generatedDoc.createRectangle(color, 295, y - 583, 18, 10);
+        generatedDoc.createRectangle(color, 351, y - 583, 18, 10);
+        generatedDoc.createRectangle(color, 426, y - 583, 18, 10);
+        generatedDoc.createRectangle(color, 562, y - 583, 18, 10);
+        //Twelft
+        generatedDoc.createRectangle(color, 295, y - 623, 18, 10);
+        generatedDoc.createRectangle(color, 351, y - 623, 18, 10);
+        
     }
 
     public static int addBodyTitleLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter) throws IOException {
@@ -280,6 +303,17 @@ public class PdfController {
 
         try {
             generatedDoc.pushText(p, texts.get(lineCounter), bodyFont, fontSize);
+            lineCounter++;
+        } catch (IOException e) {
+            System.out.println("Imposible generar la linea, la fuente no es válida");
+        }
+        return lineCounter;
+    }
+
+    public static int addUndelinedBodyLine(Paragraph p, PdfWorkspace generatedDoc, int lineCounter) throws IOException {
+
+        try {
+            generatedDoc.pushUnderlinedText(p, texts.get(lineCounter), bodyFont, 9f);
             lineCounter++;
         } catch (IOException e) {
             System.out.println("Imposible generar la linea, la fuente no es válida");

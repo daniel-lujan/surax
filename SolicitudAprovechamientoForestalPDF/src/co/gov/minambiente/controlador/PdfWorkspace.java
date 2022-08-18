@@ -103,11 +103,11 @@ public class PdfWorkspace {
             this.pdf.addNewPage();
         }*/
        
-       this.pdf.addNewPage();
+       
         //Seteo del Document
         this.document = new Document(this.pdf);
-        this.document.setMargins(30f, 27f, 58f, 34f);       
-        
+        this.document.setMargins(30f, 27f, -10f, 34f);
+        this.pdf.addNewPage();
         canva = new PdfCanvas(pdf.getFirstPage());
                 
     }
@@ -228,6 +228,18 @@ public class PdfWorkspace {
         PdfFont auxiliar = PdfFontFactory.createFont(temporal);
         texto.setFont(auxiliar);
         texto.setFontSize(tamano);
+        parrafo.setFontColor(ColorConstants.BLACK);
+        parrafo.add(texto);
+    }
+    
+    public void pushUnderlinedText(Paragraph parrafo, Text texto, String nombreFuente, 
+            float tamano) throws MalformedURLException, IOException {
+        FontProgram temporal;
+        temporal = FontProgramFactory.createFont(this.rutaFuente + nombreFuente);
+        PdfFont auxiliar = PdfFontFactory.createFont(temporal);
+        texto.setFont(auxiliar);
+        texto.setFontSize(tamano);
+        texto.setUnderline();
         parrafo.setFontColor(ColorConstants.BLACK);
         parrafo.add(texto);
     }
