@@ -423,73 +423,7 @@ public class Seccion3 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTerrenosDominioActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        String terrenosDominio = (controlador.getTypeProperty().equals("Público")) ? (String) cmbTerrenosDominio.getSelectedItem() : (lbAutorizacion.isSelected() ? "Autorización" : "Seleccione");
-        String tipoAprovechamientoA = (String) cmbTipoAprovechamientoA.getSelectedItem();
-        String claseManejo = (String) cmbClaseManejo.getSelectedItem();
-        String ingresos = txtIngresos.getText().trim();
-        String ingresosLetras = txtIngresosLetras.getText().trim();
-        String categoriaAsociada = (String) cmbCategoriaAsociada.getSelectedItem();
-        String tipoAprovechamientoD = (String) cmbTipoAprovechamientoD.getSelectedItem();
-        LinkedList<String> categorias = new LinkedList<>();
-
-        if (!terrenosDominio.equals("Seleccione")) {
-            if (lbA.isSelected()) {
-                categorias.add("A");
-                if (!tipoAprovechamientoA.equals("Seleccione")) {
-                    controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
-                            ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
-                    mostrarSiguienteVentana();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            }
-
-            if (lbB.isSelected()) {
-                categorias.add("B");
-                if (!claseManejo.equals("Seleccione") && !ingresos.equals("") && !ingresosLetras.equals("")) {
-                    if (cmbClaseManejo.getSelectedIndex() == 2) {
-                        if (!categoriaAsociada.equals("Seleccione")) {
-                            controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
-                                    ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
-                            mostrarSiguienteVentana();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                        }
-                    } else {
-                        controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
-                                ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
-                        mostrarSiguienteVentana();
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            }
-
-            if (lbC.isSelected()) {
-                categorias.add("C");
-                controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
-                        ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
-                mostrarSiguienteVentana();
-            }
-
-            if (lbD.isSelected()) {
-                categorias.add("C");
-                if (!tipoAprovechamientoD.equals("Seleccione")) {
-                    controlador.guardarInformacionSeccion3(terrenosDominio, categorias, tipoAprovechamientoA, claseManejo, ingresos,
-                            ingresosLetras, categoriaAsociada, tipoAprovechamientoD);
-                    mostrarSiguienteVentana();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            }
-
-            if (!lbA.isSelected() && !lbB.isSelected() && !lbC.isSelected() && !lbD.isSelected()) {
-                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-        }
+        
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -634,15 +568,15 @@ public class Seccion3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnSiguiente;
+    public javax.swing.JButton btnAnterior;
+    public javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JComboBox<String> cmbCategoriaAsociada;
-    private javax.swing.JComboBox<String> cmbClaseManejo;
-    private javax.swing.JComboBox<String> cmbTerrenosDominio;
-    private javax.swing.JComboBox<String> cmbTipoAprovechamientoA;
-    private javax.swing.JComboBox<String> cmbTipoAprovechamientoD;
+    public javax.swing.JComboBox<String> cmbCategoriaAsociada;
+    public javax.swing.JComboBox<String> cmbClaseManejo;
+    public javax.swing.JComboBox<String> cmbTerrenosDominio;
+    public javax.swing.JComboBox<String> cmbTipoAprovechamientoA;
+    public javax.swing.JComboBox<String> cmbTipoAprovechamientoD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -658,12 +592,12 @@ public class Seccion3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JCheckBox lbA;
-    private javax.swing.JCheckBox lbAutorizacion;
-    private javax.swing.JCheckBox lbB;
-    private javax.swing.JCheckBox lbC;
-    private javax.swing.JCheckBox lbD;
-    private javax.swing.JTextField txtIngresos;
-    private javax.swing.JTextField txtIngresosLetras;
+    public javax.swing.JCheckBox lbA;
+    public javax.swing.JCheckBox lbAutorizacion;
+    public javax.swing.JCheckBox lbB;
+    public javax.swing.JCheckBox lbC;
+    public javax.swing.JCheckBox lbD;
+    public javax.swing.JTextField txtIngresos;
+    public javax.swing.JTextField txtIngresosLetras;
     // End of variables declaration//GEN-END:variables
 }

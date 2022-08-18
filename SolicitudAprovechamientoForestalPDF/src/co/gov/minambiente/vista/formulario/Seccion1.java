@@ -584,118 +584,7 @@ public class Seccion1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        String tipoSolicitud = (String) cmbTipoSolicitud.getSelectedItem();
-        String tipoPersonaInteresado = (String) cmbTipoPersonaInteresado.getSelectedItem();
-        String nombreInteresado = txtNombreInteresado.getText().trim();
-        String tipoIdInteresado = (String) cmbTipoIdInteresado.getSelectedItem();
-        String numeroIdInteresado = txtNumeroIdInteresado.getText().trim();
-        String nombreApoderado = txtNombreApoderado.getText().trim();
-        String tipoIdApoderado = (String) cmbTipoIdApoderado.getSelectedItem();
-        String numeroIdApoderado = txtNumeroIdApoderado.getText().trim();
-        String TPApoderado = txtTPApoderado.getText().trim();
-        String calidad = (String) cmbCalidad.getSelectedItem();
-        String otro = txtOtro.getText().trim();
-        String tipoPredio = (String) cmbTipoPredio.getSelectedItem();
-        String costo = txtCosto.getText().trim();
-        String costoLetras = txtCostoLetras.getText().trim();
 
-        if (!tipoSolicitud.equals("Seleccione") && !tipoPersonaInteresado.equals("Seleccione") && !nombreInteresado.equals("")
-                && !tipoIdInteresado.equals("Seleccione") && !numeroIdInteresado.equals("") && !calidad.equals("Seleccione")
-                && !tipoPredio.equals("Seleccione")) {
-            if (calidad.equals("Otro")) {
-                if (!otro.equals("")) {
-                    if (rbSi.isSelected()) {
-                        if (!nombreApoderado.equals("") && !tipoIdApoderado.equals("Seleccione") && !numeroIdApoderado.equals("")
-                                && !TPApoderado.equals("")) {
-                            if (rbSi1.isSelected()) {
-                                if (!costo.equals("") && !costoLetras.equals("")) {
-                                    controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                            tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                            numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                            costoLetras);
-                                    mostrarSiguienteVentana();
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                                }
-                            } else {
-                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                        costoLetras);
-                                mostrarSiguienteVentana();
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                        }
-                    } else {
-                        if (rbSi1.isSelected()) {
-                            if (!costo.equals("") && !costoLetras.equals("")) {
-                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                        costoLetras);
-                                mostrarSiguienteVentana();
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                            }
-                        } else {
-                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                    costoLetras);
-                            mostrarSiguienteVentana();
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            } else {
-                if (rbSi.isSelected()) {
-                    if (!nombreApoderado.equals("") && !tipoIdApoderado.equals("Seleccione") && !numeroIdApoderado.equals("")
-                            && !TPApoderado.equals("")) {
-                        if (rbSi1.isSelected()) {
-                            if (!costo.equals("") && !costoLetras.equals("")) {
-                                controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                        tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                        numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                        costoLetras);
-                                mostrarSiguienteVentana();
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                            }
-                        } else {
-                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                    costoLetras);
-                            mostrarSiguienteVentana();
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                    }
-                } else {
-                    if (rbSi1.isSelected()) {
-                        if (!costo.equals("") && !costoLetras.equals("")) {
-                            controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                    tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                    numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                    costoLetras);
-                            mostrarSiguienteVentana();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                        }
-                    } else {
-                        controlador.guardarInformacionSeccion1(tipoSolicitud, tipoPersonaInteresado, nombreInteresado,
-                                tipoIdInteresado, numeroIdInteresado, rbSi.isSelected(), nombreApoderado, tipoIdApoderado,
-                                numeroIdApoderado, TPApoderado, calidad, otro, tipoPredio, rbSi1.isSelected(), costo,
-                                costoLetras);
-                        mostrarSiguienteVentana();
-                    }
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -888,14 +777,14 @@ public class Seccion1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnSiguiente;
-    private javax.swing.JComboBox<String> cmbCalidad;
-    private javax.swing.JComboBox<String> cmbTipoIdApoderado;
-    private javax.swing.JComboBox<String> cmbTipoIdInteresado;
-    private javax.swing.JComboBox<String> cmbTipoPersonaInteresado;
-    private javax.swing.JComboBox<String> cmbTipoPredio;
-    private javax.swing.JComboBox<String> cmbTipoSolicitud;
+    public javax.swing.JButton btnAnterior;
+    public javax.swing.JButton btnSiguiente;
+    public javax.swing.JComboBox<String> cmbCalidad;
+    public javax.swing.JComboBox<String> cmbTipoIdApoderado;
+    public javax.swing.JComboBox<String> cmbTipoIdInteresado;
+    public javax.swing.JComboBox<String> cmbTipoPersonaInteresado;
+    public javax.swing.JComboBox<String> cmbTipoPredio;
+    public javax.swing.JComboBox<String> cmbTipoSolicitud;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -922,15 +811,15 @@ public class Seccion1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JRadioButton rbSi;
-    private javax.swing.JRadioButton rbSi1;
-    private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtCostoLetras;
-    private javax.swing.JTextField txtNombreApoderado;
-    private javax.swing.JTextField txtNombreInteresado;
-    private javax.swing.JTextField txtNumeroIdApoderado;
-    private javax.swing.JTextField txtNumeroIdInteresado;
-    private javax.swing.JTextField txtOtro;
-    private javax.swing.JTextField txtTPApoderado;
+    public javax.swing.JRadioButton rbSi;
+    public javax.swing.JRadioButton rbSi1;
+    public javax.swing.JTextField txtCosto;
+    public javax.swing.JTextField txtCostoLetras;
+    public javax.swing.JTextField txtNombreApoderado;
+    public javax.swing.JTextField txtNombreInteresado;
+    public javax.swing.JTextField txtNumeroIdApoderado;
+    public javax.swing.JTextField txtNumeroIdInteresado;
+    public javax.swing.JTextField txtOtro;
+    public javax.swing.JTextField txtTPApoderado;
     // End of variables declaration//GEN-END:variables
 }

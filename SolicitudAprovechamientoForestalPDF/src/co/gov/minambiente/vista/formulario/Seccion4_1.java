@@ -422,40 +422,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTipoActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
-        String nombre = txtNombre.getText().trim();
-        String superficie = txtSuperficie.getText().trim();
-        String direccion = txtDireccion.getText().trim();
-        String tipo = (String) cmbTipo.getSelectedItem();
-        String departamento = (String) cmbDepartamento.getSelectedItem();
-        String municipio = (String) cmbMunicipio.getSelectedItem();
-        String vereda = txtVereda.getText().trim();
-        String matriculaInmobiliaria = txtMatriculaInmobiliaria.getText().trim();
-        String cedulaCatastral = txtCedulaCatastral.getText().trim();
-
-        if (!nombre.equals("") && !superficie.equals("") && !direccion.equals("") && !tipo.equals("Seleccione")
-                && !departamento.equals("Seleccione") && !municipio.equals("") && !vereda.equals("")) {
-            if (rbSi.isSelected()) {
-                if (!matriculaInmobiliaria.equals("")) {
-                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda,
-                            matriculaInmobiliaria, cedulaCatastral);
-                    mostrarSiguienteVentana();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            } else if (rbNo.isSelected()) {
-                if (!cedulaCatastral.equals("")) {
-                    controlador.guardarInformacionSeccion4_1(nombre, superficie, direccion, tipo, departamento, municipio, vereda,
-                            matriculaInmobiliaria, cedulaCatastral);
-                    mostrarSiguienteVentana();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Ingrese todos los datos solicitados.");
-        }
+        
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -504,7 +471,7 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbMunicipioActionPerformed
 
     private void txtVeredaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVeredaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtVeredaActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
@@ -608,12 +575,12 @@ public class Seccion4_1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnterior;
-    private javax.swing.JButton btnSiguiente;
+    public javax.swing.JButton btnAnterior;
+    public javax.swing.JButton btnSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cmbDepartamento;
-    private javax.swing.JComboBox<String> cmbMunicipio;
-    private javax.swing.JComboBox<String> cmbTipo;
+    public javax.swing.JComboBox<String> cmbDepartamento;
+    public javax.swing.JComboBox<String> cmbMunicipio;
+    public javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -629,13 +596,13 @@ public class Seccion4_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JRadioButton rbNo;
-    private javax.swing.JRadioButton rbSi;
-    private javax.swing.JTextField txtCedulaCatastral;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtMatriculaInmobiliaria;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtSuperficie;
-    private javax.swing.JTextField txtVereda;
+    public javax.swing.JRadioButton rbNo;
+    public javax.swing.JRadioButton rbSi;
+    public javax.swing.JTextField txtCedulaCatastral;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtMatriculaInmobiliaria;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtSuperficie;
+    public javax.swing.JTextField txtVereda;
     // End of variables declaration//GEN-END:variables
 }
